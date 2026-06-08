@@ -56,7 +56,7 @@ export function HeroSection() {
           className="absolute inset-0 scale-150 rounded-full blur-3xl"
           style={{ background: 'radial-gradient(circle, rgba(234,179,8,0.25) 0%, transparent 70%)' }}
         />
-        {/* DROP /public/wla-logo.png — minimum 280×280px square PNG/SVG */}
+        {/* DROP /public/wla-logo.png - minimum 280×280px square PNG/SVG */}
         <WLALogo size={128} rounded="rounded-3xl" className="relative shadow-2xl" />
       </div>
 
@@ -114,7 +114,7 @@ export function HeroSection() {
           className="group flex items-center gap-2 rounded-full px-8 py-4 font-bold text-black transition-all hover:scale-105 hover:brightness-110"
           style={{ background: 'linear-gradient(135deg, #EAB308, #CA8A04)' }}
         >
-          Launch NNW — Nigeria
+          Launch NNW - Nigeria
           <ArrowUpRight
             size={18}
             className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"

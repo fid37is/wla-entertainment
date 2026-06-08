@@ -3,7 +3,8 @@ import Link from 'next/link'
 import { ArrowUpRight, Mail, ShieldCheck } from 'lucide-react'
 import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
-import { WLALogo, Avatar } from '@/components/ui/logo'
+import { WLALogo } from '@/components/ui/logo'
+import { FlagNigeria, FlagGhana, FlagKenya, FlagSouthAfrica } from '@/components/ui/Flags'
 import { AfricaMap } from '@/components/sections/AfricaMap'
 import { COMPANY } from '@/lib/constants'
 
@@ -196,30 +197,53 @@ export default function AboutPage() {
               {TEAM.map((member) => (
                 <div
                   key={member.name}
-                  className={`rounded-2xl border p-7 transition-all duration-300 ${member.founder ? 'border-yellow-500/30 bg-yellow-500/[0.03] hover:border-yellow-500/50' : 'border-white/8 bg-white/[0.02] hover:border-white/15'}`}
+                  className={`overflow-hidden rounded-2xl border transition-all duration-300 ${member.founder ? 'border-yellow-500/30 bg-yellow-500/[0.03] hover:border-yellow-500/50' : 'border-white/8 bg-white/[0.02] hover:border-white/15'}`}
                 >
-                  {/* Avatar — drop photo at member.photo path to activate */}
-                  <div className="mb-5">
-                    <Avatar
-                      src={member.photo}
-                      alt={member.name}
-                      initials={member.initials}
-                      size={120}
-                      gold={member.founder}
-                      className="rounded-2xl"
+                  {/* Full-width photo */}
+                  <div className="relative h-72 w-full overflow-hidden bg-white/[0.03]">
+                    {member.photo ? (
+                      <img
+                        src={member.photo}
+                        alt={member.name}
+                        className="h-full w-full object-cover object-[center_15%]"
+                      />
+                    ) : (
+                      /* Monogram fallback when no photo */
+                      <div
+                        className="flex h-full w-full items-center justify-center font-display text-5xl font-black"
+                        style={member.founder
+                          ? { background: 'linear-gradient(135deg,#EAB308,#CA8A04)', color: '#000' }
+                          : { background: 'rgba(255,255,255,0.04)', color: '#374151' }
+                        }
+                      >
+                        {member.initials}
+                      </div>
+                    )}
+                    {/* Gradient fade */}
+                    <div
+                      className="absolute inset-x-0 bottom-0 h-24"
+                      style={{ background: 'linear-gradient(to top, rgba(8,8,8,0.95), transparent)' }}
                     />
+                    {/* Name overlay */}
+                    <div className="absolute bottom-4 left-5">
+                      <p className="text-xs font-bold uppercase tracking-[0.2em] text-yellow-500">{member.role}</p>
+                      <h3 className="font-display text-lg font-black text-white">{member.name}</h3>
+                    </div>
                   </div>
-                  {member.email && (
-                    <a href={`mailto:${member.email}`}
-                      className="mb-4 inline-flex items-center gap-2 text-xs text-gray-500 transition hover:text-yellow-400"
-                      aria-label={`Email ${member.name}`}>
-                      <Mail size={13} /> {member.email}
-                    </a>
-                  )}
 
-                  <p className="mb-1 text-xs font-bold uppercase tracking-[0.2em] text-yellow-500">{member.role}</p>
-                  <h3 className="mb-3 font-display text-xl font-black text-white">{member.name}</h3>
-                  <p className="text-sm leading-relaxed text-gray-400">{member.bio}</p>
+                  {/* Bio + email */}
+                  <div className="p-5">
+                    <p className="mb-4 text-sm leading-relaxed text-gray-400">{member.bio}</p>
+                    {member.email && (
+                      <a
+                        href={`mailto:${member.email}`}
+                        className="inline-flex items-center gap-1.5 text-xs text-gray-500 transition hover:text-yellow-400"
+                      >
+                        <Mail size={11} className="flex-shrink-0" />
+                        {member.email}
+                      </a>
+                    )}
+                  </div>
                 </div>
               ))}
             </div>
@@ -227,30 +251,97 @@ export default function AboutPage() {
         </section>
 
         {/* ── Franchise Network ── */}
-        <section className="border-t border-white/5 px-6 py-20">
-          <div className="mx-auto max-w-7xl">
-            <div className="mb-14 text-center">
+        <section className="border-t border-white/5 py-20">
+          <div className="mx-auto max-w-7xl px-6">
+            <div className="mb-12 text-center">
               <p className="mb-4 text-xs font-bold uppercase tracking-[0.35em] text-yellow-500">The Network</p>
               <h2 className="mb-3 font-display text-3xl font-black text-white md:text-4xl">Continental Expansion Plan</h2>
-              <p className="mx-auto max-w-xl text-gray-500">Nigeria proves the concept. The format then licenses across Africa — one country at a time, each carrying the WLA standard.</p>
+              <p className="mx-auto max-w-xl text-gray-500">Nigeria proves the concept. The format licenses across Africa — one country at a time.</p>
             </div>
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {[
-                { flag: '🇳🇬', code: 'NNW', country: 'Nigeria', status: 'Live — Series A', active: true },
-                { flag: '🇬🇭', code: 'GNW', country: 'Ghana', status: 'Year 3', active: false },
-                { flag: '🇰🇪', code: 'KNW', country: 'Kenya', status: 'Year 4', active: false },
-                { flag: '🇿🇦', code: 'SANW', country: 'South Africa', status: 'Year 5', active: false },
-              ].map((f) => (
-                <div key={f.code} className={`rounded-2xl border p-6 text-center transition-all ${f.active ? 'border-yellow-500/35 bg-yellow-500/[0.04]' : 'border-white/8 bg-white/[0.02]'}`}>
-                  <div className="mb-3 text-4xl">{f.flag}</div>
-                  <p className="mb-0.5 text-xs font-black uppercase tracking-[0.2em] text-yellow-500">{f.code}</p>
-                  <p className="mb-2 font-display font-bold text-white">{f.country}</p>
-                  <span className={`rounded-full px-3 py-1 text-[10px] font-bold ${f.active ? 'bg-yellow-500/10 text-yellow-400' : 'bg-white/5 text-gray-600'}`}>
-                    {f.status}
+          </div>
+
+          {/* Full-viewport-width strip — equal columns, horizontally scrollable when more franchises added */}
+          <div
+            className="flex w-full overflow-x-auto"
+            style={{ scrollbarWidth: 'none' }}
+          >
+            {[
+              { iso: 'ng', Flag: FlagNigeria,      code: 'NNW',  name: 'Naija Ninja Warrior', status: 'Season 1 · 2026',         active: true  },
+              { iso: 'gh', Flag: FlagGhana,        code: 'GNW',  name: 'Ghana Ninja Warrior',  status: 'Available for Licensing', active: false },
+              { iso: 'ke', Flag: FlagKenya,        code: 'KNW',  name: 'Kenya Ninja Warrior',  status: 'Available for Licensing', active: false },
+              { iso: 'za', Flag: FlagSouthAfrica,  code: 'SANW', name: 'South Africa NW',       status: 'Available for Licensing', active: false },
+            ].map((f, i) => (
+              <div
+                key={f.code}
+                className="group relative flex-none overflow-hidden"
+                style={{ width: '25vw', minWidth: '220px', height: '520px' }}
+              >
+                {/* SVG Flag — full bleed */}
+                <div
+                  className="absolute inset-0 transition-transform duration-700 group-hover:scale-110"
+                  style={{ filter: f.active ? 'brightness(0.8)' : 'brightness(0.25) saturate(0.3)' }}
+                >
+                  <f.Flag className="h-full w-full" />
+                </div>
+
+                {/* Diagonal dark overlay */}
+                <div
+                  className="absolute inset-0"
+                  style={{ background: 'linear-gradient(160deg, transparent 30%, rgba(0,0,0,0.88) 70%)' }}
+                />
+
+                {/* Gold left stripe — active only */}
+                {f.active && (
+                  <div className="absolute left-0 top-0 h-full w-1" style={{ background: 'linear-gradient(to bottom, #EAB308, #CA8A04)' }} />
+                )}
+
+                {/* Sequence number */}
+                <div className="absolute left-5 top-5">
+                  <span
+                    className="font-display text-7xl font-black leading-none"
+                    style={{
+                      color: 'transparent',
+                      WebkitTextStroke: f.active ? '1px rgba(234,179,8,0.25)' : '1px rgba(255,255,255,0.08)',
+                    }}
+                  >
+                    {String(i + 1).padStart(2, '0')}
                   </span>
                 </div>
-              ))}
-            </div>
+
+                {/* Live badge */}
+                {f.active && (
+                  <div className="absolute right-5 top-5 flex items-center gap-1.5 rounded-full bg-yellow-500 px-3 py-1.5">
+                    <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-black" />
+                    <span className="text-[9px] font-black uppercase tracking-widest text-black">Live</span>
+                  </div>
+                )}
+
+                {/* Bottom identity */}
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <p
+                    className="mb-1 font-display font-black leading-none"
+                    style={{
+                      fontSize: 'clamp(2rem, 4vw, 3rem)',
+                      color: f.active ? '#EAB308' : 'rgba(255,255,255,0.35)',
+                      letterSpacing: '-0.02em',
+                    }}
+                  >
+                    {f.code}
+                  </p>
+                  <p className="mb-3 text-sm font-medium text-gray-400">{f.name}</p>
+                  <div
+                    className="inline-block rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-wider"
+                    style={{
+                      background: f.active ? 'rgba(234,179,8,0.15)' : 'rgba(255,255,255,0.05)',
+                      color: f.active ? '#EAB308' : '#4B5563',
+                      border: f.active ? '1px solid rgba(234,179,8,0.3)' : '1px solid rgba(255,255,255,0.08)',
+                    }}
+                  >
+                    {f.status}
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </section>
 

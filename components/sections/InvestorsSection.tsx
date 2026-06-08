@@ -13,17 +13,17 @@ export function InvestorsSection() {
           className="mb-4 font-display font-black leading-tight text-white"
           style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)' }}
         >
-          Series A — NGN 800M
+          Series A - NGN 800M
         </h2>
 
         <p className="mx-auto mb-4 max-w-2xl text-lg leading-relaxed text-gray-400">
-          WLA Entertainment Ltd — not a television season, but a continental entertainment IP.
+          WLA Entertainment Ltd - not a television season, but a continental entertainment IP.
           The NGN 800M Series A funds Season 1 production, custom obstacle course equipment,
           solar infrastructure, the core team, and working capital.
         </p>
         <p className="mx-auto mb-10 max-w-2xl leading-relaxed text-gray-500">
           After Nigeria proves the concept, WLA licenses the format to local partners in
-          Ghana, Kenya, South Africa, and beyond — earning format fees and royalties without
+          Ghana, Kenya, South Africa, and beyond - earning format fees and royalties without
           operating each territory. Investors are backing the format owner, not the franchise.
         </p>
 
@@ -63,7 +63,7 @@ export function InvestorsSection() {
             View Full Investment Case <ArrowUpRight size={16} />
           </Link>
           <a
-            href={`mailto:${COMPANY.email.general}?subject=WLA Series A — Investment Enquiry`}
+            href={`mailto:${COMPANY.email.general}?subject=WLA Series A - Investment Enquiry`}
             className="flex items-center gap-2 rounded-full border border-white/20 px-8 py-4 font-bold text-white transition-all hover:border-white/40 hover:bg-white/5"
           >
             Contact Investor Relations

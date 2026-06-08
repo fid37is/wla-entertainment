@@ -86,7 +86,7 @@ export const PILLARS: Pillar[] = [
 // ─── Stats ────────────────────────────────────────────────────────────────────
 export const STATS = [
   { value: '220M+', label: 'Nigerian audience' },
-  { value: '₦600M', label: 'Series A target' },
+  { value: '₦800M', label: 'Series A target' },
   { value: '6', label: 'Zones — Season 1' },
   { value: '4+', label: 'Planned franchises' },
 ]
@@ -100,6 +100,7 @@ export const COMPANY = {
   email: {
     general: 'legal@naijaninja.net',
     support: 'support@naijaninja.net',
+    founder: 'fidelis@naijaninja.net',
   },
   phone: '+234 808 595 2266',
   phoneHref: 'tel:+2348085952266',

@@ -44,10 +44,10 @@ export function AfricaMap() {
   useEffect(() => {
     if (!mapRef.current || mapInstanceRef.current) return
 
-    // Dynamically import Leaflet — only runs client side
+    // Dynamically import Leaflet - only runs client side
     import('leaflet').then((L) => {
       // Fix default icon paths broken by webpack
-      // @ts-expect-error — leaflet internal
+      // @ts-expect-error - leaflet internal
       delete L.Icon.Default.prototype._getIconUrl
       L.Icon.Default.mergeOptions({
         iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
@@ -66,7 +66,7 @@ export function AfricaMap() {
         touchZoom: false,
       })
 
-      // Dark styled tile layer using CartoDB dark matter — no API key
+      // Dark styled tile layer using CartoDB dark matter - no API key
       L.tileLayer(
         'https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png',
         {
@@ -160,7 +160,7 @@ export function AfricaMap() {
             font-family: sans-serif;
             min-width: 130px;
           ">
-            <p style="margin:0 0 2px; font-size:9px; font-weight:800; letter-spacing:0.12em; color:${isLive ? '#EAB308' : '#6B7280'}; text-transform:uppercase">${f.code} — ${isLive ? '● Live' : '○ Coming Soon'}</p>
+            <p style="margin:0 0 2px; font-size:9px; font-weight:800; letter-spacing:0.12em; color:${isLive ? '#EAB308' : '#6B7280'}; text-transform:uppercase">${f.code} - ${isLive ? '● Live' : '○ Coming Soon'}</p>
             <p style="margin:0 0 1px; font-size:13px; font-weight:900; color:#fff">${f.country}</p>
             <p style="margin:0; font-size:11px; color:#6B7280">${f.city}</p>
           </div>

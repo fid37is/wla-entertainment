@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
 import { WLALogo } from '@/components/ui/logo'
+import { SOCIAL_LINKS } from '@/lib/social'
 import { COMPANY } from '@/lib/constants'
 
 const FOOTER_LINKS = {
@@ -9,29 +10,30 @@ const FOOTER_LINKS = {
     { label: 'Franchises', href: '/#franchises' },
     { label: 'Business Pillars', href: '/#business' },
     { label: 'Investor Relations', href: '/investors' },
+    { label: 'Contact', href: '/contact' },
   ],
   Franchises: [
     { label: 'NNW — Nigeria', href: 'https://naijaninja.net', external: true },
     { label: 'GNW — Ghana', href: null },
     { label: 'KNW — Kenya', href: null },
-    { label: 'SNW — South Africa', href: null },
+    { label: 'SANW — South Africa', href: null },
   ],
   Legal: [
     { label: 'Privacy Policy', href: '/privacy' },
     { label: 'Terms & Conditions', href: '/terms' },
-    { label: 'Contact Us', href: '/#contact' },
   ],
 }
 
 export function Footer() {
   const year = new Date().getFullYear()
-
   return (
     <footer className="border-t border-white/5">
       <div className="mx-auto max-w-7xl px-6 py-16">
+
         {/* Top grid */}
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
-          {/* Brand */}
+
+          {/* Brand + social */}
           <div className="lg:col-span-1">
             <div className="mb-4 flex items-center gap-3">
               <WLALogo size={40} rounded="rounded-lg" />
@@ -42,9 +44,26 @@ export function Footer() {
                 </p>
               </div>
             </div>
-            <p className="mb-4 text-sm leading-relaxed text-gray-500">
-              Building Africa's first continental warrior competition franchise network.
+            <p className="mb-5 text-sm leading-relaxed text-gray-500">
+              Building Africa&apos;s first continental warrior competition franchise network.
             </p>
+
+            {/* Social icons */}
+            <div className="mb-5 flex flex-wrap gap-2">
+              {SOCIAL_LINKS.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={s.label}
+                  className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/[0.03] text-gray-500 transition hover:border-yellow-500/30 hover:text-yellow-400"
+                >
+                  <s.Icon size={15} />
+                </a>
+              ))}
+            </div>
+
             <div className="space-y-1 text-xs text-gray-600">
               <p>{COMPANY.rc}</p>
               <p>Incorporated May 2026</p>
@@ -89,7 +108,6 @@ export function Footer() {
           ))}
         </div>
 
-        {/* Divider */}
         <div className="my-10 border-t border-white/5" />
 
         {/* Bottom bar */}
@@ -106,22 +124,14 @@ export function Footer() {
             >
               naijaninja.net <ArrowUpRight size={10} />
             </a>
-            <Link
-              href="/privacy"
-              className="text-xs text-gray-600 transition-colors hover:text-white"
-            >
+            <Link href="/privacy" className="text-xs text-gray-600 transition-colors hover:text-white">
               Privacy
             </Link>
-            <Link
-              href="/terms"
-              className="text-xs text-gray-600 transition-colors hover:text-white"
-            >
+            <Link href="/terms" className="text-xs text-gray-600 transition-colors hover:text-white">
               Terms
             </Link>
           </div>
-          <p className="text-xs text-gray-700">
-            {COMPANY.rc} · Asaba, Nigeria
-          </p>
+          <p className="text-xs text-gray-700">{COMPANY.rc} · Asaba, Nigeria</p>
         </div>
       </div>
     </footer>

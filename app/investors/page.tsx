@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import { ArrowUpRight, ShieldCheck, Lock, Mail, Phone } from 'lucide-react'
 import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
-import { Avatar } from '@/components/ui/logo'
 import { COMPANY } from '@/lib/constants'
 
 export const metadata: Metadata = {
@@ -216,22 +215,27 @@ export default function InvestorsPage() {
             </p>
 
             {/* Founder contact card */}
-            <div className="mx-auto mb-8 max-w-sm rounded-2xl border border-white/8 bg-white/[0.02] p-6 text-left">
-              <div className="mb-5 flex items-center gap-4 border-b border-white/8 pb-5">
-                {/* DROP /public/team/fidelis-agba.jpg — min 400×400px */}
-                <Avatar
+            <div className="mx-auto mb-8 max-w-sm overflow-hidden rounded-2xl border border-yellow-500/20 bg-white/[0.02] text-left">
+              {/* Full-width photo */}
+              <div className="relative h-80 w-full overflow-hidden bg-white/[0.03]">
+                <img
                   src="/team/fidelis-agba.jpg"
                   alt="Fidelis Agba"
-                  initials="FA"
-                  size={48}
-                  gold
+                  className="h-full w-full object-cover object-[center_15%]"
                 />
-                <div>
-                  <p className="font-display font-black text-white">Fidelis Agba</p>
-                  <p className="text-xs text-yellow-500">Founder & CEO — WLA Entertainment Ltd</p>
+                {/* Gradient fade into card */}
+                <div
+                  className="absolute inset-x-0 bottom-0 h-24"
+                  style={{ background: 'linear-gradient(to top, rgba(8,8,8,0.97), transparent)' }}
+                />
+                {/* Name on photo */}
+                <div className="absolute bottom-4 left-5">
+                  <p className="font-display text-xl font-black text-white">Fidelis Agba</p>
+                  <p className="text-xs font-bold text-yellow-400">Founder & CEO — WLA Entertainment Ltd</p>
                 </div>
               </div>
-              <div className="space-y-3">
+              {/* Contact rows */}
+              <div className="space-y-3 p-5">
                 <a
                   href={`mailto:${COMPANY.email.general}?subject=WLA Series A — IM Request`}
                   className="flex items-center gap-3 text-sm text-gray-400 transition-colors hover:text-yellow-400"

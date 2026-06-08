@@ -11,7 +11,7 @@ const NAV_LINKS = [
   { label: 'Franchises', href: '/#franchises' },
   { label: 'Business', href: '/#business' },
   { label: 'Investors', href: '/investors' },
-  { label: 'Contact', href: '/#contact' },
+  { label: 'Contact', href: '/contact' },
 ]
 
 export function Navbar() {

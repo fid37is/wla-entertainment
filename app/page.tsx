@@ -1,10 +1,11 @@
 import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
 import { HeroSection } from '@/components/sections/HeroSection'
-import { AboutSection } from '@/components/sections/AboutSection'
-import { FranchisesSection } from '@/components/sections/FranchisesSection'
+import { MissionSection } from '@/components/sections/MissionSection'
+import { WCLSection } from '@/components/sections/WCLSection'
 import { BusinessSection } from '@/components/sections/BusinessSection'
 import { InvestorsSection } from '@/components/sections/InvestorsSection'
+import { FranchiseUpdatesSection } from '@/components/sections/FranchisesUpdateSection'
 import { ContactSection } from '@/components/sections/ContactSection'
 
 export default function HomePage() {
@@ -12,8 +13,9 @@ export default function HomePage() {
     <main className="min-h-screen bg-[#080808] text-white overflow-x-hidden">
       <Navbar />
       <HeroSection />
-      <AboutSection />
-      <FranchisesSection />
+      <MissionSection />
+      <FranchiseUpdatesSection />
+      <WCLSection />
       <BusinessSection />
       <InvestorsSection />
       <ContactSection />
