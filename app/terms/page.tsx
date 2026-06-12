@@ -36,14 +36,12 @@ export default function TermsPage() {
   return (
     <div className="min-h-screen" style={{ background: 'var(--bg-base)', color: 'var(--text-primary)' }}>
       <Navbar />
-      <main className="mx-auto max-w-4xl px-6 pb-24 pt-32">
+      <main className="mx-auto max-w-7xl px-6 pb-24 pt-32">
 
         <Link
           href="/"
-          className="mb-10 inline-flex items-center gap-2 text-sm transition-colors"
+          className="mb-10 inline-flex items-center gap-2 text-sm transition-colors hover:text-yellow-500"
           style={{ color: 'var(--text-muted)' }}
-          onMouseEnter={e => (e.currentTarget.style.color = 'var(--text-gold)')}
-          onMouseLeave={e => (e.currentTarget.style.color = 'var(--text-muted)')}
         >
           <ArrowLeft size={15} /> Back to Home
         </Link>
@@ -115,7 +113,9 @@ export default function TermsPage() {
           <TermsSection title="9. Privacy">
             <p>
               Your use of our services is also governed by our{' '}
-              <Link href="/privacy" style={{ color: 'var(--text-gold)' }} onMouseEnter={e => (e.currentTarget.style.opacity = '0.8')} onMouseLeave={e => (e.currentTarget.style.opacity = '1')}>Privacy Policy</Link>
+              <Link href="/privacy" className="hover:opacity-80 transition-opacity" style={{ color: 'var(--text-gold)' }}>
+                Privacy Policy
+              </Link>
               , which is incorporated into these Terms and Conditions by reference. By using our services, you consent to the collection and use of your information as described in our Privacy Policy.
             </p>
           </TermsSection>
@@ -143,8 +143,8 @@ export default function TermsPage() {
               <p className="font-display font-black" style={{ color: 'var(--text-primary)' }}>{COMPANY.name}</p>
               <p className="mb-3 text-xs" style={{ color: 'var(--text-gold)' }}>A WLA Entertainment Company · {COMPANY.rc}</p>
               <div className="space-y-1 text-sm" style={{ color: 'var(--text-secondary)' }}>
-                <p><a href={`mailto:${COMPANY.email.general}`} className="transition-colors" onMouseEnter={e => (e.currentTarget.style.color = 'var(--text-gold)')} onMouseLeave={e => (e.currentTarget.style.color = 'var(--text-secondary)')}>{COMPANY.email.general}</a></p>
-                <p><a href={COMPANY.phoneHref} className="transition-colors" onMouseEnter={e => (e.currentTarget.style.color = 'var(--text-gold)')} onMouseLeave={e => (e.currentTarget.style.color = 'var(--text-secondary)')}>{COMPANY.phone}</a></p>
+                <p><a href={`mailto:${COMPANY.email.general}`} className="hover:text-yellow-500 transition-colors">{COMPANY.email.general}</a></p>
+                <p><a href={COMPANY.phoneHref} className="hover:text-yellow-500 transition-colors">{COMPANY.phone}</a></p>
                 <p>{COMPANY.address}</p>
               </div>
             </div>
