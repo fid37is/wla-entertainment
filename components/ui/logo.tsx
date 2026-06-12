@@ -5,7 +5,7 @@ import { useState } from 'react'
 import { cn } from '@/lib/utils'
 
 // ─── WLA Logo ─────────────────────────────────────────────────────────────────
-// Reads /public/wla-logo.png — drop the file and it activates everywhere.
+// Reads /public/wla-logo.png - drop the file and it activates everywhere.
 
 interface LogoProps {
   size?: number
@@ -50,7 +50,7 @@ export function WLALogo({ size = 40, className, rounded = 'rounded-lg' }: LogoPr
 }
 
 // ─── Person Avatar ────────────────────────────────────────────────────────────
-// Pass src="/team/fidelis-agba.jpg" — falls back to initials if missing.
+// Pass src="/team/fidelis-agba.jpg" - falls back to initials if missing.
 
 interface AvatarProps {
   src?: string | null
@@ -80,7 +80,7 @@ export function Avatar({ src, alt, initials, size = 64, gold = false, className 
           onError={() => setFailed(true)}
         />
       ) : (
-        /* Fallback monogram — only shown when no image or image fails */
+        /* Fallback monogram - only shown when no image or image fails */
         <div
           className="flex h-full w-full items-center justify-center font-display font-black"
           style={{

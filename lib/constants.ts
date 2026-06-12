@@ -18,7 +18,7 @@ export const FRANCHISES: Franchise[] = [
     country: 'Nigeria',
     flag: '🇳🇬',
     status: 'live',
-    desc: "The flagship franchise. Africa's first ninja warrior competition series — running nationwide across all six geopolitical zones.",
+    desc: "The flagship franchise. Africa's first ninja warrior competition series - running nationwide across all six geopolitical zones.",
     url: 'https://naijaninja.net',
   },
   {
@@ -45,7 +45,7 @@ export const FRANCHISES: Franchise[] = [
     country: 'South Africa',
     flag: '🇿🇦',
     status: 'coming',
-    desc: "Southern Africa's warrior competition — the next chapter in WLA's continental expansion.",
+    desc: "Southern Africa's warrior competition - the next chapter in WLA's continental expansion.",
     url: null,
   },
 ]
@@ -87,7 +87,7 @@ export const PILLARS: Pillar[] = [
 export const STATS = [
   { value: '220M+', label: 'Nigerian audience' },
   { value: '₦800M', label: 'Series A target' },
-  { value: '6', label: 'Zones — Season 1' },
+  { value: '6', label: 'Zones - Season 1' },
   { value: '4+', label: 'Planned franchises' },
 ]
 

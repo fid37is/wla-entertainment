@@ -1,4 +1,4 @@
-// Inline SVG flags — guaranteed render, no external dependency
+// Inline SVG flags - guaranteed render, no external dependency
 
 export function FlagNigeria({ className }: { className?: string }) {
   return (

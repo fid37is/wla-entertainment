@@ -210,7 +210,7 @@ export function AfricaMap() {
         href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
       />
 
-      <div className="relative h-full w-full overflow-hidden rounded-2xl border border-white/8">
+      <div className="relative h-full w-full overflow-hidden rounded-2xl border border-[var(--border-subtle)]">
         {/* Subtle gold vignette overlay */}
         <div
           className="pointer-events-none absolute inset-0 z-10"
@@ -225,15 +225,15 @@ export function AfricaMap() {
         <div ref={mapRef} className="h-full w-full" style={{ minHeight: 420 }} />
 
         {/* Legend overlay */}
-        <div className="absolute bottom-4 left-1/2 z-20 -translate-x-1/2 flex items-center gap-5 rounded-full border border-white/10 bg-black/80 px-5 py-2 backdrop-blur-sm">
+        <div className="absolute bottom-4 left-1/2 z-20 -translate-x-1/2 flex items-center gap-5 rounded-full border border-[var(--border-subtle)] bg-[var(--bg-base)]/80 px-5 py-2 backdrop-blur-sm">
           <div className="flex items-center gap-2">
             <span className="h-2.5 w-2.5 rounded-full bg-yellow-400 shadow-[0_0_6px_rgba(234,179,8,0.8)]" />
-            <span className="text-[10px] font-bold uppercase tracking-wider text-gray-400">Live</span>
+            <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--text-secondary)]">Live</span>
           </div>
           <div className="h-3 w-px bg-white/10" />
           <div className="flex items-center gap-2">
             <span className="h-2.5 w-2.5 rounded-full bg-white/25" />
-            <span className="text-[10px] font-bold uppercase tracking-wider text-gray-500">Pipeline</span>
+            <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--text-muted)]">Pipeline</span>
           </div>
         </div>
       </div>

@@ -1,3 +1,5 @@
+'use client'
+
 import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
 import { WLALogo } from '@/components/ui/logo'
@@ -13,10 +15,10 @@ const FOOTER_LINKS = {
     { label: 'Contact', href: '/contact' },
   ],
   Franchises: [
-    { label: 'NNW — Nigeria', href: 'https://naijaninja.net', external: true },
-    { label: 'GNW — Ghana', href: null },
-    { label: 'KNW — Kenya', href: null },
-    { label: 'SANW — South Africa', href: null },
+    { label: 'NNW - Nigeria', href: 'https://naijaninja.net', external: true },
+    { label: 'GNW - Ghana', href: null },
+    { label: 'KNW - Kenya', href: null },
+    { label: 'SANW - South Africa', href: null },
   ],
   Legal: [
     { label: 'Privacy Policy', href: '/privacy' },
@@ -27,7 +29,7 @@ const FOOTER_LINKS = {
 export function Footer() {
   const year = new Date().getFullYear()
   return (
-    <footer className="border-t border-white/5">
+    <footer style={{ borderTop: '1px solid var(--border-subtle)' }}>
       <div className="mx-auto max-w-7xl px-6 py-16">
 
         {/* Top grid */}
@@ -38,13 +40,13 @@ export function Footer() {
             <div className="mb-4 flex items-center gap-3">
               <WLALogo size={40} rounded="rounded-lg" />
               <div>
-                <p className="font-display text-sm font-bold text-white">WLA Entertainment Ltd</p>
-                <p className="text-[10px] font-bold uppercase tracking-widest text-yellow-500">
+                <p className="font-display text-sm font-bold" style={{ color: 'var(--text-primary)' }}>WLA Entertainment Ltd</p>
+                <p className="text-[10px] font-bold uppercase tracking-widest" style={{ color: 'var(--text-gold)' }}>
                   Warriors League Africa
                 </p>
               </div>
             </div>
-            <p className="mb-5 text-sm leading-relaxed text-gray-500">
+            <p className="mb-5 text-sm leading-relaxed" style={{ color: 'var(--text-muted)' }}>
               Building Africa&apos;s first continental warrior competition franchise network.
             </p>
 
@@ -57,14 +59,27 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={s.label}
-                  className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/[0.03] text-gray-500 transition hover:border-yellow-500/30 hover:text-yellow-400"
+                  className="flex h-9 w-9 items-center justify-center rounded-lg transition"
+                  style={{
+                    border: '1px solid var(--border-subtle)',
+                    background: 'var(--bg-surface)',
+                    color: 'var(--text-muted)',
+                  }}
+                  onMouseEnter={e => {
+                    (e.currentTarget as HTMLElement).style.borderColor = 'var(--border-gold)'
+                    ;(e.currentTarget as HTMLElement).style.color = 'var(--text-gold)'
+                  }}
+                  onMouseLeave={e => {
+                    (e.currentTarget as HTMLElement).style.borderColor = 'var(--border-subtle)'
+                    ;(e.currentTarget as HTMLElement).style.color = 'var(--text-muted)'
+                  }}
                 >
                   <s.Icon size={15} />
                 </a>
               ))}
             </div>
 
-            <div className="space-y-1 text-xs text-gray-600">
+            <div className="space-y-1 text-xs" style={{ color: 'var(--text-faint)' }}>
               <p>{COMPANY.rc}</p>
               <p>Incorporated May 2026</p>
               <p>Asaba, Delta State, Nigeria</p>
@@ -74,7 +89,7 @@ export function Footer() {
           {/* Link columns */}
           {Object.entries(FOOTER_LINKS).map(([group, links]) => (
             <div key={group}>
-              <h4 className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-gray-400">
+              <h4 className="mb-4 text-xs font-bold uppercase tracking-[0.2em]" style={{ color: 'var(--text-secondary)' }}>
                 {group}
               </h4>
               <ul className="space-y-3">
@@ -86,20 +101,24 @@ export function Footer() {
                           href={link.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center gap-1 text-sm text-gray-500 transition-colors hover:text-yellow-400"
+                          className="flex items-center gap-1 text-sm transition-colors"
+                          style={{ color: 'var(--text-muted)' }}
+                          onMouseEnter={e => (e.currentTarget.style.color = 'var(--text-gold)')}
+                          onMouseLeave={e => (e.currentTarget.style.color = 'var(--text-muted)')}
                         >
                           {link.label} <ArrowUpRight size={11} />
                         </a>
                       ) : (
                         <Link
                           href={link.href}
-                          className="text-sm text-gray-500 transition-colors hover:text-white"
+                          className="text-sm transition-colors"
+                          style={{ color: 'var(--text-muted)' }}
                         >
                           {link.label}
                         </Link>
                       )
                     ) : (
-                      <span className="text-sm text-gray-700">{link.label}</span>
+                      <span className="text-sm" style={{ color: 'var(--text-faint)' }}>{link.label}</span>
                     )}
                   </li>
                 ))}
@@ -108,11 +127,11 @@ export function Footer() {
           ))}
         </div>
 
-        <div className="my-10 border-t border-white/5" />
+        <div className="my-10" style={{ borderTop: '1px solid var(--border-subtle)' }} />
 
         {/* Bottom bar */}
         <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
-          <p className="text-xs text-gray-700">
+          <p className="text-xs" style={{ color: 'var(--text-faint)' }}>
             © {year} WLA Entertainment Ltd. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
@@ -120,18 +139,21 @@ export function Footer() {
               href={COMPANY.website}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1 text-xs text-gray-600 transition-colors hover:text-yellow-400"
+              className="flex items-center gap-1 text-xs transition-colors"
+              style={{ color: 'var(--text-faint)' }}
+              onMouseEnter={e => (e.currentTarget.style.color = 'var(--text-gold)')}
+              onMouseLeave={e => (e.currentTarget.style.color = 'var(--text-faint)')}
             >
               naijaninja.net <ArrowUpRight size={10} />
             </a>
-            <Link href="/privacy" className="text-xs text-gray-600 transition-colors hover:text-white">
+            <Link href="/privacy" className="text-xs transition-colors" style={{ color: 'var(--text-faint)' }}>
               Privacy
             </Link>
-            <Link href="/terms" className="text-xs text-gray-600 transition-colors hover:text-white">
+            <Link href="/terms" className="text-xs transition-colors" style={{ color: 'var(--text-faint)' }}>
               Terms
             </Link>
           </div>
-          <p className="text-xs text-gray-700">{COMPANY.rc} · Asaba, Nigeria</p>
+          <p className="text-xs" style={{ color: 'var(--text-faint)' }}>{COMPANY.rc} · Asaba, Nigeria</p>
         </div>
       </div>
     </footer>

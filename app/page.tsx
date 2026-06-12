@@ -10,7 +10,10 @@ import { ContactSection } from '@/components/sections/ContactSection'
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-[#080808] text-white overflow-x-hidden">
+    <main
+      className="min-h-screen overflow-x-hidden"
+      style={{ background: 'var(--bg-base)', color: 'var(--text-primary)' }}
+    >
       <Navbar />
       <HeroSection />
       <MissionSection />

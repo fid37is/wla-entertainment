@@ -1,3 +1,5 @@
+'use client'
+
 import { ArrowUpRight, Bell } from 'lucide-react'
 
 const FRANCHISE_CHANNELS = [
@@ -36,18 +38,30 @@ const FRANCHISE_CHANNELS = [
 
 export function FranchiseUpdatesSection() {
   return (
-    <section className="border-t border-white/5 px-6 py-20">
+    <section
+      className="px-6 py-20"
+      style={{ borderTop: '1px solid var(--border-subtle)' }}
+    >
       <div className="mx-auto max-w-7xl">
 
         <div className="mb-12 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="mb-3 text-xs font-bold uppercase tracking-[0.35em] text-yellow-500">Stay Connected</p>
-            <h2 className="font-display font-black leading-tight text-white" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}>
+            <p
+              className="mb-3 text-xs font-bold uppercase tracking-[0.35em]"
+              style={{ color: 'var(--text-gold)' }}
+            >
+              Stay Connected
+            </p>
+            <h2
+              className="font-display font-black leading-tight"
+              style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', color: 'var(--text-primary)' }}
+            >
               Follow the Franchises
             </h2>
           </div>
-          <p className="max-w-sm text-sm leading-relaxed text-gray-500">
-            WLA is the parent company. Each franchise runs its own platform where fans, contestants, and sponsors get live updates.
+          <p className="max-w-sm text-sm leading-relaxed" style={{ color: 'var(--text-muted)' }}>
+            WLA is the parent company. Each franchise runs its own platform where fans,
+            contestants, and sponsors get live updates.
           </p>
         </div>
 
@@ -57,32 +71,65 @@ export function FranchiseUpdatesSection() {
             return (
               <div
                 key={f.code}
-                className={`rounded-2xl border p-6 transition-all ${
-                  isLive ? 'border-yellow-500/30 bg-yellow-500/[0.03]' : 'border-white/8 bg-white/[0.02]'
-                }`}
+                className="rounded-2xl p-6 transition-all"
+                style={isLive ? {
+                  border: '1px solid var(--border-gold)',
+                  background: 'var(--bg-gold-tint)',
+                } : {
+                  border: '1px solid var(--border-subtle)',
+                  background: 'var(--bg-surface)',
+                }}
               >
                 {/* Header */}
                 <div className="mb-4 flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <span className="text-3xl">{f.flag}</span>
                     <div>
-                      <p className="text-xs font-black uppercase tracking-[0.15em] text-yellow-500">{f.code}</p>
-                      <p className="font-display font-bold text-white">{f.name}</p>
+                      <p
+                        className="text-xs font-black uppercase tracking-[0.15em]"
+                        style={{ color: 'var(--text-gold)' }}
+                      >
+                        {f.code}
+                      </p>
+                      <p
+                        className="font-display font-bold"
+                        style={{ color: 'var(--text-primary)' }}
+                      >
+                        {f.name}
+                      </p>
                     </div>
                   </div>
                   {isLive ? (
-                    <span className="flex items-center gap-1.5 rounded-full border border-yellow-500/30 bg-yellow-500/10 px-2.5 py-1 text-[10px] font-bold text-yellow-400">
-                      <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-yellow-400" />
+                    <span
+                      className="flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-bold"
+                      style={{
+                        border: '1px solid var(--border-gold)',
+                        background: 'var(--bg-gold-tint-2)',
+                        color: 'var(--text-gold)',
+                      }}
+                    >
+                      <span
+                        className="h-1.5 w-1.5 animate-pulse rounded-full"
+                        style={{ background: 'var(--color-gold)' }}
+                      />
                       Live
                     </span>
                   ) : (
-                    <span className="rounded-full border border-white/10 px-2.5 py-1 text-[10px] font-bold text-gray-500">
+                    <span
+                      className="rounded-full px-2.5 py-1 text-[10px] font-bold"
+                      style={{
+                        border: '1px solid var(--border-subtle)',
+                        color: 'var(--text-faint)',
+                      }}
+                    >
                       Available for Licensing
                     </span>
                   )}
                 </div>
 
-                <p className="mb-5 text-sm leading-relaxed text-gray-500">{f.desc}</p>
+                <p className="mb-5 text-sm leading-relaxed" style={{ color: 'var(--text-muted)' }}>
+                  {f.desc}
+                </p>
 
                 {isLive && f.links.length > 0 ? (
                   <div className="space-y-2">
@@ -92,7 +139,20 @@ export function FranchiseUpdatesSection() {
                         href={link.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center justify-between rounded-lg border border-white/8 bg-white/[0.03] px-4 py-2.5 text-sm font-bold text-gray-300 transition hover:border-yellow-500/25 hover:text-yellow-400"
+                        className="flex items-center justify-between rounded-lg px-4 py-2.5 text-sm font-bold transition-all"
+                        style={{
+                          border: '1px solid var(--border-subtle)',
+                          background: 'var(--bg-elevated)',
+                          color: 'var(--text-secondary)',
+                        }}
+                        onMouseEnter={e => {
+                          (e.currentTarget as HTMLElement).style.borderColor = 'var(--border-gold)'
+                          ;(e.currentTarget as HTMLElement).style.color = 'var(--text-gold)'
+                        }}
+                        onMouseLeave={e => {
+                          (e.currentTarget as HTMLElement).style.borderColor = 'var(--border-subtle)'
+                          ;(e.currentTarget as HTMLElement).style.color = 'var(--text-secondary)'
+                        }}
                       >
                         {link.label}
                         <ArrowUpRight size={13} />
@@ -100,10 +160,25 @@ export function FranchiseUpdatesSection() {
                     ))}
                   </div>
                 ) : !isLive ? (
-                  <div className="flex items-center gap-2 rounded-lg border border-white/5 bg-white/[0.02] px-4 py-3">
-                    <Bell size={13} className="text-gray-700" />
-                    <span className="text-xs text-gray-600">
-                      Enquire via <a href="mailto:legal@naijaninja.net" className="text-yellow-700 hover:text-yellow-500 transition-colors">legal@naijaninja.net</a>
+                  <div
+                    className="flex items-center gap-2 rounded-lg px-4 py-3"
+                    style={{
+                      border: '1px solid var(--border-subtle)',
+                      background: 'var(--bg-surface)',
+                    }}
+                  >
+                    <Bell size={13} style={{ color: 'var(--text-faint)' }} />
+                    <span className="text-xs" style={{ color: 'var(--text-faint)' }}>
+                      Enquire via{' '}
+                      <a
+                        href="mailto:legal@naijaninja.net"
+                        className="transition-colors"
+                        style={{ color: 'var(--color-gold-deeper)' }}
+                        onMouseEnter={e => (e.currentTarget.style.color = 'var(--text-gold)')}
+                        onMouseLeave={e => (e.currentTarget.style.color = 'var(--color-gold-deeper)')}
+                      >
+                        legal@naijaninja.net
+                      </a>
                     </span>
                   </div>
                 ) : null}
@@ -112,11 +187,26 @@ export function FranchiseUpdatesSection() {
           })}
         </div>
 
-        <div className="mt-8 rounded-xl border border-white/5 bg-white/[0.01] px-6 py-4">
-          <p className="text-xs leading-relaxed text-gray-600">
-            <span className="font-bold text-gray-500">WLA platform note -</span>{' '}
-            Competition schedules, live results, contestant registration, and episode highlights live on each franchise&apos;s own platform. Follow{' '}
-            <a href="https://naijaninja.net" target="_blank" rel="noopener noreferrer" className="text-yellow-600 hover:text-yellow-400 transition-colors">
+        <div
+          className="mt-8 rounded-xl px-6 py-4"
+          style={{
+            border: '1px solid var(--border-subtle)',
+            background: 'var(--bg-surface)',
+          }}
+        >
+          <p className="text-xs leading-relaxed" style={{ color: 'var(--text-faint)' }}>
+            <span className="font-bold" style={{ color: 'var(--text-muted)' }}>WLA platform note -</span>{' '}
+            Competition schedules, live results, contestant registration, and episode highlights live on
+            each franchise&apos;s own platform. Follow{' '}
+            <a
+              href="https://naijaninja.net"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors"
+              style={{ color: 'var(--color-gold-deeper)' }}
+              onMouseEnter={e => (e.currentTarget.style.color = 'var(--text-gold)')}
+              onMouseLeave={e => (e.currentTarget.style.color = 'var(--color-gold-deeper)')}
+            >
               naijaninja.net
             </a>{' '}
             for all NNW Season 1 activity.

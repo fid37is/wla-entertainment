@@ -1,8 +1,9 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import { ThemeProvider } from '@/lib/theme'
 
 export const metadata: Metadata = {
-  title: 'WLA Entertainment Ltd — Warriors League Africa',
+  title: 'WLA Entertainment Ltd - Warriors League Africa',
   description:
     "WLA Entertainment Ltd is a CAC-registered sports entertainment company building Africa's first continental network of warrior-format competitions, broadcasts, and franchises.",
   keywords: [
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: 'WLA Entertainment Ltd' }],
   openGraph: {
-    title: 'WLA Entertainment Ltd — Warriors League Africa',
+    title: 'WLA Entertainment Ltd - Warriors League Africa',
     description: "Africa's first continental warrior competition franchise network.",
     url: 'https://wlaentertainment.com',
     siteName: 'WLA Entertainment Ltd',
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'WLA Entertainment Ltd — Warriors League Africa',
+    title: 'WLA Entertainment Ltd - Warriors League Africa',
     description: "Africa's first continental warrior competition franchise.",
     site: '@wlaentertainment',
   },
@@ -45,7 +46,11 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   )
 }
