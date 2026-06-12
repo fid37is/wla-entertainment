@@ -36,18 +36,29 @@ function PolicyList({ items }: { items: string[] }) {
   )
 }
 
+// Reusable hover link - pure CSS, no JS handlers needed
+function GoldLink({ href, children }: { href: string; children: React.ReactNode }) {
+  return (
+    <a
+      href={href}
+      className="transition-colors"
+      style={{ color: 'var(--text-secondary)' }}
+    >
+      <span className="hover-gold">{children}</span>
+    </a>
+  )
+}
+
 export default function PrivacyPage() {
   return (
     <div className="min-h-screen" style={{ background: 'var(--bg-base)', color: 'var(--text-primary)' }}>
       <Navbar />
-      <main className="mx-auto max-w-4xl px-6 pb-24 pt-32">
+      <main className="mx-auto max-w-7xl px-6 pb-24 pt-32">
 
         <Link
           href="/"
           className="mb-10 inline-flex items-center gap-2 text-sm transition-colors"
           style={{ color: 'var(--text-muted)' }}
-          onMouseEnter={e => (e.currentTarget.style.color = 'var(--text-gold)')}
-          onMouseLeave={e => (e.currentTarget.style.color = 'var(--text-muted)')}
         >
           <ArrowLeft size={15} /> Back to Home
         </Link>
@@ -83,9 +94,9 @@ export default function PrivacyPage() {
           <div className="mt-4 flex flex-wrap gap-4 text-sm" style={{ color: 'var(--text-secondary)' }}>
             <span>CAC Registered</span><span>·</span>
             <span>Asaba, Delta State, Nigeria</span><span>·</span>
-            <a href={`mailto:${COMPANY.email.general}`} className="transition-colors" onMouseEnter={e => (e.currentTarget.style.color = 'var(--text-gold)')} onMouseLeave={e => (e.currentTarget.style.color = 'var(--text-secondary)')}>{COMPANY.email.general}</a>
+            <a href={`mailto:${COMPANY.email.general}`} className="hover:text-yellow-500 transition-colors">{COMPANY.email.general}</a>
             <span>·</span>
-            <a href={COMPANY.phoneHref} className="transition-colors" onMouseEnter={e => (e.currentTarget.style.color = 'var(--text-gold)')} onMouseLeave={e => (e.currentTarget.style.color = 'var(--text-secondary)')}>{COMPANY.phone}</a>
+            <a href={COMPANY.phoneHref} className="hover:text-yellow-500 transition-colors">{COMPANY.phone}</a>
           </div>
           <p className="mt-4 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
             WLA Entertainment Ltd, parent company of Naija Ninja Warrior, is committed to protecting your privacy
@@ -131,7 +142,7 @@ export default function PrivacyPage() {
             <PolicyList items={['Access: Request a copy of the personal information we hold about you','Correction: Request correction of inaccurate or incomplete information','Deletion: Request deletion of your personal information (subject to legal obligations)','Opt-Out: Unsubscribe from marketing communications at any time','Data Portability: Request your data in a portable format','Object: Object to certain types of processing']} />
             <p className="mt-4 text-sm" style={{ color: 'var(--text-secondary)' }}>
               To exercise these rights, contact us at:{' '}
-              <a href={`mailto:${COMPANY.email.general}`} style={{ color: 'var(--text-gold)' }} onMouseEnter={e => (e.currentTarget.style.opacity = '0.8')} onMouseLeave={e => (e.currentTarget.style.opacity = '1')}>{COMPANY.email.general}</a>
+              <a href={`mailto:${COMPANY.email.general}`} className="hover:opacity-80 transition-opacity" style={{ color: 'var(--text-gold)' }}>{COMPANY.email.general}</a>
             </p>
           </PolicySection>
 
@@ -163,8 +174,8 @@ export default function PrivacyPage() {
               <p className="font-display font-black" style={{ color: 'var(--text-primary)' }}>{COMPANY.name}</p>
               <p className="mb-3 text-xs" style={{ color: 'var(--text-gold)' }}>A WLA Entertainment Company · {COMPANY.rc}</p>
               <div className="space-y-1 text-sm" style={{ color: 'var(--text-secondary)' }}>
-                <p><a href={`mailto:${COMPANY.email.general}`} className="transition-colors" onMouseEnter={e => (e.currentTarget.style.color = 'var(--text-gold)')} onMouseLeave={e => (e.currentTarget.style.color = 'var(--text-secondary)')}>{COMPANY.email.general}</a></p>
-                <p><a href={COMPANY.phoneHref} className="transition-colors" onMouseEnter={e => (e.currentTarget.style.color = 'var(--text-gold)')} onMouseLeave={e => (e.currentTarget.style.color = 'var(--text-secondary)')}>{COMPANY.phone}</a></p>
+                <p><a href={`mailto:${COMPANY.email.general}`} className="hover:text-yellow-500 transition-colors">{COMPANY.email.general}</a></p>
+                <p><a href={COMPANY.phoneHref} className="hover:text-yellow-500 transition-colors">{COMPANY.phone}</a></p>
                 <p>{COMPANY.address}</p>
               </div>
             </div>
