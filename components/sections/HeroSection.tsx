@@ -31,17 +31,17 @@ export function HeroSection() {
         <svg className="absolute inset-0 h-full w-full" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
           <defs>
             <linearGradient id="rig-h" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%"   stopColor="#EAB308" stopOpacity="0" />
-              <stop offset="30%"  stopColor="#EAB308" stopOpacity="0.2" />
-              <stop offset="70%"  stopColor="#EAB308" stopOpacity="0.2" />
+              <stop offset="0%" stopColor="#EAB308" stopOpacity="0" />
+              <stop offset="30%" stopColor="#EAB308" stopOpacity="0.2" />
+              <stop offset="70%" stopColor="#EAB308" stopOpacity="0.2" />
               <stop offset="100%" stopColor="#EAB308" stopOpacity="0" />
             </linearGradient>
             <linearGradient id="rig-v-l" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%"   stopColor="#EAB308" stopOpacity="0.25" />
+              <stop offset="0%" stopColor="#EAB308" stopOpacity="0.25" />
               <stop offset="100%" stopColor="#EAB308" stopOpacity="0" />
             </linearGradient>
             <linearGradient id="rig-v-r" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%"   stopColor="#EAB308" stopOpacity="0.25" />
+              <stop offset="0%" stopColor="#EAB308" stopOpacity="0.25" />
               <stop offset="100%" stopColor="#EAB308" stopOpacity="0" />
             </linearGradient>
             <linearGradient id="beam-l" x1="20%" y1="0%" x2="42%" y2="100%">
@@ -55,15 +55,15 @@ export function HeroSection() {
           </defs>
 
           {/* Spotlight beams */}
-          <polygon points="20%,0 8%,100% 52%,100%"  fill="url(#beam-l)" />
+          <polygon points="20%,0 8%,100% 52%,100%" fill="url(#beam-l)" />
           <polygon points="80%,0 92%,100% 48%,100%" fill="url(#beam-r)" />
 
           {/* Top rig bar */}
-          <line x1="5%"  y1="7%"  x2="95%" y2="7%"  stroke="url(#rig-h)" strokeWidth="2" />
+          <line x1="5%" y1="7%" x2="95%" y2="7%" stroke="url(#rig-h)" strokeWidth="2" />
           <line x1="10%" y1="13%" x2="90%" y2="13%" stroke="url(#rig-h)" strokeWidth="1" strokeDasharray="8 6" />
 
           {/* Left vertical poles */}
-          <line x1="8%"  y1="0" x2="8%"  y2="45%" stroke="url(#rig-v-l)" strokeWidth="2" />
+          <line x1="8%" y1="0" x2="8%" y2="45%" stroke="url(#rig-v-l)" strokeWidth="2" />
           <line x1="15%" y1="0" x2="15%" y2="32%" stroke="url(#rig-v-l)" strokeWidth="1" strokeDasharray="6 8" />
 
           {/* Right vertical poles */}
@@ -71,23 +71,23 @@ export function HeroSection() {
           <line x1="85%" y1="0" x2="85%" y2="32%" stroke="url(#rig-v-r)" strokeWidth="1" strokeDasharray="6 8" />
 
           {/* Hanging rings - left */}
-          <line x1="22%" y1="7%"  x2="22%" y2="18%" stroke="#EAB308" strokeWidth="1.5" strokeOpacity="0.25" />
+          <line x1="22%" y1="7%" x2="22%" y2="18%" stroke="#EAB308" strokeWidth="1.5" strokeOpacity="0.25" />
           <circle cx="22%" cy="22%" r="14" fill="none" stroke="#EAB308" strokeWidth="2.5" strokeOpacity="0.22" />
-          <circle cx="22%" cy="22%" r="8"  fill="none" stroke="#EAB308" strokeWidth="1"   strokeOpacity="0.12" />
+          <circle cx="22%" cy="22%" r="8" fill="none" stroke="#EAB308" strokeWidth="1" strokeOpacity="0.12" />
 
-          <line x1="33%" y1="7%"  x2="33%" y2="17%" stroke="#EAB308" strokeWidth="1.5" strokeOpacity="0.18" />
+          <line x1="33%" y1="7%" x2="33%" y2="17%" stroke="#EAB308" strokeWidth="1.5" strokeOpacity="0.18" />
           <circle cx="33%" cy="21%" r="11" fill="none" stroke="#EAB308" strokeWidth="2" strokeOpacity="0.16" />
 
           {/* Hanging rings - right */}
-          <line x1="78%" y1="7%"  x2="78%" y2="18%" stroke="#EAB308" strokeWidth="1.5" strokeOpacity="0.25" />
+          <line x1="78%" y1="7%" x2="78%" y2="18%" stroke="#EAB308" strokeWidth="1.5" strokeOpacity="0.25" />
           <circle cx="78%" cy="22%" r="14" fill="none" stroke="#EAB308" strokeWidth="2.5" strokeOpacity="0.22" />
-          <circle cx="78%" cy="22%" r="8"  fill="none" stroke="#EAB308" strokeWidth="1"   strokeOpacity="0.12" />
+          <circle cx="78%" cy="22%" r="8" fill="none" stroke="#EAB308" strokeWidth="1" strokeOpacity="0.12" />
 
-          <line x1="67%" y1="7%"  x2="67%" y2="17%" stroke="#EAB308" strokeWidth="1.5" strokeOpacity="0.18" />
+          <line x1="67%" y1="7%" x2="67%" y2="17%" stroke="#EAB308" strokeWidth="1.5" strokeOpacity="0.18" />
           <circle cx="67%" cy="21%" r="11" fill="none" stroke="#EAB308" strokeWidth="2" strokeOpacity="0.16" />
 
           {/* Brace cables */}
-          <line x1="8%"  y1="7%" x2="22%" y2="22%" stroke="#EAB308" strokeWidth="0.8" strokeOpacity="0.10" strokeDasharray="4 6" />
+          <line x1="8%" y1="7%" x2="22%" y2="22%" stroke="#EAB308" strokeWidth="0.8" strokeOpacity="0.10" strokeDasharray="4 6" />
           <line x1="15%" y1="7%" x2="33%" y2="21%" stroke="#EAB308" strokeWidth="0.8" strokeOpacity="0.08" strokeDasharray="4 6" />
           <line x1="92%" y1="7%" x2="78%" y2="22%" stroke="#EAB308" strokeWidth="0.8" strokeOpacity="0.10" strokeDasharray="4 6" />
           <line x1="85%" y1="7%" x2="67%" y2="21%" stroke="#EAB308" strokeWidth="0.8" strokeOpacity="0.08" strokeDasharray="4 6" />
@@ -144,12 +144,11 @@ export function HeroSection() {
           style={{ opacity: mounted ? 1 : 0, transform: mounted ? 'translateY(0)' : 'translateY(24px)' }}
         >
           <h1
-            className="font-display font-black leading-none"
+            className="mb-6 font-display font-black leading-none"
             style={{
               fontSize: 'clamp(3rem, 9vw, 7rem)',
               letterSpacing: '-0.02em',
               color: 'var(--text-primary)',
-              textShadow: '0 2px 40px rgba(0,0,0,0.5)',
             }}
           >
             Africa&apos;s
@@ -197,19 +196,19 @@ export function HeroSection() {
             <ArrowUpRight size={18} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
           </a>
           <a
-            href="#franchises"
+            href="/franchises"
             className="flex items-center gap-2 rounded-full px-8 py-4 font-bold transition-all"
             style={{
               border: '1px solid var(--border-medium)',
               color: 'var(--text-primary)',
             }}
             onMouseEnter={e => {
-              ;(e.currentTarget as HTMLElement).style.borderColor = 'var(--border-gold)'
-              ;(e.currentTarget as HTMLElement).style.background = 'var(--bg-gold-tint)'
+              ; (e.currentTarget as HTMLElement).style.borderColor = 'var(--border-gold)'
+                ; (e.currentTarget as HTMLElement).style.background = 'var(--bg-gold-tint)'
             }}
             onMouseLeave={e => {
-              ;(e.currentTarget as HTMLElement).style.borderColor = 'var(--border-medium)'
-              ;(e.currentTarget as HTMLElement).style.background = 'transparent'
+              ; (e.currentTarget as HTMLElement).style.borderColor = 'var(--border-medium)'
+                ; (e.currentTarget as HTMLElement).style.background = 'transparent'
             }}
           >
             View All Franchises
@@ -223,9 +222,9 @@ export function HeroSection() {
         >
           {[
             { value: '220M+', label: 'Nigerian Audience' },
-            { value: '4',     label: 'Franchise Markets' },
-            { value: '6',     label: 'Revenue Streams' },
-            { value: 'S1',    label: 'Season One' },
+            { value: '4', label: 'Franchise Markets' },
+            { value: '6', label: 'Revenue Streams' },
+            { value: 'S1', label: 'Season One' },
           ].map((s, i) => (
             <div key={s.label} className="flex items-center gap-10">
               <div className="text-center">
