@@ -3,6 +3,8 @@
 import { useState } from 'react'
 import { ArrowUpRight, CheckCircle } from 'lucide-react'
 import { COMPANY } from '@/lib/constants'
+import { supabase } from '@/lib/supabase/client'
+import { toast } from 'sonner'
 
 type EnquiryType = 'investment' | 'partnership' | 'franchise' | 'media' | 'general'
 
@@ -26,13 +28,30 @@ export function ContactForm() {
     const data = new FormData(form)
     const name = data.get('name') as string
     const email = data.get('email') as string
+    const org = data.get('org') as string
     const message = data.get('message') as string
     const subject = `WLA Enquiry - ${ENQUIRY_TYPES.find((t) => t.value === type)?.label}`
-    const body = `Name: ${name}\nEmail: ${email}\nEnquiry type: ${type}\n\n${message}`
-    window.open(
-      `mailto:${COMPANY.email.general}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`,
-    )
-    setTimeout(() => { setLoading(false); setSent(true) }, 800)
+
+    try {
+      const { error } = await supabase.from('inquiries').insert([
+        {
+          name,
+          email,
+          subject,
+          message: `Organisation: ${org || 'Not provided'}\n\n${message}`,
+          status: 'new',
+        },
+      ])
+
+      if (error) throw error
+
+      setSent(true)
+    } catch (err) {
+      console.error('Error submitting inquiry:', err)
+      toast.error('Failed to send message. Please try again.')
+    } finally {
+      setLoading(false)
+    }
   }
 
   if (sent) {
@@ -41,7 +60,7 @@ export function ContactForm() {
         <CheckCircle size={48} className="mb-6" style={{ color: 'var(--text-gold)' }} strokeWidth={1.5} />
         <h3 className="mb-3 font-display text-2xl font-black" style={{ color: 'var(--text-primary)' }}>Message Sent</h3>
         <p className="mb-6" style={{ color: 'var(--text-secondary)' }}>
-          Your email client opened with your enquiry pre-filled. We aim to respond within 2 business days.
+          Your enquiry has been received. We aim to respond within 2 business days.
         </p>
         <button
           onClick={() => setSent(false)}

@@ -175,7 +175,7 @@ export function HeroSection() {
             transform: mounted ? 'translateY(0)' : 'translateY(24px)',
           }}
         >
-          WLA Entertainment Ltd is a CAC-registered sports entertainment company building
+          WLA Entertainment Ltd is a sports entertainment company building
           Africa&apos;s first continental network of warrior-format competitions, broadcasts,
           and franchises.
         </p>
@@ -222,7 +222,7 @@ export function HeroSection() {
         >
           {[
             { value: '220M+', label: 'Nigerian Audience' },
-            { value: '4', label: 'Franchise Markets' },
+            { value: '1', label: 'Active Franchise' },
             { value: '6', label: 'Revenue Streams' },
             { value: 'S1', label: 'Season One' },
           ].map((s, i) => (
@@ -244,7 +244,7 @@ export function HeroSection() {
         style={{ color: 'var(--text-faint)', opacity: mounted ? 1 : 0 }}
       >
         <ShieldCheck size={12} style={{ color: 'var(--color-gold-deeper)' }} />
-        {COMPANY.name} · {COMPANY.rc} · Incorporated May 2026 · Asaba, Nigeria
+        {COMPANY.name} · {COMPANY.rc}
       </div>
 
       {/* ── Scroll indicator ── */}

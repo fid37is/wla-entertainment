@@ -9,7 +9,7 @@ import { COMPANY } from '@/lib/constants'
 const FOOTER_LINKS = {
   Company: [
     { label: 'About WLA', href: '/about' },
-    { label: 'Franchises', href: '/#franchises' },
+    { label: 'Franchises', href: '/franchises' },
     { label: 'Business Pillars', href: '/#business' },
     { label: 'Investor Relations', href: '/investors' },
     { label: 'Contact', href: '/contact' },
@@ -81,7 +81,6 @@ export function Footer() {
 
             <div className="space-y-1 text-xs" style={{ color: 'var(--text-faint)' }}>
               <p>{COMPANY.rc}</p>
-              <p>Incorporated May 2026</p>
               <p>Asaba, Delta State, Nigeria</p>
             </div>
           </div>

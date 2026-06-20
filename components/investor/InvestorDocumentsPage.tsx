@@ -78,7 +78,7 @@ export default function InvestorDocumentsPage() {
       <InvestorSidebar />
 
       <main className="flex-1 lg:ml-64 min-h-screen">
-        <div className="mx-auto max-w-5xl px-6 py-8 lg:px-8">
+        <div className="mx-auto px-6 py-8 lg:px-8">
 
           {/* Header */}
           <div className="mb-8">

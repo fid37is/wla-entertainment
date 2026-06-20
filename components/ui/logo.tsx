@@ -6,6 +6,7 @@ import { cn } from '@/lib/utils'
 
 // ─── WLA Logo ─────────────────────────────────────────────────────────────────
 // Reads /public/wla-logo.png - drop the file and it activates everywhere.
+// Dark container keeps the gold/white logo visible on any theme.
 
 interface LogoProps {
   size?: number
@@ -13,13 +14,19 @@ interface LogoProps {
   rounded?: string
 }
 
-export function WLALogo({ size = 40, className, rounded = 'rounded-lg' }: LogoProps) {
+export function WLALogo({ size = 40, className, rounded = 'rounded-xl' }: LogoProps) {
   const [failed, setFailed] = useState(false)
 
   return (
     <div
-      className={cn('relative flex-shrink-0', rounded, className)}
-      style={{ width: size, height: size }}
+      className={cn('relative flex-shrink-0 overflow-hidden', rounded, className)}
+      style={{
+        width: size,
+        height: size,
+        background: '#1A1600',
+        // Gold ring separates logo from any background
+        boxShadow: '0 0 0 1.5px rgba(202,138,4,0.50)',
+      }}
     >
       {!failed ? (
         <Image
@@ -27,11 +34,12 @@ export function WLALogo({ size = 40, className, rounded = 'rounded-lg' }: LogoPr
           alt="WLA Entertainment Ltd"
           fill
           sizes={`${size}px`}
-          className="object-contain"
+          // scale-[1.08] lets the logo bleed slightly to the edges
+          // so it looks bold and fills the container - not recessed
+          className="object-contain object-center scale-[1.08]"
           onError={() => setFailed(true)}
         />
       ) : (
-        /* Fallback monogram */
         <div
           className={cn(
             'flex h-full w-full items-center justify-center font-display font-black text-black',
@@ -50,7 +58,6 @@ export function WLALogo({ size = 40, className, rounded = 'rounded-lg' }: LogoPr
 }
 
 // ─── Person Avatar ────────────────────────────────────────────────────────────
-// Pass src="/team/fidelis-agba.jpg" - falls back to initials if missing.
 
 interface AvatarProps {
   src?: string | null
@@ -80,7 +87,6 @@ export function Avatar({ src, alt, initials, size = 64, gold = false, className 
           onError={() => setFailed(true)}
         />
       ) : (
-        /* Fallback monogram - only shown when no image or image fails */
         <div
           className="flex h-full w-full items-center justify-center font-display font-black"
           style={{

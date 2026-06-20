@@ -54,12 +54,12 @@ export function Navbar() {
 
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3">
-          <WLALogo size={40} rounded="rounded-lg" />
+          <WLALogo size={56} rounded="rounded-xl" />
           <div>
-            <p className="font-display text-sm font-bold leading-tight" style={{ color: 'var(--text-primary)' }}>
+            <p className="font-display text-base font-bold leading-tight" style={{ color: 'var(--text-primary)' }}>
               WLA Entertainment
             </p>
-            <p className="text-[10px] font-bold uppercase tracking-widest leading-tight" style={{ color: 'var(--text-gold)' }}>
+            <p className="text-[11px] font-bold uppercase tracking-widest leading-tight" style={{ color: 'var(--text-gold)' }}>
               Warriors League Africa
             </p>
           </div>
