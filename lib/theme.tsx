@@ -63,10 +63,10 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     const outgoingColor = current === 'dark' ? '#080808' : '#f5f4f0'
     const direction     = current === 'dark' ? 'down' : 'up' as 'down' | 'up'
 
-    // Step 1 — slam blind down instantly (no transition)
+    // Step 1 - slam blind down instantly (no transition)
     setBlind({ active: true, retracting: false, direction, color: outgoingColor })
 
-    // Step 2 — wait for the blind to actually paint at scaleY(1), then swap theme
+    // Step 2 - wait for the blind to actually paint at scaleY(1), then swap theme
     // and begin retraction. Two rAF calls ensure the browser has committed a frame.
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
@@ -75,7 +75,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
         localStorage.setItem('wla-theme', next)
         setTheme(next)
 
-        // Begin retraction — now the transition kicks in
+        // Begin retraction - now the transition kicks in
         setBlind(prev => ({ ...prev, retracting: true }))
 
         // Clean up after animation

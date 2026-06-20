@@ -59,27 +59,27 @@ export interface Pillar {
 export const PILLARS: Pillar[] = [
   {
     title: 'Sports Entertainment',
-    desc: 'Live competition events broadcast nationally and streamed across Africa.',
+    desc: 'Live obstacle competition events produced to broadcast standard and distributed nationally. The event is the product — every zone week, every grand finale.',
   },
   {
     title: 'Media Production',
-    desc: 'In-house content production for broadcast, streaming, and digital platforms.',
+    desc: 'WLA controls the camera as well as the course. Episode production, highlight packages, and digital content are produced in-house to protect format quality.',
   },
   {
     title: 'Franchise Licensing',
-    desc: 'A scalable regional franchise model built for continental expansion.',
+    desc: 'After Nigeria proves the concept, every subsequent country edition is licensed — not operated. WLA earns format fees and royalties without proportional cost growth.',
   },
   {
     title: 'Talent Management',
-    desc: "Developing and representing Africa's next generation of elite athletes.",
+    desc: 'Athletes who break out on the course become assets. WLA identifies, develops, and represents the competitors who carry the brand beyond the competition season.',
   },
   {
     title: 'Digital Platforms',
-    desc: 'Technology infrastructure connecting competitors, audiences, and partners.',
+    desc: 'naijaninja.net handles registration, results, and fan engagement. The platform is the connective tissue between live events, broadcast episodes, and the continental audience.',
   },
   {
     title: 'Sponsorship Management',
-    desc: "Connecting Africa's top brands with millions of engaged viewers.",
+    desc: "Six revenue streams per season — title sponsor, zone sponsors, product placement, broadcast rights, digital rights, and merchandise. WLA manages the full commercial stack.",
   },
 ]
 

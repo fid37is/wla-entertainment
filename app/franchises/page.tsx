@@ -3,87 +3,61 @@ import Link from 'next/link'
 import { ArrowUpRight, Mail } from 'lucide-react'
 import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
-import { FlagNigeria, FlagGhana, FlagKenya, FlagSouthAfrica } from '@/components/ui/Flags'
+import { AfricaMap } from '@/components/sections/AfricaMap'
 import { COMPANY } from '@/lib/constants'
 
 export const metadata: Metadata = {
   title: 'Franchises - Warriors League Africa',
   description:
-    'WLA Entertainment Ltd licenses the Warriors League Africa format across Africa. Nigeria is live. Ghana, Kenya, and South Africa are available for licensing.',
+    'WLA Entertainment Ltd licenses the Warriors League Africa format across Africa. Nigeria is live. Ghana, Kenya, and South Africa are projected expansion markets.',
 }
 
-const FRANCHISES = [
+interface Franchise {
+  code: string
+  name: string
+  country: string
+  region: string
+  status: 'live' | 'projected'
+  desc: string
+  url: string | null
+}
+
+const FRANCHISES: Franchise[] = [
   {
-    Flag: FlagNigeria,
     code: 'NNW',
     name: 'Naija Ninja Warrior',
     country: 'Nigeria',
     region: 'West Africa',
-    status: 'live' as const,
-    desc: "The flagship franchise and proof of concept for the WLA format. Nigeria Ninja Warrior runs across all six geopolitical zones - North-West, North-East, North-Central, South-West, South-East, and South-South - with zone champions qualifying for the Grand Finale in FCT Abuja.",
-    details: [
-      'Six zonal competition weeks',
-      'National Grand Finale - FCT Abuja',
-      'Broadcast-quality episode production',
-      '220M+ addressable audience',
-      'naijaninja.net platform live',
-    ],
+    status: 'live',
+    desc: 'The flagship franchise and proof of concept for the WLA format. Runs across all six geopolitical zones, with zone champions qualifying for the Grand Finale in FCT Abuja.',
     url: 'https://naijaninja.net',
-    cta: 'Visit naijaninja.net',
   },
   {
-    Flag: FlagGhana,
     code: 'GNW',
     name: 'Ghana Ninja Warrior',
     country: 'Ghana',
     region: 'West Africa',
-    status: 'available' as const,
-    desc: "Ghana is the natural first expansion market - strong youth culture, a growing entertainment industry, and a diaspora that drives digital viewership. The WLA format is ready to license to a Ghanaian production partner.",
-    details: [
-      'Format licence available',
-      'Local production partner required',
-      'Full WLA format bible provided',
-      'Equipment introduction to Gomeng',
-      'WLA brand standards and support',
-    ],
+    status: 'projected',
+    desc: "A projected expansion market once the Nigerian edition has proven the format. No licence has been issued and no partner has been confirmed.",
     url: null,
-    cta: null,
   },
   {
-    Flag: FlagKenya,
     code: 'KNW',
     name: 'Kenya Ninja Warrior',
     country: 'Kenya',
     region: 'East Africa',
-    status: 'available' as const,
-    desc: "Kenya's media market - anchored by Nairobi's creative economy and East Africa's largest digital audience - makes it a priority expansion territory for WLA. The format licence is open to qualified local partners.",
-    details: [
-      'Format licence available',
-      'Local production partner required',
-      'Full WLA format bible provided',
-      'Equipment introduction to Gomeng',
-      'WLA brand standards and support',
-    ],
+    status: 'projected',
+    desc: "A projected expansion market under consideration for East Africa. No licence has been issued and no partner has been confirmed.",
     url: null,
-    cta: null,
   },
   {
-    Flag: FlagSouthAfrica,
     code: 'SANW',
     name: 'South Africa Ninja Warrior',
     country: 'South Africa',
     region: 'Southern Africa',
-    status: 'available' as const,
-    desc: "South Africa brings the most developed broadcast infrastructure on the continent - MultiChoice, SuperSport, and a proven content market. A WLA franchise here would anchor the Southern Africa network and provide a direct pathway to continental broadcast deals.",
-    details: [
-      'Format licence available',
-      'Local production partner required',
-      'Full WLA format bible provided',
-      'Equipment introduction to Gomeng',
-      'WLA brand standards and support',
-    ],
+    status: 'projected',
+    desc: "A projected expansion market under consideration for Southern Africa. No licence has been issued and no partner has been confirmed.",
     url: null,
-    cta: null,
   },
 ]
 
@@ -110,137 +84,102 @@ export default function FranchisesPage() {
 
       <main>
 
-        {/* ── Hero ── */}
-        <section className="relative overflow-hidden px-6 pb-16 pt-32">
-          <div
-            className="pointer-events-none absolute left-1/2 top-0 h-[500px] w-[700px] -translate-x-1/2 opacity-40"
-            style={{ background: 'radial-gradient(ellipse, rgba(234,179,8,0.08) 0%, transparent 70%)' }}
-            aria-hidden="true"
-          />
-          <div className="mx-auto max-w-7xl">
-            <p className="mb-4 text-xs font-bold uppercase tracking-[0.35em]" style={{ color: 'var(--text-gold)' }}>
-              The Network
-            </p>
-            <h1
-              className="mb-6 font-display font-black leading-tight"
-              style={{ fontSize: 'clamp(2.8rem, 6vw, 5rem)', color: 'var(--text-primary)' }}
-            >
-              One format.
-              <br />
-              <span style={{
-                background: 'var(--gradient-gold-text)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-              }}>
-                54 nations.
-              </span>
-            </h1>
-            <p className="max-w-2xl text-lg leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-              WLA owns the Warriors League Africa format. We license it to local partners across the continent - each producing their own edition, under the WLA standard, with their own broadcasters and sponsors. Nigeria is live. Every other market is open.
-            </p>
-          </div>
-        </section>
+        {/* ── Hero with map ── */}
+        <section className="relative overflow-hidden pb-16 pt-32">
+          <div className="mx-auto max-w-7xl px-6">
+            <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
 
-        {/* ── Full-bleed flag strip ── */}
-        <section id="network">
-          <div className="flex w-full overflow-x-auto" style={{ scrollbarWidth: 'none' }}>
-            {FRANCHISES.map((f, i) => {
-              const isLive = f.status === 'live'
-              return (
-                <div
-                  key={f.code}
-                  className="group relative flex-none overflow-hidden"
-                  style={{ width: '25vw', minWidth: '220px', height: '480px' }}
+              {/* Left  copy */}
+              <div>
+                <p className="mb-4 text-xs font-bold uppercase tracking-[0.35em]" style={{ color: 'var(--text-gold)' }}>
+                  The Network
+                </p>
+                <h1
+                  className="mb-6 font-display font-black leading-tight"
+                  style={{ fontSize: 'clamp(2.8rem, 6vw, 5rem)', color: 'var(--text-primary)' }}
                 >
-                  <div
-                    className="absolute inset-0 transition-transform duration-700 group-hover:scale-105"
-                    style={{ filter: isLive ? 'brightness(0.8)' : 'brightness(0.22) saturate(0.3)' }}
+                  One format.
+                  <br />
+                  <span
+                    style={{
+                      background: 'var(--gradient-gold-text)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      backgroundClip: 'text',
+                    }}
                   >
-                    <f.Flag className="h-full w-full" />
-                  </div>
-                  <div
-                    className="absolute inset-0"
-                    style={{ background: 'linear-gradient(160deg, transparent 25%, rgba(0,0,0,0.92) 65%)' }}
-                  />
-                  {isLive && (
-                    <div className="absolute left-0 top-0 h-full w-1" style={{ background: 'var(--gradient-gold)' }} />
-                  )}
-                  <div className="absolute left-5 top-5">
-                    <span
-                      className="font-display text-7xl font-black leading-none"
-                      style={{
-                        color: 'transparent',
-                        WebkitTextStroke: isLive ? '1px rgba(234,179,8,0.2)' : '1px rgba(255,255,255,0.06)',
-                      }}
-                    >
-                      {String(i + 1).padStart(2, '0')}
-                    </span>
-                  </div>
-                  {isLive && (
-                    <div className="absolute right-5 top-5 flex items-center gap-1.5 rounded-full px-3 py-1.5"
-                      style={{ background: 'var(--color-gold)' }}>
-                      <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-black" />
-                      <span className="text-[9px] font-black uppercase tracking-widest text-black">Live</span>
-                    </div>
-                  )}
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <p
-                      className="mb-1 font-display font-black leading-none"
-                      style={{
-                        fontSize: 'clamp(2rem, 4vw, 3rem)',
-                        color: isLive ? 'var(--color-gold)' : 'rgba(255,255,255,0.3)',
-                        letterSpacing: '-0.02em',
-                      }}
-                    >
-                      {f.code}
-                    </p>
-                    <p className="mb-3 text-sm" style={{ color: 'var(--text-secondary)' }}>{f.name}</p>
-                    <div
-                      className="inline-block rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-wider"
-                      style={{
-                        background: isLive ? 'rgba(234,179,8,0.15)' : 'rgba(255,255,255,0.05)',
-                        color: isLive ? 'var(--color-gold)' : 'var(--text-faint)',
-                        border: isLive ? '1px solid var(--border-gold)' : '1px solid var(--border-subtle)',
-                      }}
-                    >
-                      {isLive ? 'Season 1 · 2026' : 'Available for Licensing'}
-                    </div>
-                  </div>
-                </div>
-              )
-            })}
+                    54 nations.
+                  </span>
+                </h1>
+                <p className="text-lg leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+                  WLA owns the Warriors League Africa format. Nigeria is the proof of concept  live and
+                  operating. Every other market on this map is a projected expansion, not a confirmed
+                  franchise.
+                </p>
+              </div>
+
+              {/* Right  map */}
+              <div className="relative z-0 flex items-center justify-center">
+                <AfricaMap />
+              </div>
+
+            </div>
           </div>
         </section>
 
-        {/* ── Franchise detail cards ── */}
-        <section className="px-6 py-24">
-          <div className="mx-auto max-w-7xl space-y-8">
-            {FRANCHISES.map((f) => {
-              const isLive = f.status === 'live'
-              return (
-                <div
-                  key={f.code}
-                  className="grid grid-cols-1 gap-8 rounded-[--radius-2xl] p-8 lg:grid-cols-2"
-                  style={{
-                    background: isLive ? 'var(--bg-gold-tint)' : 'var(--bg-surface)',
-                    border: isLive ? '1px solid var(--border-gold)' : '1px solid var(--border-subtle)',
-                  }}
-                >
-                  {/* Left */}
-                  <div>
-                    <div className="mb-5 flex items-center gap-4">
-                      <div className="overflow-hidden rounded-xl" style={{ width: 56, height: 38 }}>
-                        <f.Flag className="h-full w-full" />
-                      </div>
+        {/* ── Franchise grid ── */}
+        <section className="px-6 py-20" style={{ borderTop: '1px solid var(--border-subtle)' }}>
+          <div className="mx-auto max-w-7xl">
+            <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+              {FRANCHISES.map((f) => {
+                const isLive = f.status === 'live'
+                return (
+                  <div
+                    key={f.code}
+                    className="rounded-2xl p-8"
+                    style={{
+                      background: isLive ? 'var(--bg-gold-tint)' : 'var(--bg-surface)',
+                      border: isLive ? '1px solid var(--border-gold)' : '1px solid var(--border-subtle)',
+                    }}
+                  >
+                    <div className="mb-4 flex items-start justify-between gap-4">
                       <div>
-                        <p className="text-xs font-black uppercase tracking-[0.2em]" style={{ color: 'var(--text-gold)' }}>{f.code}</p>
-                        <h3 className="font-display text-xl font-black" style={{ color: 'var(--text-primary)' }}>{f.name}</h3>
-                        <p className="text-sm" style={{ color: 'var(--text-muted)' }}>{f.country} · {f.region}</p>
+                        <p className="mb-1 text-xs font-black uppercase tracking-[0.2em]" style={{ color: 'var(--text-gold)' }}>
+                          {f.code}
+                        </p>
+                        <h3 className="font-display text-xl font-black" style={{ color: 'var(--text-primary)' }}>
+                          {f.name}
+                        </h3>
+                        <p className="text-sm" style={{ color: 'var(--text-muted)' }}>
+                          {f.country} · {f.region}
+                        </p>
                       </div>
+                      {isLive ? (
+                        <span
+                          className="flex flex-shrink-0 items-center gap-1.5 rounded-full px-3 py-1.5"
+                          style={{ background: 'var(--color-gold)' }}
+                        >
+                          <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-black" />
+                          <span className="text-[9px] font-black uppercase tracking-widest text-black">Live</span>
+                        </span>
+                      ) : (
+                        <span
+                          className="flex-shrink-0 rounded-full px-3 py-1.5 text-[9px] font-black uppercase tracking-widest"
+                          style={{
+                            border: '1px solid var(--border-subtle)',
+                            color: 'var(--text-faint)',
+                          }}
+                        >
+                          Projected
+                        </span>
+                      )}
                     </div>
-                    <p className="mb-6 leading-relaxed" style={{ color: 'var(--text-secondary)' }}>{f.desc}</p>
-                    {f.url && (
+
+                    <p className="mb-6 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+                      {f.desc}
+                    </p>
+
+                    {isLive && f.url ? (
                       <a
                         href={f.url}
                         target="_blank"
@@ -248,37 +187,21 @@ export default function FranchisesPage() {
                         className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-bold text-black transition-all hover:brightness-110"
                         style={{ background: 'var(--gradient-gold)' }}
                       >
-                        {f.cta} <ArrowUpRight size={14} />
+                        Visit naijaninja.net <ArrowUpRight size={14} />
                       </a>
-                    )}
-                    {!isLive && (
+                    ) : (
                       <a
-                        href={`mailto:${COMPANY.email.general}?subject=Franchise Licence Enquiry - ${f.code}`}
-                        className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-bold transition-all hover:brightness-110"
-                        style={{ background: 'var(--gradient-gold)', color: '#000' }}
+                        href={`mailto:${COMPANY.email.general}?subject=Franchise Interest - ${f.code}`}
+                        className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-bold transition-all"
+                        style={{ border: '1px solid var(--border-medium)', color: 'var(--text-primary)' }}
                       >
-                        Enquire About Licensing <ArrowUpRight size={14} />
+                        Register Interest <ArrowUpRight size={14} />
                       </a>
                     )}
                   </div>
-
-                  {/* Right - details */}
-                  <div>
-                    <p className="mb-3 text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>
-                      {isLive ? 'Format Details' : 'What You Get'}
-                    </p>
-                    <ul className="space-y-3">
-                      {f.details.map((d) => (
-                        <li key={d} className="flex items-start gap-3">
-                          <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full" style={{ background: 'var(--color-gold)' }} />
-                          <span className="text-sm" style={{ color: 'var(--text-secondary)' }}>{d}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              )
-            })}
+                )
+              })}
+            </div>
           </div>
         </section>
 
@@ -293,12 +216,16 @@ export default function FranchisesPage() {
                 How Franchise Licensing Works
               </h2>
               <p className="mx-auto max-w-2xl" style={{ color: 'var(--text-secondary)' }}>
-                WLA provides the format. Local partners provide everything else. The same model that built Big Brother, MasterChef, and The Voice into global IP empires.
+                WLA provides the format. Local partners provide everything else  once a territory
+                is confirmed and a licence is issued.
               </p>
             </div>
 
             <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-              <div className="rounded-[--radius-2xl] p-8" style={{ background: 'var(--bg-gold-tint)', border: '1px solid var(--border-gold)' }}>
+              <div
+                className="rounded-2xl p-8"
+                style={{ background: 'var(--bg-gold-tint)', border: '1px solid var(--border-gold)' }}
+              >
                 <h3 className="mb-5 font-display text-lg font-black" style={{ color: 'var(--text-primary)' }}>
                   WLA Provides
                 </h3>
@@ -311,7 +238,10 @@ export default function FranchisesPage() {
                   ))}
                 </ul>
               </div>
-              <div className="rounded-[--radius-2xl] p-8" style={{ background: 'var(--bg-surface)', border: '1px solid var(--border-subtle)' }}>
+              <div
+                className="rounded-2xl p-8"
+                style={{ background: 'var(--bg-surface)', border: '1px solid var(--border-subtle)' }}
+              >
                 <h3 className="mb-5 font-display text-lg font-black" style={{ color: 'var(--text-primary)' }}>
                   Local Partners Provide
                 </h3>
@@ -347,7 +277,7 @@ export default function FranchisesPage() {
               </a>
               <Link
                 href="/investors"
-                className="flex items-center gap-2 rounded-full px-8 py-4 font-bold transition-all hover:bg-white/5"
+                className="flex items-center gap-2 rounded-full px-8 py-4 font-bold transition-all"
                 style={{ border: '1px solid var(--border-subtle)', color: 'var(--text-secondary)' }}
               >
                 View Investor Relations <ArrowUpRight size={16} />

@@ -244,7 +244,7 @@ export default function InvestorDashboard() {
       <InvestorSidebar />
 
       <main className="flex-1 lg:ml-64 min-h-screen">
-        <div className="mx-auto px-6 py-8 lg:px-8 max-w-7xl">
+        <div className="mx-auto px-6 py-8 lg:px-8">
 
           {/* ── Header ── */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">

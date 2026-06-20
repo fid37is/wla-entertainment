@@ -37,7 +37,13 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en-NG">
+    // suppressHydrationWarning is scoped to this element only (it does not
+    // propagate to children). It's needed here because the investor portal's
+    // theme script intentionally sets `data-theme` on <html> synchronously,
+    // before React hydrates, to avoid a flash of the wrong theme. That makes
+    // the server-rendered attribute differ from the client DOM on purpose —
+    // this tells React that specific mismatch is expected, not a bug.
+    <html lang="en-NG" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
