@@ -143,6 +143,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
+    
   }
 
   .font-display { font-family: var(--font-display); }

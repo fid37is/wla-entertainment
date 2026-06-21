@@ -4,17 +4,17 @@ import { useState, useEffect } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { supabase } from '@/lib/supabase/client'
 import { toast } from 'sonner'
-import { Eye, EyeOff, ArrowUpRight, Sun, Moon } from 'lucide-react'
+import { Eye, EyeOff, ArrowUpRight } from 'lucide-react'
 import Link from 'next/link'
 import { WLALogo } from '@/components/ui/logo'
-import { useTheme } from '@/lib/theme'
+import ChangePasswordForm from './ChangePasswordForm'
 
 export default function InvestorLoginForm() {
   const searchParams = useSearchParams()
   const [form, setForm]       = useState({ email: '', password: '' })
   const [showPw, setShowPw]   = useState(false)
   const [loading, setLoading] = useState(false)
-  const { theme, toggle }     = useTheme()
+  const [stage, setStage]     = useState<'login' | 'change-password'>('login')
 
   useEffect(() => {
     const email = searchParams.get('email')
@@ -46,38 +46,25 @@ export default function InvestorLoginForm() {
       }
 
       toast.success('Welcome back.')
-      window.location.replace(
-        userData.must_change_password ? '/portal/change-password' : '/portal/dashboard'
-      )
+      if (userData.must_change_password) {
+        setLoading(false)
+        setStage('change-password')
+        return
+      }
+      window.location.replace('/portal/dashboard')
     } catch {
       toast.error('Something went wrong.'); setLoading(false)
     }
   }
 
-  return (
-    <main className="min-h-screen flex" style={{ background: 'var(--bg-base)' }}>
+  const handleChangePasswordCancel = async () => {
+    await supabase.auth.signOut()
+    setForm(f => ({ email: f.email, password: '' }))
+    setStage('login')
+  }
 
-      {/* ── Theme toggle - fixed top right ── */}
-      <button
-        onClick={toggle}
-        aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
-        className="fixed top-5 right-5 z-50 flex h-9 w-9 items-center justify-center rounded-full transition-all"
-        style={{
-          border: '1px solid var(--border-subtle)',
-          background: 'var(--bg-surface)',
-          color: 'var(--text-muted)',
-        }}
-        onMouseEnter={e => {
-          ;(e.currentTarget as HTMLElement).style.borderColor = 'var(--border-gold)'
-          ;(e.currentTarget as HTMLElement).style.color = 'var(--text-gold)'
-        }}
-        onMouseLeave={e => {
-          ;(e.currentTarget as HTMLElement).style.borderColor = 'var(--border-subtle)'
-          ;(e.currentTarget as HTMLElement).style.color = 'var(--text-muted)'
-        }}
-      >
-        {theme === 'dark' ? <Sun size={15} /> : <Moon size={15} />}
-      </button>
+  return (
+    <main className="h-full flex" style={{ background: 'var(--bg-base)' }}>
 
       {/* ── Left - branding ── */}
       <div
@@ -123,6 +110,12 @@ export default function InvestorLoginForm() {
           </p>
         </div>
 
+        {stage === 'change-password' ? (
+          <ChangePasswordForm
+            onCancel={handleChangePasswordCancel}
+            cancelLabel="Back to Sign In"
+          />
+        ) : (
         <div className="w-full max-w-md">
           <h2
             className="font-display font-black mb-2"
@@ -216,6 +209,7 @@ export default function InvestorLoginForm() {
             </Link>
           </div>
         </div>
+        )}
       </div>
     </main>
   )
