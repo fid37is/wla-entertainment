@@ -35,7 +35,7 @@ export default function InvestorContactForm() {
       if (!session) { router.replace('/portal/login'); return }
       setFormData(prev => ({
         ...prev,
-        name:  session.user.user_metadata?.full_name || '',
+        name: session.user.user_metadata?.full_name || '',
         email: session.user.email || '',
       }))
       setSessionChecked(true)
@@ -59,11 +59,11 @@ export default function InvestorContactForm() {
     setSubmitting(true)
     try {
       const { error } = await supabase.from('inquiries').insert([{
-        name:    formData.name,
-        email:   formData.email,
+        name: formData.name,
+        email: formData.email,
         subject: `[WLA Investor] ${formData.subject}`,
         message: `Phone: ${formData.phone || 'Not provided'}\n\n${formData.message}`,
-        status:  'new',
+        status: 'new',
       }])
       if (error) throw error
       setSubmitted(true)
@@ -110,8 +110,8 @@ export default function InvestorContactForm() {
           {/* Contact cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-12">
             {[
-              { Icon: Mail,   label: 'Email',    value: COMPANY.email.general, href: `mailto:${COMPANY.email.general}` },
-              { Icon: Phone,  label: 'Call',     value: COMPANY.phone,         href: COMPANY.phoneHref },
+              { Icon: Mail, label: 'Email', value: COMPANY.email.general, href: `mailto:${COMPANY.email.general}` },
+              { Icon: Phone, label: 'Call', value: COMPANY.phone, href: COMPANY.phoneHref },
               { Icon: MapPin, label: 'Location', value: 'Asaba, Delta State, Nigeria', href: null },
             ].map(({ Icon, label, value, href }) => (
               <div key={label} className="rounded-[--radius-2xl] p-6"
@@ -196,9 +196,18 @@ export default function InvestorContactForm() {
                         <label className="mb-2 block text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>
                           Subject <span style={{ color: 'var(--status-error-text)' }}>*</span>
                         </label>
-                        <select value={formData.subject} onChange={set('subject')} className="input-base">
-                          <option value="">Select a subject</option>
-                          {SUBJECTS.map(s => <option key={s} value={s}>{s}</option>)}
+                        <select
+                          value={formData.subject}
+                          onChange={set('subject')}
+                          className="input-base"
+                          style={{ colorScheme: 'dark' }}
+                        >
+                          <option value="" style={{ background: '#1a1a1a', color: '#fff' }}>Select a subject</option>
+                          {SUBJECTS.map(s => (
+                            <option key={s} value={s} style={{ background: '#1a1a1a', color: '#fff' }}>
+                              {s}
+                            </option>
+                          ))}
                         </select>
                       </div>
                     </div>
@@ -212,21 +221,23 @@ export default function InvestorContactForm() {
                         placeholder="Describe your inquiry in detail…" />
                     </div>
 
-                    <button
-                      onClick={handleSubmit}
-                      disabled={submitting}
-                      className="flex items-center gap-2 rounded-[--radius-full] px-8 py-3 font-bold transition-all hover:brightness-110 disabled:opacity-50"
-                      style={{ background: 'var(--gradient-gold)', color: '#000' }}
-                    >
-                      {submitting ? (
-                        <>
-                          <span className="h-4 w-4 rounded-full border-2 border-black/30 border-t-black animate-spin" />
-                          Sending…
-                        </>
-                      ) : (
-                        <><Send size={15} /> Send Message</>
-                      )}
-                    </button>
+                    <div className="flex justify-end">
+                      <button
+                        onClick={handleSubmit}
+                        disabled={submitting}
+                        className="flex items-center gap-2 rounded-2xl px-8 py-3 font-bold transition-all hover:brightness-110 disabled:opacity-50"
+                        style={{ background: 'var(--gradient-gold)', color: '#000' }}
+                      >
+                        {submitting ? (
+                          <>
+                            <span className="h-4 w-4 rounded-full border-2 border-black/30 border-t-black animate-spin" />
+                            Sending…
+                          </>
+                        ) : (
+                          <><Send size={15} /> Send Message</>
+                        )}
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -240,8 +251,8 @@ export default function InvestorContactForm() {
                   <div className="space-y-3 text-sm">
                     {[
                       ['Monday – Friday', '9:00 AM – 6:00 PM'],
-                      ['Saturday',        '10:00 AM – 4:00 PM'],
-                      ['Sunday',          'Closed'],
+                      ['Saturday', '10:00 AM – 4:00 PM'],
+                      ['Sunday', 'Closed'],
                     ].map(([day, hours]) => (
                       <div key={day} className="flex justify-between">
                         <span style={{ color: 'var(--text-secondary)' }}>{day}</span>
@@ -285,12 +296,12 @@ export default function InvestorContactForm() {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
               {[
-                { dept: 'Investor Relations',   desc: 'Investment updates, returns, and portfolio queries' },
-                { dept: 'Finance & Reporting',  desc: 'Financial statements and distribution questions' },
-                { dept: 'Board & Governance',   desc: 'Meeting schedules and governance matters' },
-                { dept: 'Franchise Licensing',  desc: 'Franchise enquiries and partnership discussions' },
+                { dept: 'Investor Relations', desc: 'Investment updates, returns, and portfolio queries' },
+                { dept: 'Finance & Reporting', desc: 'Financial statements and distribution questions' },
+                { dept: 'Board & Governance', desc: 'Meeting schedules and governance matters' },
+                { dept: 'Franchise Licensing', desc: 'Franchise enquiries and partnership discussions' },
                 { dept: 'Media & Broadcasting', desc: 'Press enquiries and media partnerships' },
-                { dept: 'General Enquiries',    desc: 'All other questions and feedback' },
+                { dept: 'General Enquiries', desc: 'All other questions and feedback' },
               ].map((c) => (
                 <div key={c.dept} className="rounded-[--radius-xl] p-5"
                   style={{ background: 'var(--bg-surface)', border: '1px solid var(--border-subtle)' }}>
@@ -319,7 +330,7 @@ export default function InvestorContactForm() {
             </p>
             <a
               href={COMPANY.phoneHref}
-              className="inline-flex items-center gap-2 rounded-[--radius-full] px-8 py-3 font-bold transition-all hover:brightness-110"
+              className="inline-flex items-center gap-2 rounded-2xl px-8 py-3 font-bold transition-all hover:brightness-110"
               style={{ background: 'var(--gradient-gold)', color: '#000' }}
             >
               <Phone size={17} /> {COMPANY.phone}

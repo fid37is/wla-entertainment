@@ -3,7 +3,8 @@
 
 import { usePathname } from 'next/navigation'
 import InvestorSidebar from '@/components/investor/InvestorSidebar'
-const NO_SIDEBAR_PATHS = ['/portal/login', '/portal/change-password']
+import PortalNavbar from '@/components/investor/PortalNavbar'
+const NO_SIDEBAR_PATHS = ['/portal/login']
 
 export default function InvestorPortalLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
@@ -23,7 +24,7 @@ export default function InvestorPortalLayout({ children }: { children: React.Rea
                 var theme = saved === 'light' ? 'light' : 'dark';
                 document.documentElement.setAttribute('data-theme', theme);
               } catch (e) {
-                // localStorage blocked - default to dark
+                // localStorage blocked — default to dark
                 document.documentElement.setAttribute('data-theme', 'dark');
               }
             })();
@@ -32,12 +33,17 @@ export default function InvestorPortalLayout({ children }: { children: React.Rea
       />
 
       {hideSidebar ? (
-        children
+        <div className="flex h-screen flex-col overflow-hidden">
+          <PortalNavbar />
+          <div className="min-h-0 flex-1 overflow-y-auto">{children}</div>
+        </div>
       ) : (
         <>
           <InvestorSidebar />
-          {/* lg:pl-64 matches the sidebar's fixed w-64 so content never sits under it */}
-          <main className="min-h-screen">{children}</main>
+          <main className="min-h-screen">
+            <PortalNavbar />
+            {children}
+          </main>
         </>
       )}
     </>
