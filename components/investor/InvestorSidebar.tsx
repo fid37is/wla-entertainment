@@ -21,10 +21,44 @@ export default function InvestorSidebar() {
   const [open, setOpen] = useState(false)
 
   useEffect(() => {
+    let active = true
+
+    // Role changes (e.g. an admin revoking access) only update a row in the
+    // `users` table — they don't touch the Auth session itself, so an already
+    // logged-in investor's token keeps working until something actively
+    // re-checks the role and acts on it. This runs on every mount, which
+    // means every reload of any sidebar page — so revocation takes effect
+    // the next time the investor reloads, without waiting for their token
+    // to expire or for them to log out and back in.
+    const verifyStillInvestor = async () => {
+      const { data: { session } } = await supabase.auth.getSession()
+      if (!session) { router.replace('/portal/login'); return }
+
+      const { data: userRow, error } = await supabase
+        .from('users')
+        .select('role, investor_status')
+        .eq('id', session.user.id)
+        .single()
+
+      if (!active) return
+
+      if (error || !userRow || userRow.role !== 'investor' || userRow.investor_status === 'revoked') {
+        await supabase.auth.signOut()
+        toast.error('Your investor access has been removed. Please contact the WLA team.')
+        router.replace('/portal/login')
+      }
+    }
+
+    verifyStillInvestor()
+
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_e, session) => {
       if (!session) router.replace('/portal/login')
     })
-    return () => subscription.unsubscribe()
+
+    return () => {
+      active = false
+      subscription.unsubscribe()
+    }
   }, [router])
 
   const handleLogout = async () => {

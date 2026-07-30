@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import { ThemeProvider } from '@/lib/theme'
+import { Toaster } from 'sonner'
 
 export const metadata: Metadata = {
   title: 'WLA Entertainment Ltd - Warriors League Africa',
@@ -37,12 +38,6 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    // suppressHydrationWarning is scoped to this element only (it does not
-    // propagate to children). It's needed here because the investor portal's
-    // theme script intentionally sets `data-theme` on <html> synchronously,
-    // before React hydrates, to avoid a flash of the wrong theme. That makes
-    // the server-rendered attribute differ from the client DOM on purpose —
-    // this tells React that specific mismatch is expected, not a bug.
     <html lang="en-NG" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -56,6 +51,7 @@ export default function RootLayout({
         <ThemeProvider>
           {children}
         </ThemeProvider>
+        <Toaster richColors position="bottom-right" />
       </body>
     </html>
   )
