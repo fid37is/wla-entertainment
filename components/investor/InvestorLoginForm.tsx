@@ -34,14 +34,18 @@ export default function InvestorLoginForm() {
       if (!data.user) { toast.error('Login failed.'); setLoading(false); return }
 
       const { data: userData, error: userError } = await supabase
-        .from('users').select('role, must_change_password').eq('id', data.user.id).single()
+        .from('users').select('role, investor_status, must_change_password').eq('id', data.user.id).single()
 
       if (userError || !userData) {
         toast.error('Account not found. Contact the WLA team.')
         await supabase.auth.signOut(); setLoading(false); return
       }
       if (userData.role !== 'investor') {
-        toast.error('This portal is for WLA investors only.')
+        toast.error("This account doesn't have investor portal access. If you believe this is an error, contact the WLA team.")
+        await supabase.auth.signOut(); setLoading(false); return
+      }
+      if (userData.investor_status === 'revoked') {
+        toast.error('Your investor access has been revoked. Please contact the WLA team.')
         await supabase.auth.signOut(); setLoading(false); return
       }
 

@@ -422,7 +422,27 @@ export default function InvestorDocumentsPage() {
       const { data: docs, error } = await supabase
         .from('investor_documents').select('*').order('created_at', { ascending: false })
       if (error) throw error
-      setDocuments(docs || [])
+
+      // Generate a fresh signed URL for each document's stored path
+      const docsWithSignedUrls = await Promise.all(
+        (docs || []).map(async (doc) => {
+          if (!doc.file_url) return doc
+
+          // file_url should now hold just the storage PATH, e.g. "uploads/xyz.pdf"
+          const { data: signedData, error: signError } = await supabase.storage
+            .from('investor-documents')
+            .createSignedUrl(doc.file_url, 60 * 60) // 1 hour validity
+
+          if (signError) {
+            console.error(`Failed to sign URL for ${doc.title}:`, signError)
+            return { ...doc, file_url: null }
+          }
+
+          return { ...doc, file_url: signedData.signedUrl }
+        })
+      )
+
+      setDocuments(docsWithSignedUrls)
     } catch (err) {
       console.error(err)
       toast.error('Failed to load documents')
