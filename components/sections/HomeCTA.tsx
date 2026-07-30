@@ -28,7 +28,7 @@ export function HomeCTA() {
             </p>
             <Link
               href="/investors"
-              className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-bold text-black transition-all hover:brightness-110"
+              className="inline-flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-bold text-black transition-all hover:brightness-110"
               style={{ background: 'var(--gradient-gold)' }}
             >
               View Investment Case <ArrowUpRight size={14} />
@@ -53,14 +53,14 @@ export function HomeCTA() {
             <div className="flex flex-wrap gap-3">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-bold transition-all"
+                className="inline-flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-bold transition-all"
                 style={{ border: '1px solid var(--border-medium)', color: 'var(--text-primary)' }}
               >
                 Contact Page <ArrowUpRight size={14} />
               </Link>
               <a
                 href={`mailto:${COMPANY.email.general}`}
-                className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-bold transition-all"
+                className="inline-flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-bold transition-all"
                 style={{ color: 'var(--text-muted)' }}
               >
                 <Mail size={14} /> {COMPANY.email.general}

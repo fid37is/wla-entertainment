@@ -189,7 +189,7 @@ export function HeroSection() {
             href="https://naijaninja.net"
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center gap-2 rounded-full px-8 py-4 font-bold transition-all hover:scale-105 hover:brightness-110"
+            className="group flex items-center gap-2 rounded-lg px-8 py-4 font-bold transition-all hover:scale-105 hover:brightness-110"
             style={{ background: 'var(--gradient-gold)', color: '#000' }}
           >
             Launch NNW - Nigeria
@@ -197,7 +197,7 @@ export function HeroSection() {
           </a>
           <a
             href="/franchises"
-            className="flex items-center gap-2 rounded-full px-8 py-4 font-bold transition-all"
+            className="flex items-center gap-2 rounded-lg px-8 py-4 font-bold transition-all"
             style={{
               border: '1px solid var(--border-medium)',
               color: 'var(--text-primary)',
