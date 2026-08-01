@@ -60,7 +60,7 @@ export function FranchiseUpdatesSection() {
             </h2>
           </div>
           <p className="max-w-sm text-sm leading-relaxed" style={{ color: 'var(--text-muted)' }}>
-            WLA is the parent company. Each franchise runs its own platform where fans,
+            We&apos;re the parent company. Each franchise runs its own platform, where fans,
             contestants, and sponsors get live updates.
           </p>
         </div>
@@ -103,14 +103,14 @@ export function FranchiseUpdatesSection() {
                     <span
                       className="flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-bold"
                       style={{
-                        border: '1px solid var(--border-gold)',
-                        background: 'var(--bg-gold-tint-2)',
-                        color: 'var(--text-gold)',
+                        border: '1px solid var(--border-green)',
+                        background: 'var(--bg-green-tint-2)',
+                        color: 'var(--text-green)',
                       }}
                     >
                       <span
                         className="h-1.5 w-1.5 animate-pulse rounded-full"
-                        style={{ background: 'var(--color-gold)' }}
+                        style={{ background: 'var(--color-green)' }}
                       />
                       Live
                     </span>

@@ -158,8 +158,7 @@ export function HeroSection() {
             style={{
               fontSize: 'clamp(3rem, 9vw, 7rem)',
               letterSpacing: '-0.02em',
-              color: 'transparent',
-              WebkitTextStroke: '2px var(--color-gold)',
+              color: 'var(--color-gold)',
             }}
           >
             Warrior League
@@ -175,9 +174,8 @@ export function HeroSection() {
             transform: mounted ? 'translateY(0)' : 'translateY(24px)',
           }}
         >
-          WLA Entertainment Ltd is a sports entertainment company building
-          Africa&apos;s first continental network of warrior-format competitions, broadcasts,
-          and franchises.
+          We&apos;re building Africa&apos;s first continental network of warrior-format
+          competitions - the events, the broadcast, and the franchise beneath them.
         </p>
 
         {/* CTAs */}
@@ -189,7 +187,7 @@ export function HeroSection() {
             href="https://naijaninja.net"
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center gap-2 rounded-lg px-8 py-4 font-bold transition-all hover:scale-105 hover:brightness-110"
+            className="group flex items-center gap-2 rounded-full px-8 py-4 font-bold transition-all hover:scale-105 hover:brightness-110"
             style={{ background: 'var(--gradient-gold)', color: '#000' }}
           >
             Launch NNW - Nigeria
@@ -197,7 +195,7 @@ export function HeroSection() {
           </a>
           <a
             href="/franchises"
-            className="flex items-center gap-2 rounded-lg px-8 py-4 font-bold transition-all"
+            className="flex items-center gap-2 rounded-full px-8 py-4 font-bold transition-all"
             style={{
               border: '1px solid var(--border-medium)',
               color: 'var(--text-primary)',

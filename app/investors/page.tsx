@@ -23,22 +23,22 @@ const SCALING_STEPS = [
   {
     icon: Trophy,
     title: 'Format Proven',
-    body: 'Nigeria is the only market WLA owns and operates directly today - the live proof of the format.',
+    body: 'Nigeria is the only market we own and operate directly today - the live proof of the format.',
   },
   {
     icon: Handshake,
     title: 'Local Partner Licenses It',
-    body: 'A vetted operator in a new market licenses the format. WLA does not run that market - the local partner does.',
+    body: 'A vetted operator in a new market licenses the format from us. We don\u2019t run that market - the local partner does.',
   },
   {
     icon: Rocket,
     title: 'New Market Launches',
-    body: "That partner stages their own national season under the WLA format, branding, and competition rules.",
+    body: 'That partner stages their own national season under our format, branding, and competition rules.',
   },
   {
     icon: TrendingUp,
     title: 'Fees & Royalties Flow Back',
-    body: 'WLA earns format fees and royalties from every licensed market, with minimal incremental cost.',
+    body: 'We earn format fees and royalties from every licensed market, with minimal incremental cost.',
   },
 ]
 
@@ -71,12 +71,12 @@ export default function InvestorsPage() {
                   <span className="text-gold-gradient">NGN 800M</span>
                 </h1>
                 <p className="mb-6 text-lg leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-                  WLA Entertainment Ltd is raising NGN 800M Series A. This is not an investment in a television
-                  season - it is an investment in the company that owns Africa&apos;s first continental obstacle
-                  sports format.
+                  We&apos;re raising an NGN 800M Series A. This isn&apos;t an investment in a television
+                  season - it&apos;s an investment in the company that owns Africa&apos;s first continental
+                  obstacle sports format.
                 </p>
                 <p className="mb-8 leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-                  Nigeria is owned and operated directly today. After it proves the concept, WLA plans to license
+                  We own and operate Nigeria directly today. Once it proves the concept, we plan to license
                   the format to local partners across the continent - earning format fees and royalties with
                   minimal incremental cost. Investors back the format owner. The franchise travels.
                 </p>
@@ -166,10 +166,10 @@ export default function InvestorsPage() {
                 One Format. Continental Reach.
               </h2>
               <p className="mx-auto max-w-2xl" style={{ color: 'var(--text-muted)' }}>
-                WLA owns the format and operates Nigeria directly. Beyond that, expansion works the same
-                way everywhere: a local partner licenses the format and runs it in their own market. WLA
-                doesn&apos;t pick the order - that&apos;s set by which partners come forward and close a
-                deal, anywhere across the continent&apos;s 54 nations.
+                We own the format and operate Nigeria directly. Beyond that, expansion works the same way
+                everywhere: a local partner licenses the format and runs it in their own market. We don&apos;t
+                pick the order - that&apos;s set by which partners come forward and close a deal, anywhere
+                across the continent&apos;s 54 nations.
               </p>
             </div>
 
@@ -218,9 +218,9 @@ export default function InvestorsPage() {
             >
               <Globe2 size={16} className="mt-0.5 flex-shrink-0" style={{ color: 'var(--text-gold)' }} />
               <p className="text-xs leading-relaxed" style={{ color: 'var(--text-faint)' }}>
-                Nigeria is the only market WLA owns and operates today. No other market has a signed licence
-                yet, and no fixed order exists for which one will be next - that depends on which local partners
-                come forward and close a deal, not a sequence WLA publishes.
+                Nigeria is the only market we own and operate today. No other market has a signed licence
+                yet, and there&apos;s no fixed order for what&apos;s next - that depends on which local
+                partners come forward and close a deal, not a sequence we publish in advance.
               </p>
             </div>
           </div>

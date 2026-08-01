@@ -43,8 +43,8 @@ export default function ContactPage() {
 
             {/* Bottom - closing note */}
             <p className="text-sm leading-relaxed" style={{ color: 'var(--text-faint)' }}>
-              WLA Entertainment Ltd is a CAC-registered company incorporated in Nigeria. All enquiries
-              are handled personally by the founding team.
+              We&apos;re a CAC-registered company incorporated in Nigeria, and we handle every
+              enquiry personally through the founding team.
             </p>
 
           </div>

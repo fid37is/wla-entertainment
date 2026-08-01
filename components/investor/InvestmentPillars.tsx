@@ -3,11 +3,11 @@
 const INVESTMENT_PILLARS = [
   {
     title: 'Original African IP - not a licence',
-    desc: 'WLA owns the format outright. No royalties paid to a Western rights holder. 100% of licensing revenue stays inside the company. The format is the asset.',
+    desc: 'We own the format outright. No royalties paid to a Western rights holder. 100% of licensing revenue stays inside the company. The format is the asset.',
   },
   {
     title: 'The asset-light franchise model',
-    desc: 'The Big Brother / MasterChef model. After Nigeria proves the concept, local partners in each country provide production, broadcaster, and sponsors. WLA earns format fees and royalties without operating every territory.',
+    desc: 'The Big Brother / MasterChef model. After Nigeria proves the concept, local partners in each country provide production, broadcaster, and sponsors. We earn format fees and royalties without operating every territory.',
   },
   {
     title: 'A category with no African incumbent',
@@ -23,7 +23,7 @@ const INVESTMENT_PILLARS = [
   },
   {
     title: 'Investing in the company, not the show',
-    desc: 'Series A backs WLA Entertainment Ltd - the entity that owns the format, licenses the brand, and compounds value across every new franchise edition launched.',
+    desc: 'Series A backs the entity that owns the format, licenses the brand, and compounds value across every new franchise edition we launch.',
   },
 ]
 

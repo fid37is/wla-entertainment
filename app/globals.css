@@ -4,14 +4,31 @@
 /* All colours live here. Components use var(--*) only. No hardcoded hex.       */
 
 :root {
-  /* Brand */
+  /* Brand — two-colour system: gold + navy. Nothing else. Green only ever
+     appears inside NNW's own franchise assets (the runway/course), never as
+     a WLA primary colour — these tokens are aliased to gold so nothing in the
+     component tree breaks if it still references --color-green anywhere. */
   --color-gold:        #CA8A04;
   --color-gold-light:  #EAB308;
   --color-gold-dark:   #A16207;
   --color-gold-deeper: #7C5C00;
 
+  --color-green:        var(--color-gold);
+  --color-green-light:  var(--color-gold-light);
+  --color-green-dark:   var(--color-gold-dark);
+  --border-green:       var(--border-gold);
+  --border-green-strong:var(--border-gold-strong);
+  --bg-green-tint:      var(--bg-gold-tint);
+  --bg-green-tint-2:    var(--bg-gold-tint-2);
+  --text-green:         var(--text-gold);
+
+  /* Navy — the actual dark-mode base. Cool, not warm; no brown cast. */
+  --color-navy:       #0A0E16;
+  --color-navy-deep:  #05070C;
+  --color-navy-light: #131A2A;
+
   /* Backgrounds — light defaults */
-  --bg-base:        #f5f4f0;
+  --bg-base:        #FAFAF9;
   --bg-surface:     rgba(0,0,0,0.03);
   --bg-surface-2:   rgba(0,0,0,0.05);
   --bg-elevated:    rgba(0,0,0,0.07);
@@ -52,9 +69,12 @@
   --status-warning-text:#CA8A04;
 
   /* Flat brand fills — playbook guardrail: "Flat WLA Gold, no gradients, no metallic
-     textures, no shadows." These variable names are kept so every component that
-     already references them updates automatically; the values are now solid flats. */
-  --gradient-gold:     var(--color-gold);
+     textures, no shadows." --gradient-gold is deliberately a fixed hex, not a themed
+     var(--color-gold) reference: it's the CTA button fill, and it needs to stay the
+     same punchy brightness in both themes so black button text reads crisp. (Light
+     mode was inheriting the darker #CA8A04 --color-gold, which made bold black text
+     look dense/muddy against it — this fixes that without touching every button.) */
+  --gradient-gold:     #EAB308;
   --gradient-gold-text:var(--color-gold);
   --gradient-page:     var(--bg-base);
   --gradient-sidebar:  var(--sidebar-bg);
@@ -91,12 +111,24 @@
   --color-gold-dark:   #CA8A04;
   --color-gold-deeper: #A16207;
 
-  --bg-base:        #080808;
-  --bg-surface:     rgba(255,255,255,0.02);
-  --bg-surface-2:   rgba(255,255,255,0.04);
-  --bg-elevated:    rgba(255,255,255,0.06);
-  --bg-gold-tint:   rgba(234,179,8,0.04);
-  --bg-gold-tint-2: rgba(234,179,8,0.08);
+  --color-green:        var(--color-gold);
+  --color-green-light:  var(--color-gold-light);
+  --color-green-dark:   var(--color-gold-dark);
+  --border-green:       var(--border-gold);
+  --border-green-strong:var(--border-gold-strong);
+  --bg-green-tint:      var(--bg-gold-tint);
+  --bg-green-tint-2:    var(--bg-gold-tint-2);
+  --text-green:         var(--text-gold);
+
+  /* Navy-black, not warm black — this is what was reading as "brown" before:
+     a warm near-black (#080808) sitting under warm gold glows muddies into
+     olive/brown. A cool navy base keeps the gold reading crisp on top of it. */
+  --bg-base:        #0A0E16;
+  --bg-surface:     rgba(255,255,255,0.03);
+  --bg-surface-2:   rgba(255,255,255,0.05);
+  --bg-elevated:    rgba(255,255,255,0.07);
+  --bg-gold-tint:   rgba(234,179,8,0.05);
+  --bg-gold-tint-2: rgba(234,179,8,0.09);
 
   --border-subtle:      rgba(255,255,255,0.08);
   --border-medium:      rgba(255,255,255,0.15);
@@ -111,7 +143,7 @@
   --text-gold:      #EAB308;
   --text-gold-muted:#A16207;
 
-  --sidebar-bg:        #0a0a0a;
+  --sidebar-bg:        #05070C;
   --sidebar-border:    rgba(255,255,255,0.06);
   --sidebar-active-bg: #EAB308;
   --sidebar-active-fg: #000000;

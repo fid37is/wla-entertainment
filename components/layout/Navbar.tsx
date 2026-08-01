@@ -114,7 +114,7 @@ export function Navbar() {
             href="https://naijaninja.net"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 rounded-lg px-4 py-2 text-sm font-bold text-black transition-all hover:brightness-110"
+            className="flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-bold text-black transition-all hover:brightness-110"
             style={{ background: 'var(--gradient-gold)' }}
           >
             Visit NNW <ArrowUpRight size={14} />
@@ -175,7 +175,7 @@ export function Navbar() {
               href="https://naijaninja.net"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-3 flex items-center justify-center gap-2 rounded-lg py-3 text-sm font-bold text-black"
+              className="mt-3 flex items-center justify-center gap-2 rounded-full py-3 text-sm font-bold text-black"
               style={{ background: 'var(--gradient-gold)' }}
             >
               Visit NNW <ArrowUpRight size={14} />
