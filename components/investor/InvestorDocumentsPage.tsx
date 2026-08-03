@@ -169,7 +169,7 @@ function DocumentRequestForm({ investorEmail }: { investorEmail: string }) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           to: 'legal@naijaninja.net',
-          subject: `Document Request — ${form.title}`,
+          subject: `Document Request - ${form.title}`,
           html: `
           <p><strong>Investor:</strong> ${investorEmail}</p>
           <p><strong>Document requested:</strong> ${form.title}</p>
@@ -342,7 +342,7 @@ function DocCard({
         </div>
       </div>
 
-      {/* Bottom row — date + actions */}
+      {/* Bottom row - date + actions */}
       <div className="flex items-center justify-between gap-2 flex-wrap">
         <div className="flex items-center gap-1">
           <Clock size={10} style={{ color: 'var(--text-faint)' }} />
@@ -556,7 +556,7 @@ export default function InvestorDocumentsPage() {
         </main>
       </div>
 
-      {/* Slide-in viewer — outside main flow so it overlays everything */}
+      {/* Slide-in viewer - outside main flow so it overlays everything */}
       <ViewerPane doc={viewingDoc} onClose={closeViewer} />
     </>
   )

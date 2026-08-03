@@ -59,7 +59,7 @@ export interface Pillar {
 export const PILLARS: Pillar[] = [
   {
     title: 'Sports Entertainment',
-    desc: 'We produce live obstacle competition to broadcast standard and distribute it nationally. The event is the product — every zone week, every grand finale.',
+    desc: 'We produce live obstacle competition to broadcast standard and distribute it nationally. The event is the product - every zone week, every grand finale.',
   },
   {
     title: 'Media Production',
@@ -67,7 +67,7 @@ export const PILLARS: Pillar[] = [
   },
   {
     title: 'Franchise Licensing',
-    desc: 'Once Nigeria proves the concept, we license every subsequent country edition rather than operate it — earning format fees and royalties without proportional cost growth.',
+    desc: 'Once Nigeria proves the concept, we license every subsequent country edition rather than operate it - earning format fees and royalties without proportional cost growth.',
   },
   {
     title: 'Talent Management',
@@ -75,11 +75,11 @@ export const PILLARS: Pillar[] = [
   },
   {
     title: 'Digital Platforms',
-    desc: 'naijaninja.net is where we run registration, results, and fan engagement — the connective tissue between live events, broadcast episodes, and the continental audience.',
+    desc: 'naijaninja.net is where we run registration, results, and fan engagement - the connective tissue between live events, broadcast episodes, and the continental audience.',
   },
   {
     title: 'Sponsorship Management',
-    desc: 'Six revenue streams per season — title sponsor, zone sponsors, product placement, broadcast rights, digital rights, and merchandise. We manage the full commercial stack.',
+    desc: 'Six revenue streams per season - title sponsor, zone sponsors, product placement, broadcast rights, digital rights, and merchandise. We manage the full commercial stack.',
   },
 ]
 

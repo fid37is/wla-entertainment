@@ -38,7 +38,7 @@ interface ChangePasswordFormProps {
   onCancel?: () => void
   /** Called instead of the default dashboard redirect once the password is saved. */
   onSuccess?: () => void
-  /** Label for the back/cancel control — context-dependent (e.g. "Back to Sign In"). */
+  /** Label for the back/cancel control - context-dependent (e.g. "Back to Sign In"). */
   cancelLabel?: string
 }
 
@@ -97,7 +97,7 @@ export default function ChangePasswordForm({
   return (
     <div className="w-full max-w-3xl">
 
-      {/* Back/cancel link — normal flow, not floating over anything */}
+      {/* Back/cancel link - normal flow, not floating over anything */}
       <button
         type="button"
         onClick={handleCancel}
@@ -133,7 +133,7 @@ export default function ChangePasswordForm({
         </p>
       </div>
 
-      {/* Form and requirements — two separate, independent cards */}
+      {/* Form and requirements - two separate, independent cards */}
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1fr_280px] lg:items-start">
 
         <form
@@ -254,7 +254,7 @@ export default function ChangePasswordForm({
           </div>
         </form>
 
-        {/* Requirements — its own card, not nested inside the form's card */}
+        {/* Requirements - its own card, not nested inside the form's card */}
         <div
           className="rounded-[--radius-2xl] p-5"
           style={{ background: 'var(--bg-surface)', border: '1px solid var(--border-subtle)' }}
