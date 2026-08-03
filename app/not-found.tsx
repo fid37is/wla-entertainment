@@ -34,7 +34,7 @@ export default function NotFound() {
             className="font-display font-black leading-none select-none"
             style={{
               fontSize: 'clamp(7rem, 22vw, 15rem)',
-              background: 'linear-gradient(135deg, #EAB308 10%, #CA8A04 90%)',
+              background: 'var(--gradient-gold-text)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
@@ -56,7 +56,7 @@ export default function NotFound() {
         </div>
 
         <h1 className="mb-4 font-display text-3xl font-black tracking-[-1.5px] md:text-4xl">
-          Haha, look who got lost in the ninja course!
+          This page isn&apos;t on the map.
         </h1>
 
         <p
@@ -79,8 +79,8 @@ export default function NotFound() {
 
           <Link
             href="/contact"
-            className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/15 px-8 py-4 font-semibold transition-all hover:bg-white/5 active:scale-[0.985] sm:w-auto"
-            style={{ color: 'var(--text-primary)' }}
+            className="inline-flex w-full items-center justify-center gap-2 rounded-full px-8 py-4 font-semibold transition-all active:scale-[0.985] sm:w-auto"
+            style={{ color: 'var(--text-primary)', border: '1px solid var(--border-medium)' }}
           >
             Contact Support
             <ArrowLeft size={16} className="rotate-180" />

@@ -52,7 +52,7 @@ export function InvestorsSection() {
             View Full Investment Case <ArrowUpRight size={16} />
           </Link>
           <a
-            href={`mailto:${COMPANY.email.general}?subject=WLA Series A - Investment Enquiry`}
+            href={`mailto:${COMPANY.email.investors}?subject=WLA Series A - Investment Enquiry`}
             className="flex items-center gap-2 rounded-full px-8 py-4 font-bold transition-all"
             style={{
               border: '1px solid var(--border-medium)',

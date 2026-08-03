@@ -54,6 +54,15 @@ const THE_TRIBE: TribeMember[] = [
     isFounder: false,
   },
   {
+    name: 'Ejiba Tochi',
+    role: 'Legal Counsel',
+    credentials: '[Qualification] · [Institution]',
+    bio: 'Retained counsel covering format IP protection, investor agreements, sponsorship and broadcasting contracts, employment law, and all regulatory compliance.',
+    photo: null,
+    initials: 'ET',
+    isFounder: false,
+  },
+  {
     name: 'Oluwatosin Aloba',
     role: 'Commercial Lead',
     credentials: 'B.Eng. Electrical & Electronics Engineering · FUNAAB · PGD Technology Management, NCTM',
@@ -64,12 +73,39 @@ const THE_TRIBE: TribeMember[] = [
   },
   // ── Extended
   {
+    name: 'Jude-Hyacinth John Ekene',
+    role: 'GD / Social Media Manager',
+    credentials: 'B.Eng. Mechanical Engineering · Federal University of Technology Owerri',
+    bio: 'Graphic designer and community manager with experience across brand identity, social media content, and audience growth. Built NNW pitch graphics and the Facebook community pre-funding.',
+    photo: '/team/jude-hyacinth-john-ekene.jpg',
+    initials: 'JE',
+    isFounder: false,
+  },
+  {
+    name: 'OSato Iyawe',
+    role: 'Script Writer',
+    credentials: 'B.Sc. Biotechnology · Ekiti State University · EbonyLife Creative Academy · TAFTA Academy',
+    bio: "Creative writer and storyteller trained at EbonyLife Creative Academy and TAFTA. Lead writer on HUSH, winner of Best Student Film at the Coal City Film Festival. Drove early NNW audience growth across Twitter and Instagram.",
+    photo: '/team/osato-iyawe.jpg',
+    initials: 'OI',
+    isFounder: false,
+  },
+  {
     name: 'Mercy Odule',
     role: 'Contestant & Zone Coordinator',
     credentials: '[Qualification] · [Institution]',
     bio: 'Manages contestant pipelines and zone-level coordination across all six geopolitical zones. Led early NNW audience growth on TikTok pre-funding.',
     photo: '/team/mercy-odule.jpg',
     initials: 'MO',
+    isFounder: false,
+  },
+  {
+    name: 'Cyril Obiorah',
+    role: 'Tech Lead',
+    credentials: '[Qualification] · [Institution]',
+    bio: 'Leads all technology infrastructure across the WLA ecosystem - platform development, digital operations, and technical architecture supporting production and broadcast.',
+    photo: null,
+    initials: 'CO',
     isFounder: false,
   },
 ]
@@ -337,7 +373,7 @@ export function AboutContent() {
               &ldquo;What does a person become when they stop believing they can?&rdquo;
             </blockquote>
             <p className="mb-6 leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-              We built Nigeria Ninja Warrior on that question. Everyone who has ever been told
+              We built Nigeria Next Warrior on that question. Everyone who has ever been told
               they are too old, too slow, too female, too northern, too southern, too poor - and
               chose to run anyway - is our audience, our contestant, and the reason this show exists.
             </p>
@@ -373,7 +409,7 @@ export function AboutContent() {
                     model.
                   </p>
                   <p className="leading-relaxed">
-                    Nigeria Ninja Warrior is our first edition - we produce and operate it directly.
+                    Nigeria Next Warrior is our first edition - we produce and operate it directly.
                     Every subsequent country franchise is licensed to a local partner who produces the
                     show in their own territory, while we earn format fees and royalties without
                     operating each market ourselves.

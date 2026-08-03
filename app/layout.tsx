@@ -10,10 +10,10 @@ export const metadata: Metadata = {
   keywords: [
     'Warriors League Africa',
     'WLA Entertainment',
-    'Naija Ninja Warrior',
+    'Nigeria Next Warrior',
     'Africa sports entertainment',
     'Nigerian competition',
-    'ninja warrior Africa',
+    'next warrior Africa',
   ],
   authors: [{ name: 'WLA Entertainment Ltd' }],
   openGraph: {

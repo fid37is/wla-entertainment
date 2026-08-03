@@ -14,16 +14,16 @@ export interface Franchise {
 export const FRANCHISES: Franchise[] = [
   {
     code: 'NNW',
-    name: 'Naija Ninja Warrior',
+    name: 'Nigeria Next Warrior',
     country: 'Nigeria',
     flag: '🇳🇬',
     status: 'live',
-    desc: "The flagship franchise. Africa's first ninja warrior competition series - running nationwide across all six geopolitical zones.",
+    desc: "The flagship franchise. Africa's first Next Warrior competition series - running nationwide across all six geopolitical zones.",
     url: 'https://naijaninja.net',
   },
   {
     code: 'GNW',
-    name: 'Ghana Ninja Warrior',
+    name: 'Ghana Next Warrior',
     country: 'Ghana',
     flag: '🇬🇭',
     status: 'coming',
@@ -32,7 +32,7 @@ export const FRANCHISES: Franchise[] = [
   },
   {
     code: 'KNW',
-    name: 'Kenya Ninja Warrior',
+    name: 'Kenya Next Warrior',
     country: 'Kenya',
     flag: '🇰🇪',
     status: 'coming',
@@ -41,7 +41,7 @@ export const FRANCHISES: Franchise[] = [
   },
   {
     code: 'SNW',
-    name: 'South Africa Ninja Warrior',
+    name: 'South Africa Next Warrior',
     country: 'South Africa',
     flag: '🇿🇦',
     status: 'coming',
@@ -59,7 +59,7 @@ export interface Pillar {
 export const PILLARS: Pillar[] = [
   {
     title: 'Sports Entertainment',
-    desc: 'We produce live obstacle competition to broadcast standard and distribute it nationally. The event is the product — every zone week, every grand finale.',
+    desc: 'We produce live obstacle competition to broadcast standard and distribute it nationally. The event is the product - every zone week, every grand finale.',
   },
   {
     title: 'Media Production',
@@ -67,7 +67,7 @@ export const PILLARS: Pillar[] = [
   },
   {
     title: 'Franchise Licensing',
-    desc: 'Once Nigeria proves the concept, we license every subsequent country edition rather than operate it — earning format fees and royalties without proportional cost growth.',
+    desc: 'Once Nigeria proves the concept, we license every subsequent country edition rather than operate it - earning format fees and royalties without proportional cost growth.',
   },
   {
     title: 'Talent Management',
@@ -75,11 +75,11 @@ export const PILLARS: Pillar[] = [
   },
   {
     title: 'Digital Platforms',
-    desc: 'naijaninja.net is where we run registration, results, and fan engagement — the connective tissue between live events, broadcast episodes, and the continental audience.',
+    desc: 'naijaninja.net is where we run registration, results, and fan engagement - the connective tissue between live events, broadcast episodes, and the continental audience.',
   },
   {
     title: 'Sponsorship Management',
-    desc: 'Six revenue streams per season — title sponsor, zone sponsors, product placement, broadcast rights, digital rights, and merchandise. We manage the full commercial stack.',
+    desc: 'Six revenue streams per season - title sponsor, zone sponsors, product placement, broadcast rights, digital rights, and merchandise. We manage the full commercial stack.',
   },
 ]
 
@@ -98,9 +98,10 @@ export const COMPANY = {
   incorporated: 'May 8, 2026',
   address: 'Flat 7, Progress House, Oduke, Asaba, Delta State, Nigeria',
   email: {
-    general: 'investors@warriorsleague.africa',
-    support: 'hello@warriorsleague.africa',
+    general: 'hello@warriorsleague.africa',
+    investors: 'investors@warriorsleague.africa',
     founder: 'fidelis@warriorsleague.africa',
+    support: 'support@naijaninja.net', // NNW-specific (competition/registration support), left as-is
   },
   phone: '+234 808 595 2266',
   phoneHref: 'tel:+2348085952266',

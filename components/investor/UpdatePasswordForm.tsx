@@ -74,7 +74,7 @@ export default function UpdatePasswordForm() {
     <div
       className="relative h-full w-full"
       style={{
-        // Diagonal gold hairline stripes — very subtle, just enough texture
+        // Diagonal gold hairline stripes - very subtle, just enough texture
         backgroundImage: `repeating-linear-gradient(
           135deg,
           transparent,
@@ -100,7 +100,7 @@ export default function UpdatePasswordForm() {
         aria-hidden="true"
       />
 
-      {/* Radial gold glow — top right corner */}
+      {/* Radial gold glow - top right corner */}
       <div
         className="pointer-events-none absolute right-0 top-0 h-[500px] w-[500px] opacity-30"
         style={{
@@ -109,7 +109,7 @@ export default function UpdatePasswordForm() {
         aria-hidden="true"
       />
 
-      {/* Content — centred, constrained width, no excessive padding */}
+      {/* Content - centred, constrained width, no excessive padding */}
       <div className="relative mx-auto w-full max-w-3xl px-6 py-10">
 
         {/* Heading */}
@@ -176,7 +176,7 @@ export default function UpdatePasswordForm() {
                   value={form.current}
                   onChange={e => setForm(f => ({ ...f, current: e.target.value }))}
                   placeholder="Your current password"
-                  // ✅ rounded-2xl — matches button radius (rounded-2xl / rounded-full nearby)
+                  // ✅ rounded-2xl - matches button radius (rounded-2xl / rounded-full nearby)
                   className="input-base pr-12"
                   style={{ borderRadius: '1rem' }}
                 />
@@ -276,7 +276,7 @@ export default function UpdatePasswordForm() {
               )}
             </div>
 
-            {/* Buttons — both rounded-2xl to match inputs */}
+            {/* Buttons - both rounded-2xl to match inputs */}
             <div className="flex gap-3 pt-1">
               <button
                 type="button"

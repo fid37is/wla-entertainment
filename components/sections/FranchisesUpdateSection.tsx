@@ -5,7 +5,7 @@ import { ArrowUpRight, Bell } from 'lucide-react'
 const FRANCHISE_CHANNELS = [
   {
     code: 'NNW',
-    name: 'Naija Ninja Warrior',
+    name: 'Nigeria Next Warrior',
     country: 'Nigeria',
     flag: '🇳🇬',
     status: 'live' as const,
@@ -18,7 +18,7 @@ const FRANCHISE_CHANNELS = [
   },
   {
     code: 'GNW',
-    name: 'Ghana Ninja Warrior',
+    name: 'Ghana Next Warrior',
     country: 'Ghana',
     flag: '🇬🇭',
     status: 'available' as const,
@@ -27,7 +27,7 @@ const FRANCHISE_CHANNELS = [
   },
   {
     code: 'KNW',
-    name: 'Kenya Ninja Warrior',
+    name: 'Kenya Next Warrior',
     country: 'Kenya',
     flag: '🇰🇪',
     status: 'available' as const,

@@ -63,7 +63,7 @@ export default function TermsPage() {
         {/* Intro */}
         <div className="mb-12 rounded-2xl p-6" style={{ border: '1px solid var(--border-subtle)', background: 'var(--bg-surface)' }}>
           <p className="text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            These Terms and Conditions govern your use of the Naija Ninja Warrior website (naijaninja.net) and
+            These Terms and Conditions govern your use of the Nigeria Next Warrior website (naijaninja.net) and
             participation in any WLA Entertainment Ltd competitions, events, and services. By accessing our website
             or registering for competitions, you agree to be bound by these terms.
           </p>
@@ -75,7 +75,7 @@ export default function TermsPage() {
           </TermsSection>
 
           <TermsSection title="2. Eligibility">
-            <p className="mb-4">To participate in Naija Ninja Warrior competitions:</p>
+            <p className="mb-4">To participate in Nigeria Next Warrior competitions:</p>
             <TermsList items={['You must be at least 18 years of age, or have explicit written parental/guardian consent','You must be physically fit and able to participate in high-intensity physical activities','You must be a Nigerian resident or citizen, or otherwise meet the eligibility criteria for your specific competition','You must not have any medical conditions that would prevent safe participation','You must complete all required registration and waiver documentation']} />
           </TermsSection>
 

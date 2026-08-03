@@ -82,7 +82,7 @@ export default function InvestorsPage() {
                 </p>
                 <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                   <a
-                    href={`mailto:${COMPANY.email.general}?subject=WLA Series A - IM Request`}
+                    href={`mailto:${COMPANY.email.investors}?subject=WLA Series A - IM Request`}
                     className="inline-flex items-center gap-2 rounded-full px-8 py-4 font-bold transition-all hover:scale-105"
                     style={{ background: 'var(--gradient-gold)', color: '#000' }}
                   >
@@ -329,7 +329,7 @@ export default function InvestorsPage() {
 
             <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <a
-                href={`mailto:${COMPANY.email.general}?subject=WLA Series A - IM Request`}
+                href={`mailto:${COMPANY.email.investors}?subject=WLA Series A - IM Request`}
                 className="inline-flex items-center gap-2 rounded-full px-10 py-4 font-bold transition-all hover:scale-105"
                 style={{ background: 'var(--gradient-gold)', color: '#000' }}
               >
