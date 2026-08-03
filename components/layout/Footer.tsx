@@ -74,7 +74,7 @@ export function Footer() {
                     ;(e.currentTarget as HTMLElement).style.color = 'var(--text-muted)'
                   }}
                 >
-                  <s.Icon size={15} />
+                  <s.Icon size={15} color="currentColor" />
                 </a>
               ))}
             </div>

@@ -96,7 +96,7 @@ export function ContactDetails() {
                 ;(e.currentTarget as HTMLElement).style.color = 'var(--text-secondary)'
               }}
             >
-              <s.Icon size={14} />
+              <s.Icon size={14} color="currentColor" />
               {s.label}
             </a>
           ))}
