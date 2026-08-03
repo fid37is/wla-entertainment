@@ -15,8 +15,7 @@ export function BusinessSection() {
           <SectionLabel>What We Do</SectionLabel>
           <SectionHeading className="mb-4">Business Pillars</SectionHeading>
           <p className="mx-auto max-w-xl" style={{ color: 'var(--text-muted)' }}>
-            Six registered business activities powering WLA&apos;s continental sports
-            entertainment model.
+            Six registered activities. One continental sports entertainment model.
           </p>
         </div>
 

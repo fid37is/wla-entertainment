@@ -28,7 +28,7 @@ const THE_TRIBE: TribeMember[] = [
   {
     name: 'Fidelis Agba',
     role: 'Founder & CEO',
-    credentials: 'Senior Technical Product Manager',
+    credentials: 'B.Sc. Computer Science · University of Calabar · Senior Technical Product Manager',
     bio: 'Created the Warriors League Africa format, registered the company, confirmed the equipment supplier, and opened the Series A - before hiring a single person or taking a single investor meeting. Product builder with 10+ years shipping SaaS platforms across B2B, B2C, and creator economy verticals.',
     photo: '/team/fidelis-agba.jpg',
     initials: 'FA',
@@ -54,15 +54,6 @@ const THE_TRIBE: TribeMember[] = [
     isFounder: false,
   },
   {
-    name: 'Ejiba Tochi',
-    role: 'Legal Counsel',
-    credentials: '[Qualification] · [Institution]',
-    bio: 'Retained counsel covering format IP protection, investor agreements, sponsorship and broadcasting contracts, employment law, and all regulatory compliance.',
-    photo: null,
-    initials: 'ET',
-    isFounder: false,
-  },
-  {
     name: 'Oluwatosin Aloba',
     role: 'Commercial Lead',
     credentials: 'B.Eng. Electrical & Electronics Engineering · FUNAAB · PGD Technology Management, NCTM',
@@ -73,39 +64,12 @@ const THE_TRIBE: TribeMember[] = [
   },
   // ── Extended
   {
-    name: 'Jude-Hyacinth John Ekene',
-    role: 'GD / Social Media Manager',
-    credentials: 'B.Eng. Mechanical Engineering · Federal University of Technology Owerri',
-    bio: 'Graphic designer and community manager with experience across brand identity, social media content, and audience growth. Built NNW pitch graphics and the Facebook community pre-funding.',
-    photo: '/team/jude-hyacinth-john-ekene.jpg',
-    initials: 'JE',
-    isFounder: false,
-  },
-  {
-    name: 'OSato Iyawe',
-    role: 'Script Writer',
-    credentials: 'B.Sc. Biotechnology · Ekiti State University · EbonyLife Creative Academy · TAFTA Academy',
-    bio: "Creative writer and storyteller trained at EbonyLife Creative Academy and TAFTA. Lead writer on HUSH, winner of Best Student Film at the Coal City Film Festival. Drove early NNW audience growth across Twitter and Instagram.",
-    photo: '/team/osato-iyawe.jpg',
-    initials: 'OI',
-    isFounder: false,
-  },
-  {
     name: 'Mercy Odule',
     role: 'Contestant & Zone Coordinator',
     credentials: '[Qualification] · [Institution]',
     bio: 'Manages contestant pipelines and zone-level coordination across all six geopolitical zones. Led early NNW audience growth on TikTok pre-funding.',
     photo: '/team/mercy-odule.jpg',
     initials: 'MO',
-    isFounder: false,
-  },
-  {
-    name: 'Cyril Obiorah',
-    role: 'Tech Lead',
-    credentials: '[Qualification] · [Institution]',
-    bio: 'Leads all technology infrastructure across the WLA ecosystem - platform development, digital operations, and technical architecture supporting production and broadcast.',
-    photo: null,
-    initials: 'CO',
     isFounder: false,
   },
 ]
@@ -345,9 +309,9 @@ export function AboutContent() {
                   <span className="text-gold-gradient">Entertainment Future</span>
                 </h1>
                 <p className="text-lg leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-                  WLA Entertainment Ltd was incorporated in May 2026 with one mandate: own, produce,
-                  and franchise Africa&apos;s first continental obstacle sports entertainment IP.
-                  Not an adaptation of a Western format - an original African format built to travel.
+                  We incorporated in May 2026 with one mandate: own, produce, and franchise
+                  Africa&apos;s first continental obstacle sports entertainment IP. Not an
+                  adaptation of a Western format - an original African format, built to travel.
                 </p>
               </div>
               <div className="relative z-0 flex items-center justify-center">
@@ -373,13 +337,13 @@ export function AboutContent() {
               &ldquo;What does a person become when they stop believing they can?&rdquo;
             </blockquote>
             <p className="mb-6 leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-              Nigeria Ninja Warrior is built on that question. Every person who has ever been told
+              We built Nigeria Ninja Warrior on that question. Everyone who has ever been told
               they are too old, too slow, too female, too northern, too southern, too poor - and
-              chose to run anyway - is the audience, the contestant, and the reason this show exists.
+              chose to run anyway - is our audience, our contestant, and the reason this show exists.
             </p>
             <p className="leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-              The format travels because the question does. Every culture has a version of that cost.
-              WLA roots it in Nigeria first - and builds outward from there.
+              The format travels because the question does. Every culture carries a version of
+              that same cost. We&apos;re rooting it in Nigeria first, and building outward from there.
             </p>
           </div>
         </section>
@@ -403,16 +367,16 @@ export function AboutContent() {
                 </h2>
                 <div className="space-y-4" style={{ color: 'var(--text-secondary)' }}>
                   <p className="leading-relaxed">
-                    WLA Entertainment Ltd is a private company limited by shares, registered with
-                    Nigeria&apos;s Corporate Affairs Commission. It owns the Warriors League Africa
-                    format - the competition rules, gameplay mechanics, brand standards, and franchise
-                    licensing model.
+                    We&apos;re a private company limited by shares, registered with Nigeria&apos;s
+                    Corporate Affairs Commission. We own the Warriors League Africa format - the
+                    competition rules, gameplay mechanics, brand standards, and franchise licensing
+                    model.
                   </p>
                   <p className="leading-relaxed">
-                    Nigeria Ninja Warrior is the first edition, produced and operated directly by WLA.
+                    Nigeria Ninja Warrior is our first edition - we produce and operate it directly.
                     Every subsequent country franchise is licensed to a local partner who produces the
-                    show in their territory. WLA earns format fees and royalties without operating each
-                    market.
+                    show in their own territory, while we earn format fees and royalties without
+                    operating each market ourselves.
                   </p>
                 </div>
               </div>

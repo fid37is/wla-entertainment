@@ -206,9 +206,9 @@ export function WCLSection() {
                   key={c.name}
                   className="flex items-center gap-2 rounded-full px-4 py-1.5 text-sm font-bold"
                   style={{
-                    border: '1px solid var(--border-gold-strong)',
-                    background: 'var(--bg-gold-tint-2)',
-                    color: 'var(--text-gold)',
+                    border: '1px solid var(--border-green-strong)',
+                    background: 'var(--bg-green-tint-2)',
+                    color: 'var(--text-green)',
                   }}
                 >
                   <img
@@ -220,7 +220,7 @@ export function WCLSection() {
                     style={{ borderRadius: '50%', display: 'block' }}
                   />
                   {c.name}
-                  <span className="text-xs" style={{ color: 'var(--color-gold-deeper)' }}>
+                  <span className="text-xs" style={{ color: 'var(--color-green)' }}>
                     ✦ Active Franchise
                   </span>
                 </span>
@@ -314,7 +314,7 @@ export function WCLSection() {
                       cursor: 'default',
                       zIndex: isHovered ? 30 : Math.round((1 - t) * 20) + 5,
                       boxShadow: isActive
-                        ? '0 0 0 2px var(--color-gold), 0 0 18px rgba(234,179,8,0.45)'
+                        ? '0 0 0 2px var(--color-green), 0 0 18px rgba(47,163,92,0.4)'
                         : isPotential
                           ? '0 0 0 1.5px var(--border-gold-strong), 0 0 10px rgba(234,179,8,0.2)'
                           : isHovered
@@ -333,9 +333,9 @@ export function WCLSection() {
                           left: '50%',
                           transform: 'translate(-50%, -10px)',
                           padding: '6px 14px',
-                          border: '1px solid var(--border-gold)',
+                          border: `1px solid ${isActive ? 'var(--border-green)' : 'var(--border-gold)'}`,
                           background: 'color-mix(in srgb, var(--bg-base) 92%, transparent)',
-                          color: 'var(--text-gold)',
+                          color: isActive ? 'var(--text-green)' : 'var(--text-gold)',
                           backdropFilter: 'blur(4px)',
                           pointerEvents: 'none',
                           zIndex: 50,

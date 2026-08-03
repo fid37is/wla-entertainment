@@ -112,7 +112,7 @@ export default function FranchisesPage() {
                   </span>
                 </h1>
                 <p className="text-lg leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-                  WLA owns the Warriors League Africa format. Nigeria is the proof of concept  live and
+                  We own the Warriors League Africa format. Nigeria is the proof of concept - live and
                   operating. Every other market on this map is a projected expansion, not a confirmed
                   franchise.
                 </p>

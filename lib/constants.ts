@@ -59,27 +59,27 @@ export interface Pillar {
 export const PILLARS: Pillar[] = [
   {
     title: 'Sports Entertainment',
-    desc: 'Live obstacle competition events produced to broadcast standard and distributed nationally. The event is the product — every zone week, every grand finale.',
+    desc: 'We produce live obstacle competition to broadcast standard and distribute it nationally. The event is the product — every zone week, every grand finale.',
   },
   {
     title: 'Media Production',
-    desc: 'WLA controls the camera as well as the course. Episode production, highlight packages, and digital content are produced in-house to protect format quality.',
+    desc: 'We control the camera as well as the course. Episode production, highlight packages, and digital content are made in-house, so format quality is never someone else\u2019s call.',
   },
   {
     title: 'Franchise Licensing',
-    desc: 'After Nigeria proves the concept, every subsequent country edition is licensed — not operated. WLA earns format fees and royalties without proportional cost growth.',
+    desc: 'Once Nigeria proves the concept, we license every subsequent country edition rather than operate it — earning format fees and royalties without proportional cost growth.',
   },
   {
     title: 'Talent Management',
-    desc: 'Athletes who break out on the course become assets. WLA identifies, develops, and represents the competitors who carry the brand beyond the competition season.',
+    desc: 'Athletes who break out on the course become assets. We identify, develop, and represent the competitors who carry the brand beyond the season.',
   },
   {
     title: 'Digital Platforms',
-    desc: 'naijaninja.net handles registration, results, and fan engagement. The platform is the connective tissue between live events, broadcast episodes, and the continental audience.',
+    desc: 'naijaninja.net is where we run registration, results, and fan engagement — the connective tissue between live events, broadcast episodes, and the continental audience.',
   },
   {
     title: 'Sponsorship Management',
-    desc: "Six revenue streams per season — title sponsor, zone sponsors, product placement, broadcast rights, digital rights, and merchandise. WLA manages the full commercial stack.",
+    desc: 'Six revenue streams per season — title sponsor, zone sponsors, product placement, broadcast rights, digital rights, and merchandise. We manage the full commercial stack.',
   },
 ]
 
@@ -98,9 +98,9 @@ export const COMPANY = {
   incorporated: 'May 8, 2026',
   address: 'Flat 7, Progress House, Oduke, Asaba, Delta State, Nigeria',
   email: {
-    general: 'legal@naijaninja.net',
-    support: 'support@naijaninja.net',
-    founder: 'fidelis@naijaninja.net',
+    general: 'investors@warriorsleague.africa',
+    support: 'hello@warriorsleague.africa',
+    founder: 'fidelis@warriorsleague.africa',
   },
   phone: '+234 808 595 2266',
   phoneHref: 'tel:+2348085952266',

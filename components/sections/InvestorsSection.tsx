@@ -19,14 +19,14 @@ export function InvestorsSection() {
         </h2>
 
         <p className="mx-auto mb-4 max-w-2xl text-lg leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-          WLA Entertainment Ltd - not a television season, but a continental entertainment IP.
-          The NGN 800M Series A funds Season 1 production, custom obstacle course equipment,
-          solar infrastructure, the core team, and working capital.
+          We&apos;re not building a television season. We&apos;re building a continental
+          entertainment IP. The NGN 800M Series A funds Season 1 production, custom obstacle
+          course equipment, solar infrastructure, the core team, and working capital.
         </p>
         <p className="mx-auto mb-10 max-w-2xl leading-relaxed" style={{ color: 'var(--text-muted)' }}>
-          After Nigeria proves the concept, WLA licenses the format to local partners in
-          Ghana, Kenya, South Africa, and beyond - earning format fees and royalties without
-          operating each territory. Investors are backing the format owner, not the franchise.
+          Once Nigeria proves the concept, we license the format to local partners in Ghana,
+          Kenya, South Africa, and beyond - earning format fees and royalties without operating
+          each territory. You&apos;d be backing the format owner, not a single franchise.
         </p>
 
         {/* Key metrics */}

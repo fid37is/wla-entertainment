@@ -99,7 +99,7 @@ export function ContactSection() {
                     className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg transition"
                     style={{ border: '1px solid var(--border-subtle)', background: 'var(--bg-elevated)' }}
                   >
-                    <s.Icon size={16} style={{ color: 'var(--text-muted)' }} />
+                    <s.Icon size={16} color="currentColor" style={{ color: 'var(--text-muted)' }} />
                   </div>
                   <span className="text-sm font-bold" style={{ color: 'var(--text-secondary)' }}>
                     {s.label}

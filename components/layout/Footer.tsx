@@ -47,7 +47,7 @@ export function Footer() {
               </div>
             </div>
             <p className="mb-5 text-sm leading-relaxed" style={{ color: 'var(--text-muted)' }}>
-              Building Africa&apos;s first continental warrior competition franchise network.
+              We&apos;re building Africa&apos;s first continental warrior competition franchise network.
             </p>
 
             {/* Social icons */}
@@ -74,7 +74,7 @@ export function Footer() {
                     ;(e.currentTarget as HTMLElement).style.color = 'var(--text-muted)'
                   }}
                 >
-                  <s.Icon size={15} />
+                  <s.Icon size={15} color="currentColor" />
                 </a>
               ))}
             </div>
