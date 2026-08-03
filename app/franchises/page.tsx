@@ -25,7 +25,7 @@ interface Franchise {
 const FRANCHISES: Franchise[] = [
   {
     code: 'NNW',
-    name: 'Naija Ninja Warrior',
+    name: 'Nigeria Next Warrior',
     country: 'Nigeria',
     region: 'West Africa',
     status: 'live',
@@ -34,7 +34,7 @@ const FRANCHISES: Franchise[] = [
   },
   {
     code: 'GNW',
-    name: 'Ghana Ninja Warrior',
+    name: 'Ghana Next Warrior',
     country: 'Ghana',
     region: 'West Africa',
     status: 'projected',
@@ -43,7 +43,7 @@ const FRANCHISES: Franchise[] = [
   },
   {
     code: 'KNW',
-    name: 'Kenya Ninja Warrior',
+    name: 'Kenya Next Warrior',
     country: 'Kenya',
     region: 'East Africa',
     status: 'projected',
@@ -52,7 +52,7 @@ const FRANCHISES: Franchise[] = [
   },
   {
     code: 'SANW',
-    name: 'South Africa Ninja Warrior',
+    name: 'South Africa Next Warrior',
     country: 'South Africa',
     region: 'Southern Africa',
     status: 'projected',
@@ -112,9 +112,9 @@ export default function FranchisesPage() {
                   </span>
                 </h1>
                 <p className="text-lg leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-                  We own the Warriors League Africa format. Nigeria is the proof of concept - live and
-                  operating. Every other market on this map is a projected expansion, not a confirmed
-                  franchise.
+                  Every nation on this map has athletes who’ve never had a course built for them. We own
+                  the Warriors League Africa format — Nigeria is proof of concept, live and
+                  operating. Every other market here is where we go next, not a confirmed franchise yet.
                 </p>
               </div>
 

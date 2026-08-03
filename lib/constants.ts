@@ -14,16 +14,16 @@ export interface Franchise {
 export const FRANCHISES: Franchise[] = [
   {
     code: 'NNW',
-    name: 'Naija Ninja Warrior',
+    name: 'Nigeria Next Warrior',
     country: 'Nigeria',
     flag: '🇳🇬',
     status: 'live',
-    desc: "The flagship franchise. Africa's first ninja warrior competition series - running nationwide across all six geopolitical zones.",
+    desc: "The flagship franchise. Africa's first Next Warrior competition series - running nationwide across all six geopolitical zones.",
     url: 'https://naijaninja.net',
   },
   {
     code: 'GNW',
-    name: 'Ghana Ninja Warrior',
+    name: 'Ghana Next Warrior',
     country: 'Ghana',
     flag: '🇬🇭',
     status: 'coming',
@@ -32,7 +32,7 @@ export const FRANCHISES: Franchise[] = [
   },
   {
     code: 'KNW',
-    name: 'Kenya Ninja Warrior',
+    name: 'Kenya Next Warrior',
     country: 'Kenya',
     flag: '🇰🇪',
     status: 'coming',
@@ -41,7 +41,7 @@ export const FRANCHISES: Franchise[] = [
   },
   {
     code: 'SNW',
-    name: 'South Africa Ninja Warrior',
+    name: 'South Africa Next Warrior',
     country: 'South Africa',
     flag: '🇿🇦',
     status: 'coming',
@@ -98,9 +98,10 @@ export const COMPANY = {
   incorporated: 'May 8, 2026',
   address: 'Flat 7, Progress House, Oduke, Asaba, Delta State, Nigeria',
   email: {
-    general: 'investors@warriorsleague.africa',
-    support: 'hello@warriorsleague.africa',
+    general: 'hello@warriorsleague.africa',
+    investors: 'investors@warriorsleague.africa',
     founder: 'fidelis@warriorsleague.africa',
+    support: 'support@naijaninja.net', // NNW-specific (competition/registration support), left as-is
   },
   phone: '+234 808 595 2266',
   phoneHref: 'tel:+2348085952266',

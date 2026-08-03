@@ -167,15 +167,16 @@ export function HeroSection() {
 
         {/* Sub-headline */}
         <p
-          className="mb-10 max-w-2xl text-lg leading-relaxed transition-all duration-700 delay-300 md:text-xl"
+          className="mb-10 max-w-3xl text-lg leading-relaxed transition-all duration-700 delay-300 md:text-xl"
           style={{
             color: 'var(--text-secondary)',
             opacity: mounted ? 1 : 0,
             transform: mounted ? 'translateY(0)' : 'translateY(24px)',
           }}
         >
-          We&apos;re building Africa&apos;s first continental network of warrior-format
-          competitions - the events, the broadcast, and the franchise beneath them.
+          Every athlete who&apos;s ever been told they&apos;re too old, too slow, or too far
+          from the spotlight to make it - this is where they prove it wrong. We&apos;re
+          building the continental network, the broadcast, and the franchise to find them.
         </p>
 
         {/* CTAs */}

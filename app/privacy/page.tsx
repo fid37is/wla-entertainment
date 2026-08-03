@@ -7,7 +7,7 @@ import { COMPANY } from '@/lib/constants'
 
 export const metadata: Metadata = {
   title: 'Privacy Policy - WLA Entertainment Ltd',
-  description: 'Privacy Policy for WLA Entertainment Ltd and all WLA Group companies including Naija Ninja Warrior.',
+  description: 'Privacy Policy for WLA Entertainment Ltd and all WLA Group companies including Nigeria Next Warrior.',
 }
 
 function PolicySection({ title, children }: { title: string; children: React.ReactNode }) {
@@ -72,7 +72,7 @@ export default function PrivacyPage() {
             <div>
               <p className="mb-1 text-xs font-bold uppercase tracking-[0.3em]" style={{ color: 'var(--text-gold)' }}>Legal</p>
               <h1 className="mb-2 font-display text-3xl font-black md:text-4xl" style={{ color: 'var(--text-primary)' }}>Privacy Policy</h1>
-              <p className="text-sm" style={{ color: 'var(--text-muted)' }}>Last Updated: March 2026</p>
+              <p className="text-sm" style={{ color: 'var(--text-muted)' }}>Last Updated: August 2026</p>
             </div>
           </div>
         </div>
@@ -99,7 +99,7 @@ export default function PrivacyPage() {
             <a href={COMPANY.phoneHref} className="hover:text-yellow-500 transition-colors">{COMPANY.phone}</a>
           </div>
           <p className="mt-4 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            WLA Entertainment Ltd, parent company of Naija Ninja Warrior, is committed to protecting your privacy
+            WLA Entertainment Ltd, parent company of Nigeria Next Warrior, is committed to protecting your privacy
             and ensuring the security of your personal information.
           </p>
         </div>
@@ -127,7 +127,7 @@ export default function PrivacyPage() {
           </PolicySection>
 
           <PolicySection title="4. Photography and Video Rights">
-            <p className="mb-4 text-sm" style={{ color: 'var(--text-secondary)' }}>By participating in Naija Ninja Warrior, you acknowledge and agree that:</p>
+            <p className="mb-4 text-sm" style={{ color: 'var(--text-secondary)' }}>By participating in Nigeria Next Warrior, you acknowledge and agree that:</p>
             <PolicyList items={['Your image, likeness, and performance may be recorded and broadcast','We may use this content for promotional purposes across various media','You waive any rights to compensation for such use','You can request removal of specific content from our social media (subject to contractual obligations with broadcasters)']} />
           </PolicySection>
 

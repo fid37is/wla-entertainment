@@ -110,7 +110,7 @@ export default function InvestorContactForm() {
           {/* Contact cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-12">
             {[
-              { Icon: Mail, label: 'Email', value: COMPANY.email.general, href: `mailto:${COMPANY.email.general}` },
+              { Icon: Mail, label: 'Email', value: COMPANY.email.investors, href: `mailto:${COMPANY.email.investors}` },
               { Icon: Phone, label: 'Call', value: COMPANY.phone, href: COMPANY.phoneHref },
               { Icon: MapPin, label: 'Location', value: 'Asaba, Delta State, Nigeria', href: null },
             ].map(({ Icon, label, value, href }) => (
