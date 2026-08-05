@@ -46,21 +46,15 @@ export const metadata: Metadata = {
     siteName: 'WLA Entertainment Ltd',
     locale: 'en_NG',
     type: 'website',
-    images: [
-      {
-        url: '/opengraph-image.png',
-        width: 1200,
-        height: 630,
-        alt: 'WLA Entertainment — Warriors League Africa',
-      },
-    ],
+    // No manual `images` field here — app/opengraph-image.png (the file convention)
+    // auto-generates the og:image tag itself. Declaring both caused a conflict.
   },
   twitter: {
     card: 'summary_large_image',
     title: 'WLA Entertainment Ltd - Warriors League Africa',
     description: "Africa's first continental warrior competition franchise.",
     site: '@wlaentertainment',
-    images: ['/opengraph-image.png'],
+    // Same here — picked up automatically from app/opengraph-image.png.
   },
 }
 
