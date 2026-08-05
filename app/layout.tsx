@@ -3,8 +3,14 @@ import './globals.css'
 import { ThemeProvider } from '@/lib/theme'
 import { Toaster } from 'sonner'
 
+const SITE_URL = 'https://warriorsleague.africa'
+
 export const metadata: Metadata = {
-  title: 'WLA Entertainment Ltd - Warriors League Africa',
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: 'WLA Entertainment Ltd - Warriors League Africa',
+    template: '%s | WLA Entertainment',
+  },
   description:
     "WLA Entertainment Ltd is a CAC-registered sports entertainment company building Africa's first continental network of warrior-format competitions, broadcasts, and franchises.",
   keywords: [
@@ -16,19 +22,45 @@ export const metadata: Metadata = {
     'next warrior Africa',
   ],
   authors: [{ name: 'WLA Entertainment Ltd' }],
+  alternates: {
+    canonical: '/',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+    },
+  },
+  icons: {
+    icon: [{ url: '/icon.png', type: 'image/png' }],
+    shortcut: '/favicon.ico',
+    apple: '/apple-icon.png',
+  },
   openGraph: {
     title: 'WLA Entertainment Ltd - Warriors League Africa',
     description: "Africa's first continental warrior competition franchise network.",
-    url: 'https://wlaentertainment.com',
+    url: SITE_URL,
     siteName: 'WLA Entertainment Ltd',
     locale: 'en_NG',
     type: 'website',
+    images: [
+      {
+        url: '/opengraph-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'WLA Entertainment — Warriors League Africa',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'WLA Entertainment Ltd - Warriors League Africa',
     description: "Africa's first continental warrior competition franchise.",
     site: '@wlaentertainment',
+    images: ['/opengraph-image.png'],
   },
 }
 
