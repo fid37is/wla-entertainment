@@ -102,6 +102,8 @@ const GOLDEN_ANGLE = 137.50776405003785 // degrees  the phyllotaxis constant
  */
 function buildSpiralLayout(countries: Country[]): Placed[] {
   const n = countries.length
+  const round = (v: number) => Math.round(v * 10000) / 10000 // fixed precision, same string every render
+
   return countries.map((country, i) => {
     const t = Math.sqrt((i + 0.5) / n) // 0 → 1, even areal distribution
     const radius = INNER_RADIUS + (OUTER_RADIUS - INNER_RADIUS) * t
@@ -114,9 +116,9 @@ function buildSpiralLayout(countries: Country[]): Placed[] {
           : Math.max(MIN_SIZE, MAX_SIZE - (MAX_SIZE - MIN_SIZE) * t)
     return {
       country,
-      xPct: 50 + radius * 100 * Math.cos(rad),
-      yPct: 50 + radius * 100 * Math.sin(rad),
-      size,
+      xPct: round(50 + radius * 100 * Math.cos(rad)),
+      yPct: round(50 + radius * 100 * Math.sin(rad)),
+      size: round(size),
       t,
     }
   })
