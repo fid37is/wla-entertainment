@@ -113,7 +113,7 @@ export default function FranchisesPage() {
                 </h1>
                 <p className="text-lg leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                   Every nation on this map has athletes who’ve never had a course built for them. We own
-                  the Warriors League Africa format — Nigeria is proof of concept, live and
+                  the Warriors League Africa format - Nigeria is proof of concept, live and
                   operating. Every other market here is where we go next, not a confirmed franchise yet.
                 </p>
               </div>
@@ -187,7 +187,7 @@ export default function FranchisesPage() {
                         className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-bold text-black transition-all hover:brightness-110"
                         style={{ background: 'var(--gradient-gold)' }}
                       >
-                        Visit naijaninja.net <ArrowUpRight size={14} />
+                        Visit NNW <ArrowUpRight size={14} />
                       </a>
                     ) : (
                       <a
