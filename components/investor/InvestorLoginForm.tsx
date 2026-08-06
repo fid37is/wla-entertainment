@@ -198,7 +198,7 @@ export default function InvestorLoginForm() {
             <p className="text-sm" style={{ color: 'var(--text-muted)' }}>
               Don&apos;t have access?{' '}
               <a
-                href="mailto:legal@naijaninja.net"
+                href="mailto:investors@warriorsleague.africa"
                 className="font-bold hover:underline"
                 style={{ color: 'var(--text-gold)' }}
               >
