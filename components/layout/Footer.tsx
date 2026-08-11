@@ -38,10 +38,10 @@ export function Footer() {
           {/* Brand + social */}
           <div className="lg:col-span-1">
             <div className="mb-4 flex items-center gap-3">
-              <WLALogo size={40} rounded="rounded-lg" />
+              <WLALogo size={40} />
               <div>
-                <p className="font-display text-sm font-bold" style={{ color: 'var(--text-primary)' }}>WLA Entertainment Ltd</p>
-                <p className="text-[10px] font-bold uppercase tracking-widest" style={{ color: 'var(--text-gold)' }}>
+                <p className="font-display text-sm font-black" style={{ color: 'var(--text-primary)' }}>WLA Entertainment Ltd</p>
+                <p className="font-mono text-[10px] uppercase tracking-[0.1em]" style={{ color: 'var(--text-gold)' }}>
                   Warriors League Africa
                 </p>
               </div>
@@ -59,7 +59,7 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={s.label}
-                  className="flex h-9 w-9 items-center justify-center rounded-lg transition"
+                  className="flex h-9 w-9 items-center justify-center transition"
                   style={{
                     border: '1px solid var(--border-subtle)',
                     background: 'var(--bg-surface)',
@@ -88,7 +88,7 @@ export function Footer() {
           {/* Link columns */}
           {Object.entries(FOOTER_LINKS).map(([group, links]) => (
             <div key={group}>
-              <h4 className="mb-4 text-xs font-bold uppercase tracking-[0.2em]" style={{ color: 'var(--text-secondary)' }}>
+              <h4 className="font-mono mb-4 text-xs uppercase tracking-[0.15em]" style={{ color: 'var(--text-secondary)' }}>
                 {group}
               </h4>
               <ul className="space-y-3">
@@ -129,30 +129,8 @@ export function Footer() {
         <div className="my-10" style={{ borderTop: '1px solid var(--border-subtle)' }} />
 
         {/* Bottom bar */}
-        <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
-          <p className="text-xs" style={{ color: 'var(--text-faint)' }}>
-            © {year} WLA Entertainment Ltd. All rights reserved.
-          </p>
-          <div className="flex items-center gap-6">
-            <a
-              href={COMPANY.website}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1 text-xs transition-colors"
-              style={{ color: 'var(--text-faint)' }}
-              onMouseEnter={e => (e.currentTarget.style.color = 'var(--text-gold)')}
-              onMouseLeave={e => (e.currentTarget.style.color = 'var(--text-faint)')}
-            >
-              naijaninja.net <ArrowUpRight size={10} />
-            </a>
-            <Link href="/privacy" className="text-xs transition-colors" style={{ color: 'var(--text-faint)' }}>
-              Privacy
-            </Link>
-            <Link href="/terms" className="text-xs transition-colors" style={{ color: 'var(--text-faint)' }}>
-              Terms
-            </Link>
-          </div>
-          <p className="text-xs" style={{ color: 'var(--text-faint)' }}>{COMPANY.rc} · Asaba, Nigeria</p>
+        <div className="font-mono text-center text-[0.66rem] tracking-[0.03em]" style={{ color: 'var(--text-faint)' }}>
+          <p>© {year} WLA Entertainment Ltd. All rights reserved.</p>
         </div>
       </div>
     </footer>

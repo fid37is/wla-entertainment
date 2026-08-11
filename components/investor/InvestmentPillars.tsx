@@ -29,21 +29,12 @@ const INVESTMENT_PILLARS = [
 
 export function InvestmentPillars() {
   return (
-    <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
-      {INVESTMENT_PILLARS.map((card) => (
-        <div
-          key={card.title}
-          className="card group p-6 transition-all"
-          onMouseEnter={e => {
-            ;(e.currentTarget as HTMLElement).style.borderColor = 'var(--border-gold)'
-            ;(e.currentTarget as HTMLElement).style.background = 'var(--bg-gold-tint)'
-          }}
-          onMouseLeave={e => {
-            ;(e.currentTarget as HTMLElement).style.borderColor = 'var(--border-subtle)'
-            ;(e.currentTarget as HTMLElement).style.background = 'var(--bg-surface)'
-          }}
-        >
-          <div className="mb-3 h-px w-8 transition-all duration-300 group-hover:w-14" style={{ background: 'var(--color-gold)' }} />
+    <div className="hairline-grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      {INVESTMENT_PILLARS.map((card, i) => (
+        <div key={card.title} className="hairline-cell p-7">
+          <p className="font-mono mb-3 text-[0.68rem]" style={{ color: 'var(--text-gold)' }}>
+            {String(i + 1).padStart(2, '0')}
+          </p>
           <h3 className="mb-2 font-display text-base font-black" style={{ color: 'var(--text-primary)' }}>{card.title}</h3>
           <p className="text-sm leading-relaxed" style={{ color: 'var(--text-muted)' }}>{card.desc}</p>
         </div>

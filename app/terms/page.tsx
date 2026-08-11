@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 function TermsSection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <div className="rounded-2xl p-6 md:p-8" style={{ border: '1px solid var(--border-subtle)', background: 'var(--bg-surface)', color: 'var(--text-secondary)' }}>
+    <div className="p-6 md:p-8" style={{ border: '1px solid var(--border-subtle)', background: 'var(--bg-surface)', color: 'var(--text-secondary)' }}>
       <h2 className="mb-5 font-display text-xl font-black md:text-2xl" style={{ color: 'var(--text-primary)' }}>{title}</h2>
       <div className="space-y-3 text-sm leading-relaxed">{children}</div>
     </div>
@@ -47,13 +47,13 @@ export default function TermsPage() {
         </Link>
 
         {/* Hero */}
-        <div className="mb-12 rounded-2xl p-8" style={{ border: '1px solid var(--border-gold)', background: 'var(--bg-gold-tint)' }}>
+        <div className="mb-12 p-8" style={{ border: '1px solid var(--border-gold)', background: 'var(--bg-gold-tint)' }}>
           <div className="flex items-start gap-6">
-            <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-xl" style={{ background: 'var(--gradient-gold)' }}>
+            <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center" style={{ background: 'var(--gradient-gold)' }}>
               <ScrollText size={22} className="text-black" />
             </div>
             <div>
-              <p className="mb-1 text-xs font-bold uppercase tracking-[0.3em]" style={{ color: 'var(--text-gold)' }}>Legal</p>
+              <p className="eyebrow mb-1">Legal</p>
               <h1 className="mb-2 font-display text-3xl font-black md:text-4xl" style={{ color: 'var(--text-primary)' }}>Terms &amp; Conditions</h1>
               <p className="text-sm" style={{ color: 'var(--text-muted)' }}>Last Updated: March 2026</p>
             </div>
@@ -61,7 +61,7 @@ export default function TermsPage() {
         </div>
 
         {/* Intro */}
-        <div className="mb-12 rounded-2xl p-6" style={{ border: '1px solid var(--border-subtle)', background: 'var(--bg-surface)' }}>
+        <div className="mb-12 p-6" style={{ border: '1px solid var(--border-subtle)', background: 'var(--bg-surface)' }}>
           <p className="text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
             These Terms and Conditions govern your use of the Nigeria Next Warrior website (naijaninja.net) and
             participation in any WLA Entertainment Ltd competitions, events, and services. By accessing our website
@@ -139,7 +139,7 @@ export default function TermsPage() {
 
           <TermsSection title="14. Contact Us">
             <p className="mb-6">If you have any questions about these Terms and Conditions, please contact us:</p>
-            <div className="rounded-xl p-6" style={{ border: '1px solid var(--border-subtle)', background: 'var(--bg-elevated)' }}>
+            <div className="p-6" style={{ border: '1px solid var(--border-subtle)', background: 'var(--bg-elevated)' }}>
               <p className="font-display font-black" style={{ color: 'var(--text-primary)' }}>{COMPANY.name}</p>
               <p className="mb-3 text-xs" style={{ color: 'var(--text-gold)' }}>A WLA Entertainment Company · {COMPANY.rc}</p>
               <div className="space-y-1 text-sm" style={{ color: 'var(--text-secondary)' }}>

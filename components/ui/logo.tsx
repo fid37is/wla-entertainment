@@ -14,16 +14,22 @@ interface LogoProps {
   rounded?: string
 }
 
-export function WLALogo({ size = 40, className, rounded = 'rounded-xl' }: LogoProps) {
+// `rounded` is kept for API compatibility with existing call sites but is no
+// longer used for the mark itself — the brand mark now uses a sheared
+// parallelogram clip (matching the site-wide button/card shear) instead of
+// rounded corners.
+export function WLALogo({ size = 40, className, rounded: _rounded = 'rounded-xl' }: LogoProps) {
   const [failed, setFailed] = useState(false)
+  const shear = 'polygon(12% 0, 100% 0, 88% 100%, 0 100%)'
 
   return (
     <div
-      className={cn('relative flex-shrink-0 overflow-hidden', rounded, className)}
+      className={cn('relative flex-shrink-0 overflow-hidden', className)}
       style={{
         width: size,
         height: size,
         background: '#1A1600',
+        clipPath: shear,
         // Gold ring separates logo from any background
         boxShadow: '0 0 0 1.5px rgba(202,138,4,0.50)',
       }}
@@ -41,10 +47,7 @@ export function WLALogo({ size = 40, className, rounded = 'rounded-xl' }: LogoPr
         />
       ) : (
         <div
-          className={cn(
-            'flex h-full w-full items-center justify-center font-display font-black text-black',
-            rounded,
-          )}
+          className="flex h-full w-full items-center justify-center font-display font-black text-black"
           style={{
             background: 'linear-gradient(135deg, #EAB308, #CA8A04)',
             fontSize: Math.round(size * 0.28),

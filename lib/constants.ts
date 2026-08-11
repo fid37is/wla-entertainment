@@ -91,6 +91,23 @@ export const STATS = [
   { value: '4+', label: 'Planned franchises' },
 ]
 
+// ─── NNW Season 1 zone structure ───────────────────────────────────────────────
+// 6 geopolitical zones × 30 contestants, top 3 per zone advance to the Grand
+// Finale (18 finalists) in FCT Abuja.
+export const NNW_ZONES = [
+  'North West', 'North East', 'North Central',
+  'South West', 'South East', 'South South',
+] as const
+
+export const NNW_SEASON_1 = {
+  zoneCount: 6,
+  contestantsPerZone: "XX",
+  totalContestants: "XXX",
+  advancePerZone: "X",
+  grandFinaleFinalists: "xx",
+  grandFinaleVenue: 'FCT Abuja',
+}
+
 // ─── Company info ─────────────────────────────────────────────────────────────
 export const COMPANY = {
   name: 'WLA Entertainment Ltd',

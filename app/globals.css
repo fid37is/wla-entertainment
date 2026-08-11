@@ -4,23 +4,24 @@
 /* All colours live here. Components use var(--*) only. No hardcoded hex.       */
 
 :root {
-  /* Brand — two-colour system: gold + navy. Nothing else. Green only ever
-     appears inside NNW's own franchise assets (the runway/course), never as
-     a WLA primary colour — these tokens are aliased to gold so nothing in the
-     component tree breaks if it still references --color-green anywhere. */
+  /* Brand — gold + navy + a working green for live/active status, matching
+     the WLA prototype design system (Aug 2026). Green is now a real,
+     independent token (previously aliased to gold under a gold-only
+     guardrail) — it's used specifically for "live/active" signals: the
+     active franchise marker, zone-advance labels, the NNW external link. */
   --color-gold:        #CA8A04;
   --color-gold-light:  #EAB308;
   --color-gold-dark:   #A16207;
   --color-gold-deeper: #7C5C00;
 
-  --color-green:        var(--color-gold);
-  --color-green-light:  var(--color-gold-light);
-  --color-green-dark:   var(--color-gold-dark);
-  --border-green:       var(--border-gold);
-  --border-green-strong:var(--border-gold-strong);
-  --bg-green-tint:      var(--bg-gold-tint);
-  --bg-green-tint-2:    var(--bg-gold-tint-2);
-  --text-green:         var(--text-gold);
+  --color-green:        #14733D;
+  --color-green-light:  #1E9350;
+  --color-green-dark:   #0B5C2E;
+  --border-green:       rgba(20,115,61,0.35);
+  --border-green-strong:rgba(20,115,61,0.55);
+  --bg-green-tint:      rgba(20,115,61,0.08);
+  --bg-green-tint-2:    rgba(20,115,61,0.13);
+  --text-green:         #0B5C2E;
 
   /* Navy — the actual dark-mode base. Cool, not warm; no brown cast. */
   --color-navy:       #0A0E16;
@@ -28,12 +29,18 @@
   --color-navy-light: #131A2A;
 
   /* Backgrounds — light defaults */
-  --bg-base:        #FAFAF9;
+  --bg-base:        #F5F4F0;
   --bg-surface:     rgba(0,0,0,0.03);
   --bg-surface-2:   rgba(0,0,0,0.05);
   --bg-elevated:    rgba(0,0,0,0.07);
   --bg-gold-tint:   rgba(234,179,8,0.07);
   --bg-gold-tint-2: rgba(234,179,8,0.12);
+
+  /* Lines — hairline dividers used by the grid-card technique (1px gaps
+     revealing this colour between cells). Named separately from the
+     translucent --border-* tokens because it's drawn at full opacity. */
+  --line:        rgba(0,0,0,0.12);
+  --line-strong: rgba(0,0,0,0.22);
 
   /* Borders */
   --border-subtle:      rgba(0,0,0,0.09);
@@ -99,9 +106,13 @@
   --radius-2xl: 24px;
   --radius-full:9999px;
 
-  /* Typography */
-  --font-display: 'Playfair Display', Georgia, serif;
-  --font-body:    'DM Sans', system-ui, sans-serif;
+  /* Typography — Big Shoulders Display is condensed/heavy and built for
+     uppercase headlines at speed; Inter for body copy; JetBrains Mono for
+     eyebrows, labels, stats and anything that reads as a system/scoreboard
+     readout. */
+  --font-display: 'Big Shoulders Display', 'Arial Narrow', sans-serif;
+  --font-body:    'Inter', system-ui, sans-serif;
+  --font-mono:    'JetBrains Mono', ui-monospace, monospace;
 }
 
 /* ─── Dark theme ───────────────────────────────────────────────────────────── */
@@ -111,14 +122,14 @@
   --color-gold-dark:   #CA8A04;
   --color-gold-deeper: #A16207;
 
-  --color-green:        var(--color-gold);
-  --color-green-light:  var(--color-gold-light);
-  --color-green-dark:   var(--color-gold-dark);
-  --border-green:       var(--border-gold);
-  --border-green-strong:var(--border-gold-strong);
-  --bg-green-tint:      var(--bg-gold-tint);
-  --bg-green-tint-2:    var(--bg-gold-tint-2);
-  --text-green:         var(--text-gold);
+  --color-green:        #14733D;
+  --color-green-light:  #1E9350;
+  --color-green-dark:   #0B5C2E;
+  --border-green:       rgba(20,115,61,0.40);
+  --border-green-strong:rgba(20,115,61,0.60);
+  --bg-green-tint:      rgba(20,115,61,0.10);
+  --bg-green-tint-2:    rgba(20,115,61,0.16);
+  --text-green:         #2FA35C;
 
   /* Navy-black, not warm black — this is what was reading as "brown" before:
      a warm near-black (#080808) sitting under warm gold glows muddies into
@@ -129,6 +140,9 @@
   --bg-elevated:    rgba(255,255,255,0.07);
   --bg-gold-tint:   rgba(234,179,8,0.05);
   --bg-gold-tint-2: rgba(234,179,8,0.09);
+
+  --line:        rgba(255,255,255,0.10);
+  --line-strong: rgba(255,255,255,0.20);
 
   --border-subtle:      rgba(255,255,255,0.08);
   --border-medium:      rgba(255,255,255,0.15);
@@ -181,7 +195,8 @@
     
   }
 
-  .font-display { font-family: var(--font-display); }
+  .font-display { font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.01em; line-height: 1.03; }
+  .font-mono    { font-family: var(--font-mono); }
   * { box-sizing: border-box; }
 }
 
@@ -213,7 +228,6 @@
     background:    var(--input-bg);
     border:        1px solid var(--input-border);
     color:         var(--input-text);
-    border-radius: var(--radius-lg);
     padding:       0.75rem 1rem;
     font-size:     0.875rem;
     width:         100%;
@@ -230,12 +244,90 @@
   .card {
     background:    var(--bg-surface);
     border:        1px solid var(--border-subtle);
-    border-radius: var(--radius-2xl);
   }
   .card-gold {
     background:    var(--bg-gold-tint);
     border:        1px solid var(--border-gold);
-    border-radius: var(--radius-2xl);
+  }
+
+  /* ── New UI-system primitives (Aug 2026 redesign) ──────────────────────── */
+
+  /* Eyebrow — mono uppercase label with a short leading dash. Used above
+     every section heading and inside status tags. */
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-gold);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 18px;
+    height: 2px;
+    background: var(--color-gold);
+    flex-shrink: 0;
+  }
+
+  /* Sheared buttons — clipped parallelogram, mono uppercase label. Replaces
+     rounded-full as the primary CTA shape sitewide. */
+  .btn-shear {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 1rem 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: 1px solid transparent;
+    transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+    clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%);
+  }
+  .btn-shear-gold  { background: var(--color-gold); color: #000; }
+  .btn-shear-gold:hover { background: var(--color-gold-light); }
+  .btn-shear-green { background: var(--color-green); color: #fff; }
+  .btn-shear-green:hover { background: var(--color-green-light); }
+  .btn-ghost-shear {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 1rem 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: 1px solid var(--line-strong);
+    color: var(--text-primary);
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-ghost-shear:hover { border-color: var(--color-gold); color: var(--text-gold); }
+
+  /* Hairline grid — a set of cards separated by 1px lines instead of gaps +
+     borders. Wrapper gets `background: var(--line); gap: 1px`, each cell
+     gets `background: var(--bg-base)`. */
+  .hairline-grid  { display: grid; gap: 1px; background: var(--line); }
+  .hairline-cell  { background: var(--bg-base); }
+
+  /* Status dot with a soft pulse — used for "live" markers. */
+  .dot-live {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--color-green);
+    box-shadow: 0 0 0 0 rgba(20,115,61,0.6);
+    animation: dotPulse 1.8s infinite;
+    flex-shrink: 0;
+  }
+  @keyframes dotPulse {
+    0%   { box-shadow: 0 0 0 0 rgba(20,115,61,0.55); }
+    70%  { box-shadow: 0 0 0 9px rgba(20,115,61,0); }
+    100% { box-shadow: 0 0 0 0 rgba(20,115,61,0); }
   }
 }
 

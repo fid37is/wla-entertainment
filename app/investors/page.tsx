@@ -60,9 +60,7 @@ export default function InvestorsPage() {
 
               {/* Left - copy */}
               <div>
-                <p className="mb-4 text-xs font-bold uppercase tracking-[0.35em]" style={{ color: 'var(--text-gold)' }}>
-                  Investor Relations
-                </p>
+                <p className="eyebrow mb-4">Investor Relations</p>
                 <h1
                   className="mb-6 font-display font-black leading-tight"
                   style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', color: 'var(--text-primary)' }}
@@ -83,23 +81,18 @@ export default function InvestorsPage() {
                 <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                   <a
                     href={`mailto:${COMPANY.email.investors}?subject=WLA Series A - IM Request`}
-                    className="inline-flex items-center gap-2 rounded-full px-8 py-4 font-bold transition-all hover:scale-105"
-                    style={{ background: 'var(--gradient-gold)', color: '#000' }}
+                    className="btn-shear btn-shear-gold"
                   >
                     Request Information Memorandum <ArrowUpRight size={16} />
                   </a>
-                  <a
-                    href="/portal/login"
-                    className="inline-flex items-center gap-2 rounded-full px-8 py-4 font-bold transition-all hover:scale-105"
-                    style={{ border: '1px solid var(--border-gold-strong)', color: 'var(--text-gold)' }}
-                  >
+                  <a href="/portal/login" className="btn-ghost-shear" style={{ borderColor: 'var(--border-gold-strong)', color: 'var(--text-gold)' }}>
                     Investor Portal <ArrowUpRight size={16} />
                   </a>
                 </div>
               </div>
 
               {/* Right - stat pills */}
-              <div className="flex flex-col justify-center gap-3">
+              <div className="hairline-grid grid-cols-1">
                 {[
                   { value: 'NGN 800M',  label: 'Series A Target' },
                   { value: '220M+',     label: 'Nigerian Addressable Audience' },
@@ -107,11 +100,7 @@ export default function InvestorsPage() {
                   { value: '54',        label: 'Addressable African Markets' },
                   { value: '6 Streams', label: 'Revenue Sources - Season 1' },
                 ].map((s) => (
-                  <div
-                    key={s.label}
-                    className="flex items-center justify-between rounded-xl px-6 py-4"
-                    style={{ border: '1px solid var(--border-subtle)', background: 'var(--bg-surface)' }}
-                  >
+                  <div key={s.label} className="hairline-cell flex items-center justify-between px-6 py-4">
                     <span className="text-sm" style={{ color: 'var(--text-muted)' }}>{s.label}</span>
                     <span className="font-display text-xl font-black text-gold-gradient">{s.value}</span>
                   </div>
@@ -144,9 +133,7 @@ export default function InvestorsPage() {
         <section className="px-6 py-20" style={{ borderTop: '1px solid var(--border-subtle)' }}>
           <div className="mx-auto max-w-7xl">
             <div className="mb-14 text-center">
-              <p className="mb-4 text-xs font-bold uppercase tracking-[0.35em]" style={{ color: 'var(--text-gold)' }}>
-                The Opportunity
-              </p>
+              <p className="eyebrow mb-4" style={{ justifyContent: 'center' }}>The Opportunity</p>
               <h2 className="font-display text-3xl font-black md:text-4xl" style={{ color: 'var(--text-primary)' }}>
                 Why WLA, Why Now
               </h2>
@@ -159,9 +146,7 @@ export default function InvestorsPage() {
         <section className="px-6 py-20" style={{ borderTop: '1px solid var(--border-subtle)' }}>
           <div className="mx-auto max-w-7xl">
             <div className="mb-14 text-center">
-              <p className="mb-4 text-xs font-bold uppercase tracking-[0.35em]" style={{ color: 'var(--text-gold)' }}>
-                How WLA Scales
-              </p>
+              <p className="eyebrow mb-4" style={{ justifyContent: 'center' }}>How WLA Scales</p>
               <h2 className="mb-3 font-display text-3xl font-black md:text-4xl" style={{ color: 'var(--text-primary)' }}>
                 One Format. Continental Reach.
               </h2>
@@ -179,16 +164,16 @@ export default function InvestorsPage() {
                 return (
                   <div key={step.title} className="relative">
                     <div
-                      className="h-full rounded-2xl p-6"
+                      className="h-full p-6"
                       style={{ border: '1px solid var(--border-subtle)', background: 'var(--bg-surface)' }}
                     >
                       <div
-                        className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl"
+                        className="mb-4 flex h-11 w-11 items-center justify-center"
                         style={{ background: 'var(--bg-gold-tint)', border: '1px solid var(--border-gold)' }}
                       >
                         <Icon size={20} style={{ color: 'var(--text-gold)' }} />
                       </div>
-                      <p className="mb-1 text-[11px] font-black uppercase tracking-[0.2em]" style={{ color: 'var(--text-faint)' }}>
+                      <p className="font-mono mb-1 text-[0.66rem] uppercase tracking-[0.08em]" style={{ color: 'var(--text-faint)' }}>
                         Step {i + 1}
                       </p>
                       <p className="mb-2 font-display text-base font-bold" style={{ color: 'var(--text-primary)' }}>
@@ -213,7 +198,7 @@ export default function InvestorsPage() {
             </div>
 
             <div
-              className="mx-auto mt-10 flex max-w-2xl items-start gap-3 rounded-xl p-4 text-left"
+              className="mx-auto mt-10 flex max-w-2xl items-start gap-3 p-4 text-left"
               style={{ border: '1px solid var(--border-subtle)', background: 'var(--bg-surface)' }}
             >
               <Globe2 size={16} className="mt-0.5 flex-shrink-0" style={{ color: 'var(--text-gold)' }} />
@@ -230,9 +215,7 @@ export default function InvestorsPage() {
         <section className="px-6 py-20" style={{ borderTop: '1px solid var(--border-subtle)' }}>
           <div className="mx-auto max-w-4xl">
             <div className="mb-10 text-center">
-              <p className="mb-4 text-xs font-bold uppercase tracking-[0.35em]" style={{ color: 'var(--text-gold)' }}>
-                Next Step
-              </p>
+              <p className="eyebrow mb-4" style={{ justifyContent: 'center' }}>Next Step</p>
               <h2 className="mb-3 font-display text-3xl font-black md:text-4xl" style={{ color: 'var(--text-primary)' }}>
                 What Verified Investors Receive
               </h2>
@@ -240,16 +223,14 @@ export default function InvestorsPage() {
                 Full investment documentation issued under NDA to verified prospective investors only.
               </p>
             </div>
-            <div className="card-gold p-8">
+            <div className="p-8" style={{ border: '1px solid var(--border-gold)', background: 'var(--bg-gold-tint)' }}>
               <ul className="space-y-4">
                 {WHAT_YOU_RECEIVE.map((item) => (
                   <li key={item} className="flex items-start gap-4">
                     <div
-                      className="mt-1 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full"
-                      style={{ background: 'rgba(234,179,8,0.15)' }}
-                    >
-                      <span className="h-1.5 w-1.5 rounded-full" style={{ background: 'var(--color-gold)' }} />
-                    </div>
+                      className="mt-1.5 h-1.5 w-1.5 flex-shrink-0"
+                      style={{ background: 'var(--color-gold)' }}
+                    />
                     <p style={{ color: 'var(--text-primary)' }}>{item}</p>
                   </li>
                 ))}
@@ -262,7 +243,7 @@ export default function InvestorsPage() {
         <section className="px-6 py-20" style={{ borderTop: '1px solid var(--border-subtle)' }}>
           <div className="mx-auto max-w-3xl text-center">
             <div
-              className="mb-6 inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-xs font-bold uppercase tracking-wider"
+              className="font-mono mb-6 inline-flex items-center gap-2 px-5 py-2.5 text-[0.7rem] uppercase tracking-[0.06em]"
               style={{
                 border: '1px solid var(--border-gold)',
                 background: 'var(--bg-gold-tint)',
@@ -290,13 +271,10 @@ export default function InvestorsPage() {
 
             {/* Verification process steps */}
             <div
-              className="mx-auto mb-10 max-w-lg rounded-2xl p-6 text-left"
+              className="mx-auto mb-10 max-w-lg p-6 text-left"
               style={{ border: '1px solid var(--border-subtle)', background: 'var(--bg-surface)' }}
             >
-              <p
-                className="mb-4 text-xs font-black uppercase tracking-[0.2em]"
-                style={{ color: 'var(--text-gold)' }}
-              >
+              <p className="font-mono mb-4 text-[0.7rem] uppercase tracking-[0.08em]" style={{ color: 'var(--text-gold)' }}>
                 Verification Process
               </p>
               {[
@@ -311,7 +289,7 @@ export default function InvestorsPage() {
                   style={{ borderBottom: i < 3 ? '1px solid var(--border-subtle)' : 'none' }}
                 >
                   <span
-                    className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full text-[10px] font-black"
+                    className="font-mono flex h-5 w-5 flex-shrink-0 items-center justify-center text-[0.66rem] font-bold"
                     style={{
                       background: 'var(--bg-gold-tint)',
                       color: 'var(--text-gold)',
@@ -327,19 +305,14 @@ export default function InvestorsPage() {
               ))}
             </div>
 
-            <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+            <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
               <a
                 href={`mailto:${COMPANY.email.investors}?subject=WLA Series A - IM Request`}
-                className="inline-flex items-center gap-2 rounded-full px-10 py-4 font-bold transition-all hover:scale-105"
-                style={{ background: 'var(--gradient-gold)', color: '#000' }}
+                className="btn-shear btn-shear-gold"
               >
                 Request Information Memorandum <ArrowUpRight size={16} />
               </a>
-              <a
-                href="/portal/login"
-                className="inline-flex items-center gap-2 rounded-full px-8 py-4 font-bold transition-all hover:scale-105"
-                style={{ border: '1px solid var(--border-gold-strong)', color: 'var(--text-gold)' }}
-              >
+              <a href="/portal/login" className="btn-ghost-shear" style={{ borderColor: 'var(--border-gold-strong)', color: 'var(--text-gold)' }}>
                 Investor Portal <ArrowUpRight size={16} />
               </a>
             </div>

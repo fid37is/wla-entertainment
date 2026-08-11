@@ -17,14 +17,7 @@ export default function NotFound() {
 
       <div className="relative z-10 w-full max-w-xl">
         {/* Status badge */}
-        <div
-          className="mx-auto mb-8 inline-flex items-center gap-2 rounded-full border border-white/10 px-5 py-1.5 text-xs font-medium tracking-[3px]"
-          style={{ color: 'var(--text-muted)' }}
-        >
-          <div
-            className="h-1.5 w-1.5 rounded-full"
-            style={{ background: 'var(--gradient-gold)' }}
-          />
+        <div className="eyebrow mx-auto mb-8" style={{ justifyContent: 'center' }}>
           ERROR 404
         </div>
 
@@ -68,20 +61,12 @@ export default function NotFound() {
 
         {/* Primary actions */}
         <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <Link
-            href="/"
-            className="inline-flex w-full items-center justify-center gap-2 rounded-full px-8 py-4 font-bold text-black transition-all active:scale-[0.985] hover:scale-[1.015] sm:w-auto"
-            style={{ background: 'var(--gradient-gold)' }}
-          >
+          <Link href="/" className="btn-shear btn-shear-gold w-full sm:w-auto">
             <Home size={18} />
             Back to Home
           </Link>
 
-          <Link
-            href="/contact"
-            className="inline-flex w-full items-center justify-center gap-2 rounded-full px-8 py-4 font-semibold transition-all active:scale-[0.985] sm:w-auto"
-            style={{ color: 'var(--text-primary)', border: '1px solid var(--border-medium)' }}
-          >
+          <Link href="/contact" className="btn-ghost-shear w-full sm:w-auto">
             Contact Support
             <ArrowLeft size={16} className="rotate-180" />
           </Link>

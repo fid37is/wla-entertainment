@@ -45,15 +45,6 @@ const THE_TRIBE: TribeMember[] = [
     isFounder: false,
   },
   {
-    name: 'Peace George',
-    role: 'Investment Lead',
-    credentials: 'B.L (First Class) · Nigerian Law School · LL.B, Babcock University',
-    bio: "Lawyer specialising in corporate and commercial law with a focus on finance, technology, and data analytics. Brings legal rigour and data-driven analysis to WLA's investor relations, term sheet management, and Series A pipeline.",
-    photo: '/team/peace-george.jpg',
-    initials: 'PG',
-    isFounder: false,
-  },
-  {
     name: 'Ejiba Tochi',
     role: 'Legal Counsel',
     credentials: '[Qualification] · [Institution]',
@@ -71,25 +62,6 @@ const THE_TRIBE: TribeMember[] = [
     initials: 'OA',
     isFounder: false,
   },
-  // ── Extended
-  {
-    name: 'Jude-Hyacinth John Ekene',
-    role: 'GD / Social Media Manager',
-    credentials: 'B.Eng. Mechanical Engineering · Federal University of Technology Owerri',
-    bio: 'Graphic designer and community manager with experience across brand identity, social media content, and audience growth. Built NNW pitch graphics and the Facebook community pre-funding.',
-    photo: '/team/jude-hyacinth-john-ekene.jpg',
-    initials: 'JE',
-    isFounder: false,
-  },
-  {
-    name: 'OSato Iyawe',
-    role: 'Script Writer',
-    credentials: 'B.Sc. Biotechnology · Ekiti State University · EbonyLife Creative Academy · TAFTA Academy',
-    bio: "Creative writer and storyteller trained at EbonyLife Creative Academy and TAFTA. Lead writer on HUSH, winner of Best Student Film at the Coal City Film Festival. Drove early NNW audience growth across Twitter and Instagram.",
-    photo: '/team/osato-iyawe.jpg',
-    initials: 'OI',
-    isFounder: false,
-  },
   {
     name: 'Mercy Odule',
     role: 'Contestant & Zone Coordinator',
@@ -98,16 +70,7 @@ const THE_TRIBE: TribeMember[] = [
     photo: '/team/mercy-odule.jpg',
     initials: 'MO',
     isFounder: false,
-  },
-  {
-    name: 'Cyril Obiorah',
-    role: 'Tech Lead',
-    credentials: '[Qualification] · [Institution]',
-    bio: 'Leads all technology infrastructure across the WLA ecosystem - platform development, digital operations, and technical architecture supporting production and broadcast.',
-    photo: null,
-    initials: 'CO',
-    isFounder: false,
-  },
+  }
 ]
 
 const COMPANY_ROWS: [string, string][] = [
@@ -128,13 +91,19 @@ function TribeCard({ member, onOpen }: { member: TribeMember; onOpen: (m: TribeM
     <button
       type="button"
       onClick={() => onOpen(member)}
-      className="flex flex-col overflow-hidden rounded-2xl text-left transition-colors"
+      className="flex flex-col overflow-hidden text-left transition-all"
       style={{
         border: '1px solid var(--border-subtle)',
         background: 'var(--bg-surface)',
       }}
-      onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = 'var(--border-gold)' }}
-      onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = 'var(--border-subtle)' }}
+      onMouseEnter={e => {
+        ;(e.currentTarget as HTMLElement).style.borderColor = 'var(--border-gold)'
+        ;(e.currentTarget as HTMLElement).style.transform = 'translateY(-3px)'
+      }}
+      onMouseLeave={e => {
+        ;(e.currentTarget as HTMLElement).style.borderColor = 'var(--border-subtle)'
+        ;(e.currentTarget as HTMLElement).style.transform = 'translateY(0)'
+      }}
     >
       {/* Photo zone - unchanged dimensions */}
       <div
@@ -171,7 +140,7 @@ function TribeCard({ member, onOpen }: { member: TribeMember; onOpen: (m: TribeM
       {/* Text zone - role + name only */}
       <div className="flex flex-col p-5">
         <p
-          className="mb-1 text-[9px] font-black uppercase tracking-[0.22em]"
+          className="font-mono mb-1 text-[0.62rem] uppercase tracking-[0.05em]"
           style={{ color: 'var(--text-gold)' }}
         >
           {member.role}
@@ -218,7 +187,7 @@ function TribeSheet({ member, onClose }: { member: TribeMember | null; onClose: 
         aria-label={member ? `${member.name} details` : undefined}
       >
         <div
-          className="relative mx-auto max-w-4xl overflow-y-auto rounded-t-3xl"
+          className="relative mx-auto max-w-4xl overflow-y-auto"
           style={{
             background: 'var(--bg-base)',
             border: '1px solid var(--border-subtle)',
@@ -275,7 +244,7 @@ function TribeSheet({ member, onClose }: { member: TribeMember | null; onClose: 
               {/* Details */}
               <div className="flex flex-col justify-center p-8 sm:p-10">
                 <p
-                  className="mb-2 text-xs font-black uppercase tracking-[0.25em]"
+                  className="font-mono mb-2 text-[0.7rem] uppercase tracking-[0.06em]"
                   style={{ color: 'var(--text-gold)' }}
                 >
                   {member.role}
@@ -330,12 +299,7 @@ export function AboutContent() {
           <div className="mx-auto max-w-7xl">
             <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
               <div>
-                <p
-                  className="mb-4 text-xs font-bold uppercase tracking-[0.35em]"
-                  style={{ color: 'var(--text-gold)' }}
-                >
-                  About WLA
-                </p>
+                <p className="eyebrow mb-4">About WLA</p>
                 <h1
                   className="mb-6 font-display font-black leading-tight"
                   style={{ fontSize: 'clamp(2.8rem, 6vw, 5rem)', color: 'var(--text-primary)' }}
@@ -360,14 +324,9 @@ export function AboutContent() {
         {/* ── Why This Exists ───────────────────────────────────────────────── */}
         <section className="px-6 py-20" style={{ borderTop: '1px solid var(--border-subtle)' }}>
           <div className="mx-auto max-w-4xl text-center">
-            <p
-              className="mb-6 text-xs font-bold uppercase tracking-[0.35em]"
-              style={{ color: 'var(--text-gold)' }}
-            >
-              Why This Exists
-            </p>
+            <p className="eyebrow mb-6" style={{ justifyContent: 'center' }}>Why This Exists</p>
             <blockquote
-              className="mb-8 font-display font-black italic leading-tight"
+              className="mb-8 font-display font-black"
               style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)', color: 'var(--text-primary)' }}
             >
               &ldquo;What does a person become when they stop believing they can?&rdquo;
@@ -389,12 +348,7 @@ export function AboutContent() {
           <div className="mx-auto max-w-7xl">
             <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
               <div>
-                <p
-                  className="mb-4 text-xs font-bold uppercase tracking-[0.3em]"
-                  style={{ color: 'var(--text-gold)' }}
-                >
-                  The Company
-                </p>
+                <p className="eyebrow mb-4">The Company</p>
                 <h2
                   className="mb-6 font-display text-3xl font-black md:text-4xl"
                   style={{ color: 'var(--text-primary)' }}
@@ -418,14 +372,14 @@ export function AboutContent() {
               </div>
 
               <div
-                className="rounded-2xl p-6"
+                className="p-6"
                 style={{ border: '1px solid var(--border-gold)', background: 'var(--bg-gold-tint)' }}
               >
                 <div
                   className="mb-5 flex items-center gap-4 pb-5"
                   style={{ borderBottom: '1px solid var(--border-subtle)' }}
                 >
-                  <WLALogo size={48} rounded="rounded-xl" />
+                  <WLALogo size={48} />
                   <div>
                     <p
                       className="font-display text-lg font-black"
@@ -434,7 +388,7 @@ export function AboutContent() {
                       {COMPANY.name}
                     </p>
                     <p
-                      className="text-xs font-bold tracking-wider"
+                      className="font-mono text-[0.68rem] uppercase tracking-[0.06em]"
                       style={{ color: 'var(--text-gold)' }}
                     >
                       Warriors League Africa
@@ -469,12 +423,7 @@ export function AboutContent() {
             {/* Section header */}
             <div className="mb-12 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
               <div>
-                <p
-                  className="mb-2 text-xs font-bold uppercase tracking-[0.35em]"
-                  style={{ color: 'var(--text-gold)' }}
-                >
-                  People
-                </p>
+                <p className="eyebrow mb-2">People</p>
                 <h2
                   className="font-display text-3xl font-black md:text-4xl"
                   style={{ color: 'var(--text-primary)' }}
@@ -492,7 +441,7 @@ export function AboutContent() {
 
             {/* Founder - full-width featured card, unchanged */}
             <div
-              className="mb-8 overflow-hidden rounded-2xl"
+              className="mb-8 overflow-hidden"
               style={{ border: '1px solid var(--border-gold)', background: 'var(--bg-gold-tint)' }}
             >
               <div className="grid grid-cols-1 lg:grid-cols-[340px_1fr]">
@@ -536,7 +485,7 @@ export function AboutContent() {
                 {/* Text */}
                 <div className="flex flex-col justify-center p-8 lg:p-10">
                   <p
-                    className="mb-1 text-[9px] font-black uppercase tracking-[0.25em]"
+                    className="font-mono mb-1 text-[0.66rem] uppercase tracking-[0.06em]"
                     style={{ color: 'var(--text-gold)' }}
                   >
                     {founder.role}
@@ -599,26 +548,13 @@ export function AboutContent() {
               Series A - NGN 800M is open. The investor who backs WLA at Series A buys the
               continent&apos;s first obstacle sports IP at its founding price.
             </p>
-            <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Link
-                href="/investors"
-                className="inline-flex items-center gap-2 rounded-full px-8 py-4 font-bold text-black transition-all hover:scale-105"
-                style={{ background: 'var(--gradient-gold)' }}
-              >
+            <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <Link href="/investors" className="btn-shear btn-shear-gold">
                 View Investment Case <ArrowUpRight size={16} />
               </Link>
               <a
                 href={`mailto:${COMPANY.email.general}?subject=WLA - Enquiry`}
-                className="flex items-center gap-2 rounded-full px-8 py-4 font-bold transition-all"
-                style={{ border: '1px solid var(--border-medium)', color: 'var(--text-primary)' }}
-                onMouseEnter={e => {
-                  ;(e.currentTarget as HTMLElement).style.borderColor = 'var(--border-strong)'
-                  ;(e.currentTarget as HTMLElement).style.background  = 'var(--bg-surface)'
-                }}
-                onMouseLeave={e => {
-                  ;(e.currentTarget as HTMLElement).style.borderColor = 'var(--border-medium)'
-                  ;(e.currentTarget as HTMLElement).style.background  = 'transparent'
-                }}
+                className="btn-ghost-shear"
               >
                 Contact Founder
               </a>

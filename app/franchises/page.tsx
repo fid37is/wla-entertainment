@@ -91,9 +91,7 @@ export default function FranchisesPage() {
 
               {/* Left  copy */}
               <div>
-                <p className="mb-4 text-xs font-bold uppercase tracking-[0.35em]" style={{ color: 'var(--text-gold)' }}>
-                  The Network
-                </p>
+                <p className="eyebrow mb-4">The Network</p>
                 <h1
                   className="mb-6 font-display font-black leading-tight"
                   style={{ fontSize: 'clamp(2.8rem, 6vw, 5rem)', color: 'var(--text-primary)' }}
@@ -136,7 +134,7 @@ export default function FranchisesPage() {
                 return (
                   <div
                     key={f.code}
-                    className="rounded-2xl p-8"
+                    className="p-8"
                     style={{
                       background: isLive ? 'var(--bg-gold-tint)' : 'var(--bg-surface)',
                       border: isLive ? '1px solid var(--border-gold)' : '1px solid var(--border-subtle)',
@@ -144,7 +142,7 @@ export default function FranchisesPage() {
                   >
                     <div className="mb-4 flex items-start justify-between gap-4">
                       <div>
-                        <p className="mb-1 text-xs font-black uppercase tracking-[0.2em]" style={{ color: 'var(--text-gold)' }}>
+                        <p className="font-mono mb-1 text-[0.68rem] uppercase tracking-[0.06em]" style={{ color: 'var(--text-gold)' }}>
                           {f.code}
                         </p>
                         <h3 className="font-display text-xl font-black" style={{ color: 'var(--text-primary)' }}>
@@ -155,20 +153,14 @@ export default function FranchisesPage() {
                         </p>
                       </div>
                       {isLive ? (
-                        <span
-                          className="flex flex-shrink-0 items-center gap-1.5 rounded-full px-3 py-1.5"
-                          style={{ background: 'var(--color-gold)' }}
-                        >
-                          <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-black" />
-                          <span className="text-[9px] font-black uppercase tracking-widest text-black">Live</span>
+                        <span className="font-mono flex flex-shrink-0 items-center gap-2 px-3 py-2 text-[0.66rem] uppercase tracking-[0.05em]" style={{ background: 'var(--color-gold)', color: '#000' }}>
+                          <span className="h-1.5 w-1.5 rounded-full bg-black" />
+                          Live
                         </span>
                       ) : (
                         <span
-                          className="flex-shrink-0 rounded-full px-3 py-1.5 text-[9px] font-black uppercase tracking-widest"
-                          style={{
-                            border: '1px solid var(--border-subtle)',
-                            color: 'var(--text-faint)',
-                          }}
+                          className="font-mono flex-shrink-0 px-3 py-2 text-[0.66rem] uppercase tracking-[0.05em]"
+                          style={{ border: '1px solid var(--border-subtle)', color: 'var(--text-faint)' }}
                         >
                           Projected
                         </span>
@@ -180,20 +172,13 @@ export default function FranchisesPage() {
                     </p>
 
                     {isLive && f.url ? (
-                      <a
-                        href={f.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-bold text-black transition-all hover:brightness-110"
-                        style={{ background: 'var(--gradient-gold)' }}
-                      >
+                      <a href={f.url} target="_blank" rel="noopener noreferrer" className="btn-shear btn-shear-gold text-xs">
                         Visit NNW <ArrowUpRight size={14} />
                       </a>
                     ) : (
                       <a
                         href={`mailto:${COMPANY.email.general}?subject=Franchise Interest - ${f.code}`}
-                        className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-bold transition-all"
-                        style={{ border: '1px solid var(--border-medium)', color: 'var(--text-primary)' }}
+                        className="btn-ghost-shear text-xs"
                       >
                         Register Interest <ArrowUpRight size={14} />
                       </a>
@@ -209,9 +194,7 @@ export default function FranchisesPage() {
         <section className="px-6 py-20" style={{ borderTop: '1px solid var(--border-subtle)' }}>
           <div className="mx-auto max-w-7xl">
             <div className="mb-14 text-center">
-              <p className="mb-4 text-xs font-bold uppercase tracking-[0.35em]" style={{ color: 'var(--text-gold)' }}>
-                The Model
-              </p>
+              <p className="eyebrow mb-4" style={{ justifyContent: 'center' }}>The Model</p>
               <h2 className="mb-3 font-display text-3xl font-black md:text-4xl" style={{ color: 'var(--text-primary)' }}>
                 How Franchise Licensing Works
               </h2>
@@ -221,10 +204,10 @@ export default function FranchisesPage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+            <div className="hairline-grid grid-cols-1 lg:grid-cols-2">
               <div
-                className="rounded-2xl p-8"
-                style={{ background: 'var(--bg-gold-tint)', border: '1px solid var(--border-gold)' }}
+                className="hairline-cell p-8"
+                style={{ background: 'var(--bg-gold-tint)' }}
               >
                 <h3 className="mb-5 font-display text-lg font-black" style={{ color: 'var(--text-primary)' }}>
                   WLA Provides
@@ -238,10 +221,7 @@ export default function FranchisesPage() {
                   ))}
                 </ul>
               </div>
-              <div
-                className="rounded-2xl p-8"
-                style={{ background: 'var(--bg-surface)', border: '1px solid var(--border-subtle)' }}
-              >
+              <div className="hairline-cell p-8">
                 <h3 className="mb-5 font-display text-lg font-black" style={{ color: 'var(--text-primary)' }}>
                   Local Partners Provide
                 </h3>
@@ -267,19 +247,14 @@ export default function FranchisesPage() {
             <p className="mb-10" style={{ color: 'var(--text-secondary)' }}>
               Contact us directly. All franchise enquiries are handled personally by the Founder & CEO.
             </p>
-            <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
               <a
                 href={`mailto:${COMPANY.email.general}?subject=Franchise Licence Enquiry`}
-                className="inline-flex items-center gap-2 rounded-full px-8 py-4 font-bold text-black transition-all hover:scale-105"
-                style={{ background: 'var(--gradient-gold)' }}
+                className="btn-shear btn-shear-gold"
               >
                 <Mail size={16} /> Enquire About Licensing
               </a>
-              <Link
-                href="/investors"
-                className="flex items-center gap-2 rounded-full px-8 py-4 font-bold transition-all"
-                style={{ border: '1px solid var(--border-subtle)', color: 'var(--text-secondary)' }}
-              >
+              <Link href="/investors" className="btn-ghost-shear">
                 View Investor Relations <ArrowUpRight size={16} />
               </Link>
             </div>

@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 function PolicySection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <div className="rounded-2xl p-6 md:p-8" style={{ border: '1px solid var(--border-subtle)', background: 'var(--bg-surface)' }}>
+    <div className="p-6 md:p-8" style={{ border: '1px solid var(--border-subtle)', background: 'var(--bg-surface)' }}>
       <h2 className="mb-5 font-display text-xl font-black md:text-2xl" style={{ color: 'var(--text-primary)' }}>{title}</h2>
       {children}
     </div>
@@ -64,13 +64,13 @@ export default function PrivacyPage() {
         </Link>
 
         {/* Hero */}
-        <div className="mb-12 rounded-2xl p-8" style={{ border: '1px solid var(--border-gold)', background: 'var(--bg-gold-tint)' }}>
+        <div className="mb-12 p-8" style={{ border: '1px solid var(--border-gold)', background: 'var(--bg-gold-tint)' }}>
           <div className="flex items-start gap-6">
-            <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-xl" style={{ background: 'var(--gradient-gold)' }}>
+            <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center" style={{ background: 'var(--gradient-gold)' }}>
               <ShieldCheck size={22} className="text-black" />
             </div>
             <div>
-              <p className="mb-1 text-xs font-bold uppercase tracking-[0.3em]" style={{ color: 'var(--text-gold)' }}>Legal</p>
+              <p className="eyebrow mb-1">Legal</p>
               <h1 className="mb-2 font-display text-3xl font-black md:text-4xl" style={{ color: 'var(--text-primary)' }}>Privacy Policy</h1>
               <p className="text-sm" style={{ color: 'var(--text-muted)' }}>Last Updated: August 2026</p>
             </div>
@@ -78,12 +78,12 @@ export default function PrivacyPage() {
         </div>
 
         {/* Data controller */}
-        <div className="mb-12 rounded-2xl p-6" style={{ border: '1px solid var(--border-subtle)', background: 'var(--bg-surface)' }}>
-          <p className="mb-4 text-xs font-bold uppercase tracking-[0.2em]" style={{ color: 'var(--text-muted)' }}>
+        <div className="mb-12 p-6" style={{ border: '1px solid var(--border-subtle)', background: 'var(--bg-surface)' }}>
+          <p className="font-mono mb-4 text-[0.68rem] uppercase tracking-[0.06em]" style={{ color: 'var(--text-muted)' }}>
             Data Controller &amp; Legal Entity
           </p>
           <div className="flex items-center gap-4">
-            <div className="flex h-12 w-12 items-center justify-center rounded-xl" style={{ background: 'var(--gradient-gold)' }}>
+            <div className="flex h-12 w-12 items-center justify-center" style={{ background: 'var(--gradient-gold)' }}>
               <span className="font-display text-xs font-black text-black">WLA</span>
             </div>
             <div>
@@ -170,7 +170,7 @@ export default function PrivacyPage() {
 
           <PolicySection title="12. Contact Us">
             <p className="mb-6 text-sm" style={{ color: 'var(--text-secondary)' }}>If you have questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact the data controller:</p>
-            <div className="rounded-xl p-6" style={{ border: '1px solid var(--border-subtle)', background: 'var(--bg-surface)' }}>
+            <div className="p-6" style={{ border: '1px solid var(--border-subtle)', background: 'var(--bg-surface)' }}>
               <p className="font-display font-black" style={{ color: 'var(--text-primary)' }}>{COMPANY.name}</p>
               <p className="mb-3 text-xs" style={{ color: 'var(--text-gold)' }}>A WLA Entertainment Company · {COMPANY.rc}</p>
               <div className="space-y-1 text-sm" style={{ color: 'var(--text-secondary)' }}>
