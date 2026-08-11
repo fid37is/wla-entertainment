@@ -23,9 +23,7 @@ export default function ContactPage() {
 
             {/* Top - heading */}
             <div>
-              <p className="mb-2 text-xs font-bold uppercase tracking-[0.35em]" style={{ color: 'var(--text-gold)' }}>
-                Contact
-              </p>
+              <p className="eyebrow mb-2">Contact</p>
               <h1
                 className="mb-4 font-display font-black leading-tight"
                 style={{ fontSize: 'clamp(2.5rem, 4vw, 4rem)', color: 'var(--text-primary)' }}

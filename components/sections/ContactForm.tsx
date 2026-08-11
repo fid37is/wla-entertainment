@@ -81,7 +81,7 @@ export function ContactForm() {
 
       {/* Enquiry type */}
       <div className="mb-5">
-        <label className="mb-2 block text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>
+        <label className="font-mono mb-2 block text-[0.68rem] uppercase tracking-[0.06em]" style={{ color: 'var(--text-muted)' }}>
           Enquiry Type
         </label>
         <div className="flex flex-wrap gap-2">
@@ -90,7 +90,7 @@ export function ContactForm() {
               key={t.value}
               type="button"
               onClick={() => setType(t.value)}
-              className="rounded-full px-4 py-1.5 text-xs font-bold transition-all"
+              className="font-mono px-4 py-2 text-[0.68rem] uppercase tracking-[0.03em] transition-all"
               style={type === t.value ? {
                 background: 'var(--color-gold)',
                 color: '#000',
@@ -119,7 +119,7 @@ export function ContactForm() {
 
       {/* Name */}
       <div className="mb-4">
-        <label htmlFor="name" className="mb-1.5 block text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>
+        <label htmlFor="name" className="font-mono mb-1.5 block text-[0.68rem] uppercase tracking-[0.06em]" style={{ color: 'var(--text-muted)' }}>
           Full Name
         </label>
         <input id="name" name="name" type="text" required placeholder="Your full name" className="input-base" />
@@ -127,7 +127,7 @@ export function ContactForm() {
 
       {/* Email */}
       <div className="mb-4">
-        <label htmlFor="email" className="mb-1.5 block text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>
+        <label htmlFor="email" className="font-mono mb-1.5 block text-[0.68rem] uppercase tracking-[0.06em]" style={{ color: 'var(--text-muted)' }}>
           Email Address
         </label>
         <input id="email" name="email" type="email" required placeholder="your@email.com" className="input-base" />
@@ -135,7 +135,7 @@ export function ContactForm() {
 
       {/* Organisation */}
       <div className="mb-4">
-        <label htmlFor="org" className="mb-1.5 block text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>
+        <label htmlFor="org" className="font-mono mb-1.5 block text-[0.68rem] uppercase tracking-[0.06em]" style={{ color: 'var(--text-muted)' }}>
           Organisation <span className="normal-case font-normal" style={{ color: 'var(--text-faint)' }}>(optional)</span>
         </label>
         <input id="org" name="org" type="text" placeholder="Company or organisation" className="input-base" />
@@ -143,7 +143,7 @@ export function ContactForm() {
 
       {/* Message */}
       <div className="mb-6">
-        <label htmlFor="message" className="mb-1.5 block text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>
+        <label htmlFor="message" className="font-mono mb-1.5 block text-[0.68rem] uppercase tracking-[0.06em]" style={{ color: 'var(--text-muted)' }}>
           Message
         </label>
         <textarea
@@ -156,8 +156,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={loading}
-        className="flex w-full items-center justify-center gap-2 rounded-full py-4 font-bold transition-all hover:scale-[1.02] hover:brightness-110 disabled:opacity-60"
-        style={{ background: 'var(--gradient-gold)', color: '#000' }}
+        className="btn-shear btn-shear-gold w-full disabled:opacity-60"
       >
         {loading ? 'Sending…' : (<>Send Enquiry <ArrowUpRight size={16} /></>)}
       </button>

@@ -174,10 +174,7 @@ export function WCLSection() {
               transition: 'opacity 0.9s ease, transform 0.9s ease',
             }}
           >
-            <p
-              className="mb-5 text-xs font-bold uppercase tracking-[0.35em]"
-              style={{ color: 'var(--text-gold)' }}
-            >
+            <p className="eyebrow mb-5">
               The Long Game
             </p>
             <h2

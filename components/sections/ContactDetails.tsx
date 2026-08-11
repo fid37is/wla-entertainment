@@ -40,13 +40,13 @@ export function ContactDetails() {
         {CONTACT_ITEMS.map(({ Icon, label, value, href }) => (
           <div key={label} className="flex items-start gap-3">
             <div
-              className="mt-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg"
+              className="mt-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center"
               style={{ background: 'var(--bg-gold-tint)', border: '1px solid var(--border-gold)' }}
             >
               <Icon size={14} style={{ color: 'var(--text-gold)' }} />
             </div>
             <div>
-              <p className="mb-0.5 text-[11px] font-bold uppercase tracking-wider" style={{ color: 'var(--text-faint)' }}>
+              <p className="font-mono mb-0.5 text-[0.62rem] uppercase tracking-[0.06em]" style={{ color: 'var(--text-faint)' }}>
                 {label}
               </p>
               {href ? (
@@ -72,7 +72,7 @@ export function ContactDetails() {
 
       {/* Social links */}
       <div>
-        <p className="mb-3 text-[11px] font-bold uppercase tracking-wider" style={{ color: 'var(--text-faint)' }}>
+        <p className="font-mono mb-3 text-[0.62rem] uppercase tracking-[0.06em]" style={{ color: 'var(--text-faint)' }}>
           Follow WLA
         </p>
         <div className="flex flex-wrap gap-2">
@@ -82,7 +82,7 @@ export function ContactDetails() {
               href={s.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium transition-all"
+              className="font-mono flex items-center gap-2 px-3 py-2 text-xs uppercase tracking-[0.03em] transition-all"
               style={{
                 border: '1px solid var(--border-subtle)',
                 color: 'var(--text-secondary)',

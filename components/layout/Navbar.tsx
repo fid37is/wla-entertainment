@@ -54,13 +54,13 @@ export function Navbar() {
 
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3">
-          <WLALogo size={56} rounded="rounded-xl" />
+          <WLALogo size={48} />
           <div>
-            <p className="font-display text-base font-bold leading-tight" style={{ color: 'var(--text-primary)' }}>
-              WLA Entertainment
+            <p className="font-display text-lg font-black leading-tight" style={{ color: 'var(--text-primary)' }}>
+              WLA
             </p>
-            <p className="text-[11px] font-bold uppercase tracking-widest leading-tight" style={{ color: 'var(--text-gold)' }}>
-              Warriors League Africa
+            <p className="font-mono text-[10px] uppercase tracking-[0.1em] leading-tight" style={{ color: 'var(--text-gold)' }}>
+              Entertainment Ltd
             </p>
           </div>
         </Link>
@@ -73,16 +73,13 @@ export function Navbar() {
               <Link
                 key={link.label}
                 href={link.href}
-                className="relative px-4 py-2 text-sm font-medium rounded-full transition-all duration-200"
-                style={{
-                  color: active ? 'var(--text-gold)' : 'var(--text-muted)',
-                  background: active ? 'var(--bg-gold-tint)' : 'transparent',
-                }}
+                className="font-mono relative px-4 py-2 text-[0.76rem] uppercase tracking-[0.07em] transition-colors duration-200"
+                style={{ color: active ? 'var(--text-gold)' : 'var(--text-muted)' }}
               >
                 {link.label}
                 {active && (
                   <span
-                    className="absolute bottom-1 left-1/2 -translate-x-1/2 h-1 w-1 rounded-full"
+                    className="absolute bottom-1 left-4 right-4 h-[2px]"
                     style={{ background: 'var(--color-gold)' }}
                   />
                 )}
@@ -92,11 +89,11 @@ export function Navbar() {
         </div>
 
         {/* Desktop right controls */}
-        <div className="hidden items-center gap-2 md:flex">
+        <div className="hidden items-center gap-3 md:flex">
           <button
             onClick={toggle}
             aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
-            className="flex h-9 w-9 items-center justify-center rounded-full transition-all"
+            className="flex h-9 w-9 items-center justify-center transition-all"
             style={{ border: '1px solid var(--border-subtle)', color: 'var(--text-muted)' }}
             onMouseEnter={e => {
               ;(e.currentTarget as HTMLElement).style.borderColor = 'var(--border-gold)'
@@ -111,13 +108,10 @@ export function Navbar() {
           </button>
 
           <a
-            href="https://naijaninja.net"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-bold text-black transition-all hover:brightness-110"
-            style={{ background: 'var(--gradient-gold)' }}
+            href="/portal/login"
+            className="btn-shear btn-shear-gold text-xs px-4 py-2.5"
           >
-            Visit NNW <ArrowUpRight size={14} />
+            Investor Portal <ArrowUpRight size={14} />
           </a>
         </div>
 
@@ -126,7 +120,7 @@ export function Navbar() {
           <button
             onClick={toggle}
             aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
-            className="flex h-10 w-10 items-center justify-center rounded-lg transition"
+            className="flex h-10 w-10 items-center justify-center transition"
             style={{ border: '1px solid var(--border-subtle)', color: 'var(--text-muted)' }}
           >
             {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
@@ -134,7 +128,7 @@ export function Navbar() {
 
           <button
             onClick={() => setMobileOpen(v => !v)}
-            className="flex h-10 w-10 items-center justify-center rounded-lg border transition"
+            className="flex h-10 w-10 items-center justify-center border transition"
             style={{ borderColor: 'var(--border-subtle)', color: 'var(--text-muted)' }}
             aria-label="Toggle menu"
           >
@@ -160,10 +154,9 @@ export function Navbar() {
                   key={link.label}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="rounded-xl px-4 py-3 text-base font-medium transition-all"
+                  className="font-mono px-4 py-3 text-sm uppercase tracking-[0.06em] transition-all"
                   style={{
                     color: active ? 'var(--text-gold)' : 'var(--text-secondary)',
-                    background: active ? 'var(--bg-gold-tint)' : 'transparent',
                     borderLeft: active ? '2px solid var(--color-gold)' : '2px solid transparent',
                   }}
                 >
@@ -172,13 +165,10 @@ export function Navbar() {
               )
             })}
             <a
-              href="https://naijaninja.net"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-3 flex items-center justify-center gap-2 rounded-full py-3 text-sm font-bold text-black"
-              style={{ background: 'var(--gradient-gold)' }}
+              href="/portal/login"
+              className="btn-shear btn-shear-gold mt-3 w-full text-xs"
             >
-              Visit NNW <ArrowUpRight size={14} />
+              Investor Portal <ArrowUpRight size={14} />
             </a>
           </div>
         </div>
