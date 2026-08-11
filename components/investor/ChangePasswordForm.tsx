@@ -111,9 +111,7 @@ export default function ChangePasswordForm({
 
       {/* Heading */}
       <div className="mb-6">
-        <p className="mb-1.5 text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--text-gold)' }}>
-          Account Security
-        </p>
+        <p className="eyebrow mb-3">Account Security</p>
         <h1 className="font-display text-2xl font-black mb-1.5" style={{ color: 'var(--text-primary)' }}>
           Set Your Password
         </h1>
@@ -124,7 +122,7 @@ export default function ChangePasswordForm({
 
       {/* Notice */}
       <div
-        className="mb-6 flex items-start gap-3 rounded-xl p-4"
+        className="mb-6 flex items-start gap-3 p-4"
         style={{ background: 'var(--status-warning-bg)', border: '1px solid var(--border-gold)' }}
       >
         <ShieldCheck size={16} className="flex-shrink-0 mt-0.5" style={{ color: 'var(--text-gold)' }} />
@@ -138,12 +136,12 @@ export default function ChangePasswordForm({
 
         <form
           onSubmit={handleSubmit}
-          className="space-y-5 rounded-[--radius-2xl] p-6"
+          className="space-y-5 p-6"
           style={{ background: 'var(--bg-surface)', border: '1px solid var(--border-subtle)', boxShadow: 'var(--shadow-card)' }}
         >
           {/* Temporary (current) password */}
           <div>
-            <label className="block text-xs font-bold uppercase tracking-wider mb-2" style={{ color: 'var(--text-muted)' }}>
+            <label className="font-mono block text-[0.68rem] uppercase tracking-[0.06em] mb-2" style={{ color: 'var(--text-muted)' }}>
               Temporary Password
             </label>
             <div className="relative">
@@ -164,7 +162,7 @@ export default function ChangePasswordForm({
 
           {/* New password */}
           <div>
-            <label className="block text-xs font-bold uppercase tracking-wider mb-2" style={{ color: 'var(--text-muted)' }}>
+            <label className="font-mono block text-[0.68rem] uppercase tracking-[0.06em] mb-2" style={{ color: 'var(--text-muted)' }}>
               New Password
             </label>
             <div className="relative">
@@ -188,7 +186,7 @@ export default function ChangePasswordForm({
                   {[1,2,3,4,5].map(i => (
                     <div
                       key={i}
-                      className="h-1 flex-1 rounded-full transition-all duration-300"
+                      className="h-1 flex-1 transition-all duration-300"
                       style={{ background: i <= sc ? meta.color : 'var(--border-subtle)' }}
                     />
                   ))}
@@ -202,7 +200,7 @@ export default function ChangePasswordForm({
 
           {/* Confirm password */}
           <div>
-            <label className="block text-xs font-bold uppercase tracking-wider mb-2" style={{ color: 'var(--text-muted)' }}>
+            <label className="font-mono block text-[0.68rem] uppercase tracking-[0.06em] mb-2" style={{ color: 'var(--text-muted)' }}>
               Confirm Password
             </label>
             <div className="relative">
@@ -231,18 +229,14 @@ export default function ChangePasswordForm({
             <button
               type="button"
               onClick={handleCancel}
-              className="rounded-[--radius-full] px-6 py-3.5 font-bold text-sm transition-all"
-              style={{ border: '1px solid var(--border-subtle)', color: 'var(--text-secondary)' }}
-              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = 'var(--border-medium)' }}
-              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = 'var(--border-subtle)' }}
+              className="btn-ghost-shear"
             >
               Cancel
             </button>
             <button
               type="submit"
               disabled={loading || !form.current || form.password.length < 8 || form.password !== form.confirm}
-              className="flex flex-1 items-center justify-center gap-2 py-3.5 rounded-[--radius-full] font-bold text-sm transition-all hover:brightness-110 disabled:opacity-40"
-              style={{ background: 'var(--gradient-gold)', color: '#000' }}
+              className="btn-shear btn-shear-gold flex-1 disabled:opacity-40"
             >
               {loading ? (
                 <>
@@ -256,10 +250,10 @@ export default function ChangePasswordForm({
 
         {/* Requirements - its own card, not nested inside the form's card */}
         <div
-          className="rounded-[--radius-2xl] p-5"
+          className="p-5"
           style={{ background: 'var(--bg-surface)', border: '1px solid var(--border-subtle)' }}
         >
-          <p className="mb-3 text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>
+          <p className="font-mono mb-3 text-[0.68rem] uppercase tracking-[0.06em]" style={{ color: 'var(--text-muted)' }}>
             Password Requirements
           </p>
           <ul className="space-y-2.5">
