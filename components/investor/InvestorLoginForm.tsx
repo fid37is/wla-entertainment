@@ -81,7 +81,7 @@ export default function InvestorLoginForm() {
           aria-hidden="true"
         />
         <div className="relative flex flex-col items-center text-center">
-          <WLALogo size={160} rounded="rounded-3xl" className="mb-10 shadow-2xl" />
+          <WLALogo size={160} className="mb-10 shadow-2xl" />
           <h1
             className="font-display font-black mb-3"
             style={{
@@ -92,12 +92,13 @@ export default function InvestorLoginForm() {
           >
             Warriors League Africa
           </h1>
+          <p className="eyebrow mb-3" style={{ justifyContent: 'center' }}>Secure Investor Portal</p>
           <p className="text-sm" style={{ color: 'var(--text-muted)', maxWidth: '22rem' }}>
-            Secure investor portal for WLA Entertainment Ltd.
+            WLA Entertainment Ltd.
           </p>
         </div>
         <div className="absolute bottom-8 text-center">
-          <p className="text-xs" style={{ color: 'var(--text-faint)' }}>
+          <p className="font-mono text-[0.66rem] uppercase tracking-[0.04em]" style={{ color: 'var(--text-faint)' }}>
             RC No. 9529867 · Incorporated May 2026
           </p>
         </div>
@@ -108,8 +109,8 @@ export default function InvestorLoginForm() {
 
         {/* Mobile logo */}
         <div className="lg:hidden flex flex-col items-center mb-10">
-          <WLALogo size={80} rounded="rounded-2xl" />
-          <p className="mt-3 font-display font-black text-xl" style={{ color: 'var(--text-primary)' }}>
+          <WLALogo size={80} />
+          <p className="font-mono mt-3 text-xs uppercase tracking-[0.1em]" style={{ color: 'var(--text-gold)' }}>
             Investor Portal
           </p>
         </div>
@@ -134,7 +135,7 @@ export default function InvestorLoginForm() {
           <form onSubmit={handleSubmit} className="space-y-5">
             <div>
               <label
-                className="block text-xs font-bold uppercase tracking-wider mb-2"
+                className="font-mono block text-[0.68rem] uppercase tracking-[0.06em] mb-2"
                 style={{ color: 'var(--text-muted)' }}
               >
                 Email Address
@@ -151,7 +152,7 @@ export default function InvestorLoginForm() {
 
             <div>
               <label
-                className="block text-xs font-bold uppercase tracking-wider mb-2"
+                className="font-mono block text-[0.68rem] uppercase tracking-[0.06em] mb-2"
                 style={{ color: 'var(--text-muted)' }}
               >
                 Password
@@ -180,8 +181,7 @@ export default function InvestorLoginForm() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full flex items-center justify-center gap-2 py-4 rounded-full font-bold text-sm transition-all hover:brightness-110 disabled:opacity-50"
-              style={{ background: 'var(--gradient-gold)', color: '#000' }}
+              className="btn-shear btn-shear-gold w-full disabled:opacity-50"
             >
               {loading ? (
                 <>
