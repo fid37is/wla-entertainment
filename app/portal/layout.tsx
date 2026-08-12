@@ -40,7 +40,7 @@ export default function InvestorPortalLayout({ children }: { children: React.Rea
       ) : (
         <>
           <InvestorSidebar />
-          <main className="min-h-screen">
+          <main className="min-h-screen lg:ml-64">
             <PortalNavbar />
             {children}
           </main>

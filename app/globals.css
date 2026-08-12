@@ -4,6 +4,8 @@
 /* All colours live here. Components use var(--*) only. No hardcoded hex.       */
 
 :root {
+  color-scheme: light;
+
   /* Brand — gold + navy + a working green for live/active status, matching
      the WLA prototype design system (Aug 2026). Green is now a real,
      independent token (previously aliased to gold under a gold-only
@@ -117,6 +119,8 @@
 
 /* ─── Dark theme ───────────────────────────────────────────────────────────── */
 [data-theme="dark"] {
+  color-scheme: dark;
+
   --color-gold:        #EAB308;
   --color-gold-light:  #FDE047;
   --color-gold-dark:   #CA8A04;
@@ -238,6 +242,13 @@
   .input-base:focus {
     border-color: var(--input-border-focus);
     box-shadow:   0 0 0 3px rgba(234,179,8,0.12);
+  }
+  /* Native <select> popup list - color-scheme (above) handles most browsers,
+     but Chrome/Edge on some platforms still need explicit option colors or
+     the list renders with default OS (light) text on a dark background. */
+  select.input-base option {
+    background: var(--bg-base);
+    color:      var(--text-primary);
   }
 
   /* Card base */
