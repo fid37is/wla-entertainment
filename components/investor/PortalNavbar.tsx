@@ -9,12 +9,12 @@ export default function PortalNavbar() {
   return (
     <header
       className="sticky top-0 z-30 flex items-center justify-end gap-3 px-6 py-3"
-      style={{ background: 'var(--bg-surface)', borderBottom: '1px solid var(--border-subtle)' }}
+      style={{ background: 'var(--bg-base)', borderBottom: '1px solid var(--border-subtle)' }}
     >
       <button
         onClick={toggle}
         aria-label="Toggle theme"
-        className="flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs font-bold transition-colors"
+        className="font-mono flex items-center gap-2 px-3.5 py-1.5 text-[0.68rem] uppercase tracking-[0.04em] transition-colors"
         style={{ border: '1px solid var(--border-subtle)', color: 'var(--text-secondary)' }}
         onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = 'var(--border-gold)' }}
         onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = 'var(--border-subtle)' }}

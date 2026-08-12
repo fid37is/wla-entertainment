@@ -72,7 +72,7 @@ export default function InvestorSidebar() {
       {/* Mobile toggle */}
       <button
         onClick={() => setOpen(!open)}
-        className="lg:hidden fixed top-4 left-4 z-50 p-2 rounded-[--radius-md]"
+        className="lg:hidden fixed top-4 left-4 z-50 p-2"
         style={{ background: 'var(--sidebar-bg)', border: '1px solid var(--sidebar-border)', color: 'var(--text-secondary)' }}
       >
         {open ? <X size={22} /> : <Menu size={22} />}
@@ -85,12 +85,12 @@ export default function InvestorSidebar() {
       >
         {/* Logo + title */}
         <Link href="/portal/dashboard" className="flex items-center gap-3 mb-2">
-          <WLALogo size={44} rounded="rounded-xl" />
+          <WLALogo size={44} />
           <div>
-            <p className="font-display text-sm font-bold leading-tight" style={{ color: 'var(--text-primary)' }}>
-              WLA Entertainment
+            <p className="font-display text-sm font-black leading-tight" style={{ color: 'var(--text-primary)' }}>
+              WLA
             </p>
-            <p className="text-[10px] font-bold uppercase tracking-widest leading-tight" style={{ color: 'var(--text-gold)' }}>
+            <p className="font-mono text-[9px] uppercase tracking-[0.1em] leading-tight" style={{ color: 'var(--text-gold)' }}>
               Investor Portal
             </p>
           </div>
@@ -108,18 +108,19 @@ export default function InvestorSidebar() {
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="flex items-center gap-3 px-4 py-3 rounded-xl transition-all text-sm font-medium"
+                className="font-mono flex items-center gap-3 px-4 py-3 text-[0.72rem] uppercase tracking-[0.04em] transition-all"
                 style={isActive ? {
-                  background: 'var(--sidebar-active-bg)',
-                  color: 'var(--sidebar-active-fg)',
-                  fontWeight: 700,
+                  background: 'var(--bg-gold-tint)',
+                  color: 'var(--text-gold)',
+                  borderLeft: '2px solid var(--color-gold)',
                 } : {
                   color: 'var(--text-muted)',
+                  borderLeft: '2px solid transparent',
                 }}
                 onMouseEnter={e => { if (!isActive) (e.currentTarget as HTMLElement).style.background = 'var(--sidebar-hover-bg)' }}
                 onMouseLeave={e => { if (!isActive) (e.currentTarget as HTMLElement).style.background = '' }}
               >
-                <Icon size={17} className="flex-shrink-0" />
+                <Icon size={16} className="flex-shrink-0" />
                 {item.label}
               </Link>
             )
@@ -127,10 +128,10 @@ export default function InvestorSidebar() {
         </nav>
 
         {/* Access note */}
-        <div className="mb-4 rounded-xl p-4" style={{ background: 'var(--bg-gold-tint)', border: '1px solid var(--border-gold)' }}>
+        <div className="mb-4 p-4" style={{ background: 'var(--bg-gold-tint)', border: '1px solid var(--border-gold)' }}>
           <div className="flex items-center gap-2 mb-1.5">
             <TrendingUp size={13} style={{ color: 'var(--text-gold)' }} />
-            <p className="text-xs font-bold" style={{ color: 'var(--text-gold)' }}>Read-Only Access</p>
+            <p className="font-mono text-[0.64rem] uppercase tracking-[0.06em]" style={{ color: 'var(--text-gold)' }}>Read-Only Access</p>
           </div>
           <p className="text-xs leading-relaxed" style={{ color: 'var(--text-muted)' }}>
             Real-time visibility into your WLA investment. Updated by the admin team.
@@ -140,12 +141,12 @@ export default function InvestorSidebar() {
         {/* Logout */}
         <button
           onClick={handleLogout}
-          className="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium w-full transition-all"
-          style={{ color: 'var(--text-muted)' }}
+          className="font-mono flex items-center gap-3 px-4 py-3 text-[0.72rem] uppercase tracking-[0.04em] w-full transition-all"
+          style={{ color: 'var(--text-muted)', borderLeft: '2px solid transparent' }}
           onMouseEnter={e => (e.currentTarget.style.background = 'var(--sidebar-hover-bg)')}
           onMouseLeave={e => (e.currentTarget.style.background = '')}
         >
-          <LogOut size={17} className="flex-shrink-0" />
+          <LogOut size={16} className="flex-shrink-0" />
           Logout
         </button>
       </aside>

@@ -5,7 +5,6 @@ import { useRouter } from 'next/navigation'
 import { supabase } from '@/lib/supabase/client'
 import { toast } from 'sonner'
 import { Mail, Phone, MapPin, Send, MessageSquare, CheckCircle2 } from 'lucide-react'
-import InvestorSidebar from '@/components/investor/InvestorSidebar'
 import { COMPANY } from '@/lib/constants'
 
 const SUBJECTS = [
@@ -77,22 +76,16 @@ export default function InvestorContactForm() {
   }
 
   const Loader = () => (
-    <div className="flex min-h-screen" style={{ background: 'var(--bg-base)' }}>
-      <InvestorSidebar />
-      <main className="flex-1 lg:ml-64 flex items-center justify-center">
-        <div className="h-8 w-8 rounded-full border-2 animate-spin"
-          style={{ borderColor: 'var(--border-gold)', borderTopColor: 'transparent' }} />
-      </main>
+    <div className="flex min-h-screen items-center justify-center" style={{ background: 'var(--bg-base)' }}>
+      <div className="h-8 w-8 rounded-full border-2 animate-spin"
+        style={{ borderColor: 'var(--border-gold)', borderTopColor: 'transparent' }} />
     </div>
   )
 
   if (!sessionChecked) return <Loader />
 
   return (
-    <div className="flex min-h-screen" style={{ background: 'var(--bg-base)' }}>
-      <InvestorSidebar />
-
-      <main className="flex-1 lg:ml-64 min-h-screen overflow-y-auto">
+    <div className="min-h-screen" style={{ background: 'var(--bg-base)' }}>
 
         {/* Page header */}
         <div className="px-8 py-5" style={{ borderBottom: '1px solid var(--border-subtle)', background: 'var(--bg-surface)' }}>
@@ -114,19 +107,19 @@ export default function InvestorContactForm() {
               { Icon: Phone, label: 'Call', value: COMPANY.phone, href: COMPANY.phoneHref },
               { Icon: MapPin, label: 'Location', value: 'Asaba, Delta State, Nigeria', href: null },
             ].map(({ Icon, label, value, href }) => (
-              <div key={label} className="rounded-[--radius-2xl] p-6"
+              <div key={label} className="p-6"
                 style={{ background: 'var(--bg-gold-tint)', border: '1px solid var(--border-gold)' }}>
-                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl"
+                <div className="mb-4 flex h-11 w-11 items-center justify-center"
                   style={{ background: 'var(--bg-gold-tint-2)', border: '1px solid var(--border-gold)' }}>
                   <Icon size={20} style={{ color: 'var(--text-gold)' }} />
                 </div>
-                <h3 className="mb-1 font-bold" style={{ color: 'var(--text-primary)' }}>{label}</h3>
+                <p className="font-mono mb-1.5 text-[0.64rem] uppercase tracking-[0.06em]" style={{ color: 'var(--text-gold)' }}>{label}</p>
                 {href ? (
-                  <a href={href} className="text-sm transition-colors hover:underline" style={{ color: 'var(--text-gold-muted)' }}>
+                  <a href={href} className="text-sm transition-colors hover:underline" style={{ color: 'var(--text-primary)' }}>
                     {value}
                   </a>
                 ) : (
-                  <p className="text-sm" style={{ color: 'var(--text-muted)' }}>{value}</p>
+                  <p className="text-sm" style={{ color: 'var(--text-primary)' }}>{value}</p>
                 )}
               </div>
             ))}
@@ -134,9 +127,9 @@ export default function InvestorContactForm() {
 
           {/* Form / success */}
           {submitted ? (
-            <div className="rounded-[--radius-2xl] p-16 flex flex-col items-center text-center gap-4 mb-12"
+            <div className="p-16 flex flex-col items-center text-center gap-4 mb-12"
               style={{ background: 'var(--bg-surface)', border: '1px solid var(--border-subtle)' }}>
-              <div className="flex h-16 w-16 items-center justify-center rounded-full"
+              <div className="flex h-16 w-16 items-center justify-center"
                 style={{ background: 'var(--bg-gold-tint)', border: '1px solid var(--border-gold)' }}>
                 <CheckCircle2 size={32} style={{ color: 'var(--text-gold)' }} />
               </div>
@@ -149,8 +142,7 @@ export default function InvestorContactForm() {
               </div>
               <button
                 onClick={() => { setSubmitted(false); setFormData(prev => ({ ...prev, subject: '', message: '', phone: '' })) }}
-                className="mt-2 rounded-[--radius-full] px-6 py-2.5 text-sm font-bold transition-all hover:brightness-110"
-                style={{ background: 'var(--gradient-gold)', color: '#000' }}
+                className="btn-shear btn-shear-gold mt-2 text-xs"
               >
                 Send another message
               </button>
@@ -160,7 +152,7 @@ export default function InvestorContactForm() {
 
               {/* Form */}
               <div className="lg:col-span-2">
-                <div className="rounded-[--radius-2xl] p-8"
+                <div className="p-8"
                   style={{ background: 'var(--bg-surface)', border: '1px solid var(--border-subtle)' }}>
                   <h2 className="mb-6 font-display text-2xl font-black" style={{ color: 'var(--text-primary)' }}>
                     Send a Message
@@ -169,14 +161,14 @@ export default function InvestorContactForm() {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                       <div>
-                        <label className="mb-2 block text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>
+                        <label className="font-mono mb-2 block text-[0.68rem] uppercase tracking-[0.06em]" style={{ color: 'var(--text-muted)' }}>
                           Full Name <span style={{ color: 'var(--status-error-text)' }}>*</span>
                         </label>
                         <input type="text" value={formData.name} onChange={set('name')}
                           className="input-base" placeholder="Your full name" />
                       </div>
                       <div>
-                        <label className="mb-2 block text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>
+                        <label className="font-mono mb-2 block text-[0.68rem] uppercase tracking-[0.06em]" style={{ color: 'var(--text-muted)' }}>
                           Email Address <span style={{ color: 'var(--status-error-text)' }}>*</span>
                         </label>
                         <input type="email" value={formData.email} onChange={set('email')}
@@ -186,34 +178,31 @@ export default function InvestorContactForm() {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                       <div>
-                        <label className="mb-2 block text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>
+                        <label className="font-mono mb-2 block text-[0.68rem] uppercase tracking-[0.06em]" style={{ color: 'var(--text-muted)' }}>
                           Phone Number
                         </label>
                         <input type="tel" value={formData.phone} onChange={set('phone')}
                           className="input-base" placeholder="+234 800 000 0000" />
                       </div>
                       <div>
-                        <label className="mb-2 block text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>
+                        <label className="font-mono mb-2 block text-[0.68rem] uppercase tracking-[0.06em]" style={{ color: 'var(--text-muted)' }}>
                           Subject <span style={{ color: 'var(--status-error-text)' }}>*</span>
                         </label>
                         <select
                           value={formData.subject}
                           onChange={set('subject')}
                           className="input-base"
-                          style={{ colorScheme: 'dark' }}
                         >
-                          <option value="" style={{ background: '#1a1a1a', color: '#fff' }}>Select a subject</option>
+                          <option value="">Select a subject</option>
                           {SUBJECTS.map(s => (
-                            <option key={s} value={s} style={{ background: '#1a1a1a', color: '#fff' }}>
-                              {s}
-                            </option>
+                            <option key={s} value={s}>{s}</option>
                           ))}
                         </select>
                       </div>
                     </div>
 
                     <div>
-                      <label className="mb-2 block text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>
+                      <label className="font-mono mb-2 block text-[0.68rem] uppercase tracking-[0.06em]" style={{ color: 'var(--text-muted)' }}>
                         Message <span style={{ color: 'var(--status-error-text)' }}>*</span>
                       </label>
                       <textarea value={formData.message} onChange={set('message')} rows={6}
@@ -225,8 +214,7 @@ export default function InvestorContactForm() {
                       <button
                         onClick={handleSubmit}
                         disabled={submitting}
-                        className="flex items-center gap-2 rounded-2xl px-8 py-3 font-bold transition-all hover:brightness-110 disabled:opacity-50"
-                        style={{ background: 'var(--gradient-gold)', color: '#000' }}
+                        className="btn-shear btn-shear-gold text-xs disabled:opacity-50"
                       >
                         {submitting ? (
                           <>
@@ -245,9 +233,9 @@ export default function InvestorContactForm() {
               {/* Sidebar */}
               <div className="space-y-5">
                 {/* Office hours */}
-                <div className="rounded-[--radius-2xl] p-6"
+                <div className="p-6"
                   style={{ background: 'var(--bg-surface)', border: '1px solid var(--border-subtle)' }}>
-                  <h3 className="mb-4 font-bold" style={{ color: 'var(--text-primary)' }}>Office Hours</h3>
+                  <h3 className="mb-4 font-display text-base font-black" style={{ color: 'var(--text-primary)' }}>Office Hours</h3>
                   <div className="space-y-3 text-sm">
                     {[
                       ['Monday – Friday', '9:00 AM – 6:00 PM'],
@@ -263,18 +251,18 @@ export default function InvestorContactForm() {
                 </div>
 
                 {/* Investor note */}
-                <div className="rounded-[--radius-2xl] p-6"
+                <div className="p-6"
                   style={{ background: 'var(--bg-gold-tint)', border: '1px solid var(--border-gold)' }}>
-                  <h3 className="mb-3 font-bold" style={{ color: 'var(--text-primary)' }}>Investor Note</h3>
+                  <h3 className="mb-3 font-display text-base font-black" style={{ color: 'var(--text-primary)' }}>Investor Note</h3>
                   <p className="text-sm leading-relaxed" style={{ color: 'var(--text-gold-muted)' }}>
                     For urgent investment matters, call us directly. We typically respond to portal messages within one business day.
                   </p>
                 </div>
 
                 {/* Direct email */}
-                <div className="rounded-[--radius-2xl] p-6"
+                <div className="p-6"
                   style={{ background: 'var(--bg-surface)', border: '1px solid var(--border-subtle)' }}>
-                  <h3 className="mb-3 font-bold" style={{ color: 'var(--text-primary)' }}>Direct Email</h3>
+                  <h3 className="mb-3 font-display text-base font-black" style={{ color: 'var(--text-primary)' }}>Direct Email</h3>
                   <p className="mb-3 text-sm" style={{ color: 'var(--text-muted)' }}>
                     Prefer to email directly?
                   </p>
@@ -303,13 +291,13 @@ export default function InvestorContactForm() {
                 { dept: 'Media & Broadcasting', desc: 'Press enquiries and media partnerships' },
                 { dept: 'General Enquiries', desc: 'All other questions and feedback' },
               ].map((c) => (
-                <div key={c.dept} className="rounded-[--radius-xl] p-5"
+                <div key={c.dept} className="p-5"
                   style={{ background: 'var(--bg-surface)', border: '1px solid var(--border-subtle)' }}>
                   <h3 className="mb-1 font-bold text-sm" style={{ color: 'var(--text-primary)' }}>{c.dept}</h3>
                   <p className="mb-3 text-xs" style={{ color: 'var(--text-muted)' }}>{c.desc}</p>
                   <a
                     href={`mailto:${COMPANY.email.general}?subject=${encodeURIComponent('[WLA Investor] ' + c.dept + ' Inquiry')}`}
-                    className="flex items-center gap-1.5 text-xs font-bold transition-colors hover:underline"
+                    className="font-mono flex items-center gap-1.5 text-[0.66rem] uppercase tracking-[0.04em] transition-colors hover:underline"
                     style={{ color: 'var(--text-gold)' }}
                   >
                     <Mail size={12} /> Contact Department
@@ -320,7 +308,7 @@ export default function InvestorContactForm() {
           </div>
 
           {/* CTA banner */}
-          <div className="rounded-[--radius-2xl] p-10 text-center"
+          <div className="p-10 text-center"
             style={{ background: 'var(--bg-gold-tint-2)', border: '1px solid var(--border-gold)' }}>
             <h2 className="font-display text-3xl font-black mb-3" style={{ color: 'var(--text-primary)' }}>
               Need Urgent Support?
@@ -330,15 +318,13 @@ export default function InvestorContactForm() {
             </p>
             <a
               href={COMPANY.phoneHref}
-              className="inline-flex items-center gap-2 rounded-2xl px-8 py-3 font-bold transition-all hover:brightness-110"
-              style={{ background: 'var(--gradient-gold)', color: '#000' }}
+              className="btn-shear btn-shear-gold"
             >
               <Phone size={17} /> {COMPANY.phone}
             </a>
           </div>
 
         </div>
-      </main>
     </div>
   )
 }

@@ -3,7 +3,6 @@
 import { useEffect, useState } from 'react'
 import { toast } from 'sonner'
 import { supabase } from '@/lib/supabase/client'
-import InvestorSidebar from '@/components/investor/InvestorSidebar'
 import {
   TrendingUp, Users, DollarSign, Calendar,
   CheckCircle, Clock, MapPin, ArrowUpRight,
@@ -98,9 +97,8 @@ const Bone = ({ className = '' }: { className?: string }) => (
 
 function DashboardSkeleton() {
   return (
-    <div className="flex min-h-screen" style={{ background: 'var(--bg-base)' }}>
-      <InvestorSidebar />
-      <main className="flex-1 lg:ml-64 p-8 space-y-8">
+    <div className="min-h-screen" style={{ background: 'var(--bg-base)' }}>
+      <div className="p-8 space-y-8">
         <div className="flex items-start justify-between">
           <div className="space-y-2"><Bone className="h-8 w-56" /><Bone className="h-4 w-40" /></div>
           <Bone className="h-9 w-24 rounded-full" />
@@ -117,7 +115,7 @@ function DashboardSkeleton() {
           <Bone className="h-64 rounded-2xl" />
           <Bone className="h-64 rounded-2xl" />
         </div>
-      </main>
+      </div>
     </div>
   )
 }
@@ -240,11 +238,8 @@ export default function InvestorDashboard() {
   if (!authChecked || loading) return <DashboardSkeleton />
 
   return (
-    <div className="flex min-h-screen" style={{ background: 'var(--bg-base)' }}>
-      <InvestorSidebar />
-
-      <main className="flex-1 lg:ml-64 min-h-screen">
-        <div className="mx-auto px-6 py-8 lg:px-8">
+    <div className="min-h-screen" style={{ background: 'var(--bg-base)' }}>
+      <div className="mx-auto px-6 py-8 lg:px-8">
 
           {/* ── Header ── */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
@@ -491,7 +486,6 @@ export default function InvestorDashboard() {
           </p>
 
         </div>
-      </main>
     </div>
   )
 }

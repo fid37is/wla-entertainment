@@ -1,9 +1,9 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { supabase } from '@/lib/supabase/client'
 import { toast } from 'sonner'
-import { Eye, EyeOff, ShieldCheck, CheckCircle2, Circle } from 'lucide-react'
+import { Eye, EyeOff, ShieldCheck, CheckCircle2, Circle, XCircle, Loader2 } from 'lucide-react'
 
 const RULES = [
   { label: 'At least 8 characters',  test: (p: string) => p.length >= 8 },
@@ -32,18 +32,54 @@ const STRENGTH_META = [
 ]
 
 const DASHBOARD_PATH = '/portal/dashboard'
+type CurrentPwStatus = 'idle' | 'checking' | 'valid' | 'invalid'
 
 export default function UpdatePasswordForm() {
   const [form, setForm] = useState({ current: '', password: '', confirm: '' })
   const [show, setShow] = useState({ current: false, password: false, confirm: false })
   const [loading, setLoading] = useState(false)
+  const [email, setEmail] = useState<string | null>(null)
+  const [currentStatus, setCurrentStatus] = useState<CurrentPwStatus>('idle')
+  const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   const sc   = strength(form.password)
   const meta = STRENGTH_META[sc] || STRENGTH_META[0]
 
+  // Fetch the signed-in user's email once, up front - reused for both the
+  // live check below and the final verification in handleSubmit.
+  useEffect(() => {
+    supabase.auth.getUser().then(({ data: { user } }) => {
+      if (user?.email) setEmail(user.email)
+    })
+  }, [])
+
+  // Debounced live check: re-authenticating with the typed "current password"
+  // is the only way Supabase exposes to verify a password without changing
+  // it, so we do it on a pause in typing rather than on every keystroke.
+  useEffect(() => {
+    if (debounceRef.current) clearTimeout(debounceRef.current)
+
+    if (!form.current || !email) {
+      setCurrentStatus('idle')
+      return
+    }
+
+    setCurrentStatus('checking')
+    debounceRef.current = setTimeout(async () => {
+      const { error } = await supabase.auth.signInWithPassword({
+        email,
+        password: form.current,
+      })
+      setCurrentStatus(error ? 'invalid' : 'valid')
+    }, 700)
+
+    return () => { if (debounceRef.current) clearTimeout(debounceRef.current) }
+  }, [form.current, email])
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!form.current)                  { toast.error('Enter your current password'); return }
+    if (currentStatus !== 'valid')      { toast.error('Current password is incorrect'); return }
     if (form.password.length < 8)       { toast.error('Password must be at least 8 characters'); return }
     if (form.password !== form.confirm) { toast.error('Passwords do not match'); return }
 
@@ -114,12 +150,7 @@ export default function UpdatePasswordForm() {
 
         {/* Heading */}
         <div className="mb-6">
-          <p
-            className="mb-1.5 text-xs font-bold uppercase tracking-wider"
-            style={{ color: 'var(--text-gold)' }}
-          >
-            Account Security
-          </p>
+          <p className="eyebrow mb-3">Account Security</p>
           <h1
             className="font-display text-2xl font-black mb-1.5"
             style={{ color: 'var(--text-primary)' }}
@@ -133,7 +164,7 @@ export default function UpdatePasswordForm() {
 
         {/* Notice */}
         <div
-          className="mb-6 flex items-start gap-3 rounded-2xl p-4"
+          className="mb-6 flex items-start gap-3 p-4"
           style={{
             background: 'var(--status-warning-bg)',
             border: '1px solid var(--border-gold)',
@@ -155,7 +186,7 @@ export default function UpdatePasswordForm() {
           {/* ── Form card ── */}
           <form
             onSubmit={handleSubmit}
-            className="space-y-5 rounded-2xl p-6"
+            className="space-y-5 p-6"
             style={{
               background: 'var(--bg-surface)',
               border: '1px solid var(--border-subtle)',
@@ -165,7 +196,7 @@ export default function UpdatePasswordForm() {
             {/* Current password */}
             <div>
               <label
-                className="block text-xs font-bold uppercase tracking-wider mb-2"
+                className="font-mono block text-[0.68rem] uppercase tracking-[0.06em] mb-2"
                 style={{ color: 'var(--text-muted)' }}
               >
                 Current Password
@@ -176,10 +207,18 @@ export default function UpdatePasswordForm() {
                   value={form.current}
                   onChange={e => setForm(f => ({ ...f, current: e.target.value }))}
                   placeholder="Your current password"
-                  // ✅ rounded-2xl - matches button radius (rounded-2xl / rounded-full nearby)
-                  className="input-base pr-12"
-                  style={{ borderRadius: '1rem' }}
+                  className="input-base pr-20"
+                  style={
+                    currentStatus === 'invalid' ? { borderColor: 'var(--status-error-text)' } :
+                    currentStatus === 'valid'   ? { borderColor: 'var(--status-success-text)' } :
+                    undefined
+                  }
                 />
+                <div className="absolute right-10 top-1/2 -translate-y-1/2 flex items-center">
+                  {currentStatus === 'checking' && <Loader2 size={15} className="animate-spin" style={{ color: 'var(--text-faint)' }} />}
+                  {currentStatus === 'valid'    && <CheckCircle2 size={15} style={{ color: 'var(--status-success-text)' }} />}
+                  {currentStatus === 'invalid'  && <XCircle size={15} style={{ color: 'var(--status-error-text)' }} />}
+                </div>
                 <button
                   type="button"
                   onClick={() => setShow(s => ({ ...s, current: !s.current }))}
@@ -189,12 +228,17 @@ export default function UpdatePasswordForm() {
                   {show.current ? <EyeOff size={16} /> : <Eye size={16} />}
                 </button>
               </div>
+              {currentStatus === 'invalid' && (
+                <p className="mt-1.5 text-xs" style={{ color: 'var(--status-error-text)' }}>
+                  That doesn&apos;t match your current password.
+                </p>
+              )}
             </div>
 
             {/* New password */}
             <div>
               <label
-                className="block text-xs font-bold uppercase tracking-wider mb-2"
+                className="font-mono block text-[0.68rem] uppercase tracking-[0.06em] mb-2"
                 style={{ color: 'var(--text-muted)' }}
               >
                 New Password
@@ -206,7 +250,6 @@ export default function UpdatePasswordForm() {
                   onChange={e => setForm(f => ({ ...f, password: e.target.value }))}
                   placeholder="At least 8 characters"
                   className="input-base pr-12"
-                  style={{ borderRadius: '1rem' }}
                 />
                 <button
                   type="button"
@@ -224,7 +267,7 @@ export default function UpdatePasswordForm() {
                     {[1,2,3,4,5].map(i => (
                       <div
                         key={i}
-                        className="h-1 flex-1 rounded-full transition-all duration-300"
+                        className="h-1 flex-1 transition-all duration-300"
                         style={{ background: i <= sc ? meta.color : 'var(--border-subtle)' }}
                       />
                     ))}
@@ -241,7 +284,7 @@ export default function UpdatePasswordForm() {
             {/* Confirm password */}
             <div>
               <label
-                className="block text-xs font-bold uppercase tracking-wider mb-2"
+                className="font-mono block text-[0.68rem] uppercase tracking-[0.06em] mb-2"
                 style={{ color: 'var(--text-muted)' }}
               >
                 Confirm New Password
@@ -253,7 +296,6 @@ export default function UpdatePasswordForm() {
                   onChange={e => setForm(f => ({ ...f, confirm: e.target.value }))}
                   placeholder="Repeat your new password"
                   className="input-base pr-12"
-                  style={{ borderRadius: '1rem' }}
                 />
                 <button
                   type="button"
@@ -276,19 +318,12 @@ export default function UpdatePasswordForm() {
               )}
             </div>
 
-            {/* Buttons - both rounded-2xl to match inputs */}
+            {/* Buttons */}
             <div className="flex gap-3 pt-1">
               <button
                 type="button"
                 onClick={() => { window.location.href = DASHBOARD_PATH }}
-                className="rounded-2xl px-6 py-3.5 font-bold text-sm transition-all"
-                style={{ border: '1px solid var(--border-subtle)', color: 'var(--text-secondary)' }}
-                onMouseEnter={e => {
-                  ;(e.currentTarget as HTMLElement).style.borderColor = 'var(--border-medium)'
-                }}
-                onMouseLeave={e => {
-                  ;(e.currentTarget as HTMLElement).style.borderColor = 'var(--border-subtle)'
-                }}
+                className="btn-ghost-shear"
               >
                 Cancel
               </button>
@@ -296,12 +331,11 @@ export default function UpdatePasswordForm() {
                 type="submit"
                 disabled={
                   loading ||
-                  !form.current ||
+                  currentStatus !== 'valid' ||
                   form.password.length < 8 ||
                   form.password !== form.confirm
                 }
-                className="flex flex-1 items-center justify-center gap-2 py-3.5 rounded-2xl font-bold text-sm transition-all hover:brightness-110 disabled:opacity-40"
-                style={{ background: 'var(--gradient-gold)', color: '#000' }}
+                className="btn-shear btn-shear-gold flex-1 disabled:opacity-40"
               >
                 {loading ? (
                   <>
@@ -315,19 +349,33 @@ export default function UpdatePasswordForm() {
 
           {/* ── Requirements card ── */}
           <div
-            className="rounded-2xl p-5"
+            className="p-5"
             style={{
               background: 'var(--bg-surface)',
               border: '1px solid var(--border-subtle)',
             }}
           >
             <p
-              className="mb-3 text-xs font-bold uppercase tracking-wider"
+              className="font-mono mb-3 text-[0.68rem] uppercase tracking-[0.06em]"
               style={{ color: 'var(--text-muted)' }}
             >
               Password Requirements
             </p>
             <ul className="space-y-2.5">
+              {/* Current-password check is first - everything else is moot until this passes */}
+              <li className="flex items-center gap-2.5 text-sm">
+                {currentStatus === 'checking' && <Loader2 size={14} className="animate-spin" style={{ color: 'var(--text-faint)', flexShrink: 0 }} />}
+                {currentStatus === 'valid'    && <CheckCircle2 size={14} style={{ color: 'var(--status-success-text)', flexShrink: 0 }} />}
+                {currentStatus === 'invalid'  && <XCircle size={14} style={{ color: 'var(--status-error-text)', flexShrink: 0 }} />}
+                {currentStatus === 'idle'     && <Circle size={14} style={{ color: 'var(--border-medium)', flexShrink: 0 }} />}
+                <span style={{
+                  color: currentStatus === 'valid' ? 'var(--text-secondary)'
+                    : currentStatus === 'invalid' ? 'var(--status-error-text)'
+                    : 'var(--text-muted)',
+                }}>
+                  Current password confirmed
+                </span>
+              </li>
               {RULES.map((rule) => {
                 const met = rule.test(form.password)
                 return (

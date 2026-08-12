@@ -3,7 +3,6 @@
 import { useEffect, useState, useCallback } from 'react'
 import { toast } from 'sonner'
 import { supabase } from '@/lib/supabase/client'
-import InvestorSidebar from '@/components/investor/InvestorSidebar'
 import {
   FileText, Download, Clock, Shield, AlertCircle,
   X, Eye, Send, ChevronDown, ChevronUp,
@@ -455,26 +454,20 @@ export default function InvestorDocumentsPage() {
 
   if (loading) {
     return (
-      <div className="flex min-h-screen" style={{ background: 'var(--bg-base)' }}>
-        <InvestorSidebar />
-        <main className="flex-1 lg:ml-64 p-8 space-y-6">
-          <div className="space-y-2"><Bone className="h-8 w-48" /><Bone className="h-4 w-72" /></div>
-          <Bone className="h-16 rounded-2xl" />
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {[0, 1, 2, 3].map(i => <Bone key={i} className="h-36 rounded-2xl" />)}
-          </div>
-        </main>
+      <div className="min-h-screen p-8 space-y-6" style={{ background: 'var(--bg-base)' }}>
+        <div className="space-y-2"><Bone className="h-8 w-48" /><Bone className="h-4 w-72" /></div>
+        <Bone className="h-16 rounded-2xl" />
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {[0, 1, 2, 3].map(i => <Bone key={i} className="h-36 rounded-2xl" />)}
+        </div>
       </div>
     )
   }
 
   return (
     <>
-      <div className="flex min-h-screen" style={{ background: 'var(--bg-base)' }}>
-        <InvestorSidebar />
-
-        <main className="flex-1 lg:ml-64">
-          <div className="mx-auto px-6 py-8 lg:px-8">
+      <div className="min-h-screen" style={{ background: 'var(--bg-base)' }}>
+        <div className="mx-auto px-6 py-8 lg:px-8">
 
             {/* Header */}
             <div className="mb-8">
@@ -553,7 +546,6 @@ export default function InvestorDocumentsPage() {
             <DocumentRequestForm investorEmail={investorEmail} />
 
           </div>
-        </main>
       </div>
 
       {/* Slide-in viewer - outside main flow so it overlays everything */}

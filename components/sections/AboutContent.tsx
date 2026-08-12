@@ -28,7 +28,7 @@ const THE_TRIBE: TribeMember[] = [
   {
     name: 'Fidelis Agba',
     role: 'Founder & CEO',
-    credentials: 'B.Sc. Computer Science · University of Calabar · Senior Technical Product Manager',
+    credentials: 'Senior Technical Product Manager',
     bio: 'Created the Warriors League Africa format, registered the company, confirmed the equipment supplier, and opened the Series A - before hiring a single person or taking a single investor meeting. Product builder with 10+ years shipping SaaS platforms across B2B, B2C, and creator economy verticals.',
     photo: '/team/fidelis-agba.jpg',
     initials: 'FA',

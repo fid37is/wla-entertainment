@@ -1,10 +1,10 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { ArrowUpRight, Mail } from 'lucide-react'
+import { ArrowUpRight, FileText, SearchCheck, ScrollText, Rocket } from 'lucide-react'
 import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
 import { AfricaMap } from '@/components/sections/AfricaMap'
-import { COMPANY } from '@/lib/constants'
+import { FranchiseApplicationForm } from '@/components/sections/FranchiseApplicationForm'
 
 export const metadata: Metadata = {
   title: 'Franchises - Warriors League Africa',
@@ -75,6 +75,13 @@ const WHAT_PARTNERS_PROVIDE = [
   'Local sponsors - they sell their own sponsorship packages',
   'Contestants and zone structure adapted to local geography',
   'Format licence fee and ongoing royalties paid to WLA',
+]
+
+const LICENSING_STEPS = [
+  { n: '01', title: 'Apply',     desc: 'Prospective operators submit market and capability details for review.', icon: FileText },
+  { n: '02', title: 'Diligence', desc: 'WLA reviews trademark clearance, operator capacity and market readiness.', icon: SearchCheck },
+  { n: '03', title: 'License',   desc: "A country licence is issued under the WLA brand and format standard.", icon: ScrollText },
+  { n: '04', title: 'Launch',    desc: "The local edition launches under WLA's production and brand guidelines.", icon: Rocket },
 ]
 
 export default function FranchisesPage() {
@@ -176,11 +183,8 @@ export default function FranchisesPage() {
                         Visit NNW <ArrowUpRight size={14} />
                       </a>
                     ) : (
-                      <a
-                        href={`mailto:${COMPANY.email.general}?subject=Franchise Interest - ${f.code}`}
-                        className="btn-ghost-shear text-xs"
-                      >
-                        Register Interest <ArrowUpRight size={14} />
+                      <a href="#apply" className="btn-ghost-shear text-xs">
+                        Apply for This Market <ArrowUpRight size={14} />
                       </a>
                     )}
                   </div>
@@ -190,7 +194,7 @@ export default function FranchisesPage() {
           </div>
         </section>
 
-        {/* ── Licensing model ── */}
+        {/* ── Licensing model: process, then responsibility split ── */}
         <section className="px-6 py-20" style={{ borderTop: '1px solid var(--border-subtle)' }}>
           <div className="mx-auto max-w-7xl">
             <div className="mb-14 text-center">
@@ -199,11 +203,38 @@ export default function FranchisesPage() {
                 How Franchise Licensing Works
               </h2>
               <p className="mx-auto max-w-2xl" style={{ color: 'var(--text-secondary)' }}>
-                WLA provides the format. Local partners provide everything else  once a territory
-                is confirmed and a licence is issued.
+                A four-stage path from application to a live, broadcast-ready country edition.
+                WLA provides the format - local partners provide everything else.
               </p>
             </div>
 
+            {/* Process - the four stages */}
+            <div className="hairline-grid mb-3 grid-cols-2 lg:grid-cols-4">
+              {LICENSING_STEPS.map((step) => {
+                const Icon = step.icon
+                return (
+                  <div key={step.title} className="hairline-cell p-6">
+                    <div
+                      className="mb-4 flex h-10 w-10 items-center justify-center"
+                      style={{ background: 'var(--bg-gold-tint)', border: '1px solid var(--border-gold)' }}
+                    >
+                      <Icon size={17} style={{ color: 'var(--text-gold)' }} />
+                    </div>
+                    <p className="font-mono mb-1 text-[0.64rem] uppercase tracking-[0.06em]" style={{ color: 'var(--text-faint)' }}>
+                      Stage {step.n}
+                    </p>
+                    <h3 className="font-display mb-1.5 text-base font-black" style={{ color: 'var(--text-primary)' }}>
+                      {step.title}
+                    </h3>
+                    <p className="text-xs leading-relaxed" style={{ color: 'var(--text-muted)' }}>
+                      {step.desc}
+                    </p>
+                  </div>
+                )
+              })}
+            </div>
+
+            {/* Responsibility split - detail behind Stage 03/04 */}
             <div className="hairline-grid grid-cols-1 lg:grid-cols-2">
               <div
                 className="hairline-cell p-8"
@@ -238,26 +269,28 @@ export default function FranchisesPage() {
           </div>
         </section>
 
-        {/* ── CTA ── */}
-        <section className="px-6 py-20" style={{ borderTop: '1px solid var(--border-subtle)' }}>
-          <div className="mx-auto max-w-3xl text-center">
-            <h2 className="mb-4 font-display text-3xl font-black md:text-4xl" style={{ color: 'var(--text-primary)' }}>
-              Interested in a franchise licence?
-            </h2>
-            <p className="mb-10" style={{ color: 'var(--text-secondary)' }}>
-              Contact us directly. All franchise enquiries are handled personally by the Founder & CEO.
-            </p>
-            <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <a
-                href={`mailto:${COMPANY.email.general}?subject=Franchise Licence Enquiry`}
-                className="btn-shear btn-shear-gold"
-              >
-                <Mail size={16} /> Enquire About Licensing
-              </a>
-              <Link href="/investors" className="btn-ghost-shear">
-                View Investor Relations <ArrowUpRight size={16} />
-              </Link>
+        {/* ── Franchise application form (id="apply" - anchored to from the grid above) ── */}
+        <section id="apply" className="px-6 py-20" style={{ borderTop: '1px solid var(--border-subtle)' }}>
+          <div className="mx-auto max-w-3xl">
+            <div className="mb-10 text-center">
+              <p className="eyebrow mb-4" style={{ justifyContent: 'center' }}>Stage 01</p>
+              <h2 className="mb-3 font-display text-3xl font-black md:text-4xl" style={{ color: 'var(--text-primary)' }}>
+                Franchise Application
+              </h2>
+              <p className="mx-auto max-w-xl" style={{ color: 'var(--text-secondary)' }}>
+                Tell us about your market and operating capacity. WLA reviews every application
+                against trademark clearance and format fit before moving to diligence.
+              </p>
             </div>
+
+            <FranchiseApplicationForm />
+
+            <p className="mt-8 text-center text-sm" style={{ color: 'var(--text-muted)' }}>
+              Looking to fund WLA instead of licensing a market?{' '}
+              <Link href="/investors" className="font-bold" style={{ color: 'var(--text-gold)' }}>
+                View Investor Relations <ArrowUpRight size={12} className="inline" />
+              </Link>
+            </p>
           </div>
         </section>
 
