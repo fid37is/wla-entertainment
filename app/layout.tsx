@@ -66,6 +66,7 @@ export default function RootLayout({
   return (
     <html lang="en-NG" suppressHydrationWarning>
       <head>
+        <meta name="facebook-domain-verification" content="fn47xeot403z5y5bzhqjpckj5s2zb6" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
